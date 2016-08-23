@@ -9,6 +9,12 @@ export default class PynAPlaceForm extends React.Component{
     }
   }
   componentDidMount(){
+    this.initTinyMCE();
+    $('select').material_select();
+  }
+
+  initTinyMCE(){
+    // console.debug("Tiny MCE Initialising..");
     tinymce.init({
       selector: 'textarea',
       skin_url: '/packages/teamon_tinymce/skins/lightgray',
@@ -19,8 +25,6 @@ export default class PynAPlaceForm extends React.Component{
       ],
       toolbar: 'bold italic | bullist numlist | link image | undo redo'
     });
-
-    $('select').material_select();
   }
 
   getLocation(){
@@ -66,7 +70,7 @@ export default class PynAPlaceForm extends React.Component{
             });
 
             var formatted = results[1].address_components[0].long_name + ", " + results[0].formatted_address;
-            console.debug("Address: " + formatted);
+            // console.debug("Address: " + formatted);
             $("#location")[0].innerHTML = formatted;
             infowindow.setContent(formatted);
             infowindow.open(map, marker);
@@ -100,7 +104,7 @@ export default class PynAPlaceForm extends React.Component{
 
         <div className="row">
           <div className="input-field col s12">
-            <textarea id="pynDescription"></textarea>
+            <textarea id="pynDescription" onClick={() => {this.initTinyMCE()}}></textarea>
             <label style={{marginTop: "-35px"}}htmlFor="pynDescription">Description</label>
           </div>
         </div>

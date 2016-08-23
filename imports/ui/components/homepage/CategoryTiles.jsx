@@ -14,7 +14,7 @@ export default CategoryTiles = props => {
         </div>
         <div className="col s4 categoryTileWrapper">
           <div className="categoryTile valign-wrapper" style={{backgroundImage: "url('/food2.jpg')", backgroundSize: "cover"}}>
-
+            Food
           </div>
         </div>
       </div>

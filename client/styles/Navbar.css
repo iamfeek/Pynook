@@ -1,0 +1,18 @@
+nav ul a{
+  color: #919191;
+}
+
+nav{
+  background-color: #fff;
+}
+
+nav ul li:hover{
+  background: transparent;
+}
+nav ul li:hover > a{
+  color: #ff4d55;
+}
+
+nav .brand-logo{
+  color: #484848;
+}

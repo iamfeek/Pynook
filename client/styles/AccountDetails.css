@@ -1,0 +1,26 @@
+#accountdetails{
+  border: 1px solid;
+  width: 700px;
+  height: 180px;
+
+  padding: 20px;
+  margin-top: -40px;
+
+  background: #f9f9f9;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  border-radius: 4px;
+  font-size: 15px;
+  line-height: 25px;
+  padding: 30px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+#accountdetails .header{
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+  color: #5d5d5d;
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}

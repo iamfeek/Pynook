@@ -1,0 +1,41 @@
+#pynaplaceform{
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+
+.uploader-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    width: 33%;
+}
+
+.uploader-btn .spacer {
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    border-radius: 4px;
+    cursor: pointer;
+    padding-top: 100%;
+    position: relative;
+}
+
+.uploader-btn .spacer .text {
+    color: #919191;
+    content: "";
+    font-size: 15px;
+    left: 50%;
+    margin-top: 30px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.uploader-btn .spacer:before {
+    background: url("/addphoto.svg") center no-repeat;
+    height: 100%;
+    left: 4px;
+    top: -15px;
+    width: 100%;
+}

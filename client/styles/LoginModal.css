@@ -1,0 +1,29 @@
+#loginModal, #registerModal{
+  width: 30%;
+  padding-top: 15px;
+  max-height: 80%;
+  border-radius: 8px;
+}
+
+#loginModalSubmit{
+  border: 1px solid;
+  line-height: 30px;
+  border-radius: 4px;
+  padding: 12px 24px;
+  background-color: #484848;
+  color: white;
+  transition: 0.1s background-color ease-out;
+  font-size: 1.2rem;
+}
+
+#loginModalSubmit:hover{
+  background-color: #ff4d55;
+  transition: 0.1s background-color ease-out;
+}
+
+#signUpText{
+  border-top: 1px solid #d8d8d8;
+    margin-top: 25px;
+    padding-top: 18px;
+    text-align: center;
+}

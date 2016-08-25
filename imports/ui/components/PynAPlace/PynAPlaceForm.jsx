@@ -141,7 +141,7 @@ export default class PynAPlaceForm extends React.Component{
 
         if(!err){
           Bert.alert("Yay! Pyn has been sent for moderation. We will get back to you within 24hours!", "success", "fixed-top");
-          FlowRouter.go("index");
+          FlowRouter.go("home");
         }
       })
     }

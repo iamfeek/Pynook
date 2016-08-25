@@ -4,9 +4,20 @@ import {mount} from 'react-mounter';
 
 import Layout from '/imports/ui/layouts/Layout.jsx';
 
+import Login from '/imports/ui/pages/accounts/Login';
+import Register from '/imports/ui/pages/accounts/Register';
+
 import Home from '/imports/ui/pages/Home.jsx';
 
 import PynAPlace from '/imports/ui/pages/PynAPlace.jsx';
+
+function becauseAuthenticated(context, redirect){
+  if(Meteor.userId()){
+    redirect("/");
+  }
+}
+
+FlowRouter.triggers.enter([becauseAuthenticated], {only: ["login", "register"]})
 
 FlowRouter.route('/', {
   name: "home",
@@ -25,3 +36,21 @@ FlowRouter.route('/pyn-a-place', {
     });
   }
 });
+
+FlowRouter.route("/login", {
+  name: "login",
+  action: () => {
+    mount(Layout, {
+      content: () => <Login />
+    })
+  }
+})
+
+FlowRouter.route("/register", {
+  name: "register",
+  action: () => {
+    mount(Layout, {
+      content: () => <Register />
+    })
+  }
+})

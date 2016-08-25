@@ -1,0 +1,12 @@
+{
+  "public": {
+    "uploadcare": {
+      "publickey": "353ad87719a739c07691"
+    }
+  },
+  "private": {
+    "uploadcare": {
+      "secretkey": "572672251c49cb9bfa76"
+    }
+  }
+}

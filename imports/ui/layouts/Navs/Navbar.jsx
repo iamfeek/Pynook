@@ -1,8 +1,14 @@
 import React from 'react';
+import NavbarAccountItem from './NavbarAccountItem'
+import NavbarAccountDropdown from './NavbarAccountDropdown'
 
 export default class Navbar extends React.Component{
   constructor(props){
     super(props)
+
+    this.state = {
+      name: Meteor.user() ? Meteor.user().emails[0].address : null
+    }
   }
 
   componentDidMount(){
@@ -18,6 +24,7 @@ export default class Navbar extends React.Component{
       <div id="navbar-wrapper" className="navbar-fixed">
         <nav>
           <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2" />
+          <NavbarAccountDropdown />
           <ul id="newbieDropdown" className="dropdown-content">
             <li><a href="#!">Travellers</a></li>
             <li><a href="#!">Businesses</a></li>
@@ -29,6 +36,7 @@ export default class Navbar extends React.Component{
               <li><a className="dropdown-button" href="#!" data-constrainWidth="false" data-beloworigin="true" data-hover="true" data-activates="newbieDropdown">Newbie <i className="fa fa-caret-down" aria-hidden="true"></i></a></li>
               <li><a href="#">FAQ</a></li>
               <li><a href={FlowRouter.path("pyn.a.place")}>Pyn A Place</a></li>
+              <NavbarAccountItem />
             </ul>
           </div>
         </nav>

@@ -33,6 +33,11 @@ body{
   color: #484848;
 }
 
+.content{
+  width: 700px;
+  margin: 0 auto;
+}
+
 .centerByMargin{
   margin: 0 auto;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SignedInStatus from './Accounts/SignedInStatus.jsx';
-import NotSignedInStatus from './Accounts/NotSignedInStatus.jsx';
+import SignedInStatus from './SignedInStatus.jsx';
+import NotSignedInStatus from './NotSignedInStatus.jsx';
 
 export default AccountDetails = props => {
   return(

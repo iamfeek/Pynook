@@ -1,6 +1,6 @@
 import React from 'react';
-import HeaderImage from '/imports/ui/components/HeaderImage.jsx';
-import AccountDetails from '/imports/ui/components/AccountDetails.jsx';
+import PageHeader from '/imports/ui/components/utils/PageHeader.jsx';
+import AccountDetails from '/imports/ui/components/accounts/AccountDetails.jsx';
 import PynAPlaceForm from '/imports/ui/components/PynAPlace/PynAPlaceForm.jsx';
 
 export default class PynAPlace extends React.Component{
@@ -15,7 +15,7 @@ export default class PynAPlace extends React.Component{
   render(){
     return(
       <div id="pynaplace">
-        <HeaderImage src="/pynaplace2.jpg" title="Pyn A Place"/>
+        <PageHeader src="/pynaplace2.jpg" title="Pyn A Place"/>
 
         <AccountDetails />
 

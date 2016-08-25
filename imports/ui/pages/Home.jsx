@@ -18,7 +18,7 @@ export default class Home extends React.Component{
     $("nav ul a").css("color", "#fff");
     $("#navbar-wrapper").removeClass("navbar-fixed");
     $("nav").addClass("z-depth-0");
-    DocHead.setTitle("Pynook | Get Personal");
+    DocHead.setTitle("Pynook - Get Personal");
   }
 
   componentWillUnmount(){

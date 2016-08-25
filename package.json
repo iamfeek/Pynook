@@ -2,8 +2,8 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "start": "meteor run",
-    "prod": "meteor --production"
+    "start": "meteor --settings settings.json",
+    "prod": "meteor --settings settings.json --production"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",

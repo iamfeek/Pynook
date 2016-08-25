@@ -17,6 +17,7 @@ export default class Navbar extends React.Component{
     return(
       <div id="navbar-wrapper" className="navbar-fixed">
         <nav>
+          <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2" />
           <ul id="newbieDropdown" className="dropdown-content">
             <li><a href="#!">Travellers</a></li>
             <li><a href="#!">Businesses</a></li>

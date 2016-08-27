@@ -2,8 +2,6 @@ import React from 'react';
 import {DocHead} from 'meteor/kadira:dochead'
 
 import Navbar from './Navs/Navbar.jsx';
-import LoginModal from '/imports/ui/components/accounts/LoginModal.jsx';
-import RegisterModal from '/imports/ui/components/accounts/RegisterModal.jsx';
 
 export default class Layout extends React.Component{
   constructor(props){
@@ -32,8 +30,6 @@ export default class Layout extends React.Component{
         </header>
 
         <main>
-          <LoginModal />
-          <RegisterModal />
           {this.props.content()}
         </main>
 

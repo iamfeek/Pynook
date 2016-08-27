@@ -9,6 +9,7 @@ import Register from '/imports/ui/pages/accounts/Register';
 
 import Home from '/imports/ui/pages/Home.jsx';
 
+import Pyns from '/imports/ui/pages/Pyns.jsx';
 import PynAPlace from '/imports/ui/pages/PynAPlace.jsx';
 
 function becauseAuthenticated(context, redirect){
@@ -24,6 +25,15 @@ FlowRouter.route('/', {
   action: () => {
     mount(Layout, {
       content: () => <Home />
+    });
+  }
+});
+
+FlowRouter.route('/pyns', {
+  name: "pyns",
+  action: () => {
+    mount(Layout, {
+      content: () => <Pyns />
     });
   }
 });

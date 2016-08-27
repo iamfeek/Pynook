@@ -1,0 +1,34 @@
+#pyns{
+  height: 100vh;
+}
+
+#pyns #searchFilters, #pyns #searchResults, #pyns #map, #pyns #resultsSection{
+  /*border: 1px solid;*/
+}
+
+#pyns #map, #pyns #resultsSection{
+  height: calc(100vh - 64px);
+}
+
+#pyns #resultsSection{
+  width: 750px;
+  padding: 0px;
+}
+#pyns #map{
+  width: calc(100% - 750px);
+  padding: 0px;
+}
+
+#pyns #searchResults{
+  padding: 20px 30px 0px 0px;
+  height: calc(100% - 161px);
+  overflow:scroll;
+  background: #f8f8f8;
+}
+
+#pyns #searchFilters{
+  height: 161px;
+  background-color: #fff;
+  padding: 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+}

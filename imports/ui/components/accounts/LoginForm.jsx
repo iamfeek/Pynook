@@ -9,6 +9,9 @@ export default class LoginForm extends React.Component{
   }
 
   login(){
+    if(Meteor.user()){
+      FlowRouter.go("home");
+    }
     Meteor.loginWithPassword(this.refs.loginEmail.value, this.refs.loginPassword.value, err => {
       if(err){
         Bert.alert("We can't find that combination. Please try again!", "danger", "fixed-top");

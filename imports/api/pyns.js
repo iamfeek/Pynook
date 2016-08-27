@@ -8,7 +8,9 @@ import {Roles} from 'meteor/alanning:roles'
 
 
 if (Meteor.isServer) {
-
+  Meteor.publish("pyns.all", () => {
+    return Pyns.find({});
+  })
 
   Meteor.methods({
     'pyns.insert'(pyn){

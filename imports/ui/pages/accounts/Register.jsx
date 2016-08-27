@@ -11,7 +11,5 @@ export default Register = props => {
             <RegisterForm />
           </div>
       </div>
-
-
     )
   }

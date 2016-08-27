@@ -1,5 +1,6 @@
 import React from 'react';
 import {Session} from 'meteor/session';
+import NavbarAccountDropdown from './NavbarAccountDropdown'
 
 export default NavbarAccountItem = props => {
   if(Meteor.user()){
@@ -8,11 +9,16 @@ export default NavbarAccountItem = props => {
     }, 500)
 
   return(
-    <li id="accountDropdownButton" data-beloworigin="true" data-constrainwidth="true" data-activates="accountDropdown" data-hover="true">
-      <a>
-        {Meteor.user().emails[0].address}
-      </a>
-    </li>
+    <span>
+      <li id="accountDropdownButton" data-beloworigin="true" data-constrainwidth="true" data-activates="accountDropdown" data-hover="true">
+
+        <a>
+          {Meteor.user().emails[0].address} <i className="fa fa-caret-down" aria-hidden="true"></i>
+        </a>
+      </li>
+      <NavbarAccountDropdown instance={props.instance}/>
+    </span>
+
   )
 } else {
   return(

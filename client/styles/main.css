@@ -33,8 +33,17 @@ body{
   color: #484848;
 }
 
+label{
+  font-size: 14.95px;
+}
+
 .content{
   width: 700px;
+  margin: 0 auto;
+}
+
+.wider-content{
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -77,4 +86,16 @@ body{
   z-index: 3;
   color: white;
   font-size: 8.2rem;
+}
+
+.navDropdowns li a{
+  color: #ff4d55 !important;
+}
+
+.navDropdowns li:hover > a{
+  color: #484848 !important;
+}
+
+.dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected{
+  background: transparent !important;
 }

@@ -1,0 +1,63 @@
+.SearchResult{
+  height: 387.8px;
+  cursor: pointer;
+  padding: 0px 0px 30px 30px !important;
+}
+
+.SearchResult_wrapper{
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  border-radius: 8px;
+}
+
+.SearchResult .image{
+  height: 50%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.075) center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.SearchResult .body{
+  height: 50%;
+  width: 100%;
+  padding: 16px;
+}
+
+.SearchResult_title{
+  font-size: 24px;
+  color: #ff4d55;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.SearchResult_tagline{
+  font-size: 14.95px;
+  color: #ababab;
+}
+
+.SearchResult_footer{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: -10px;
+  margin-top: 10px;
+  height: 60px;
+}
+
+.SearchResult_cardpin{
+  color: #ff4d5a;
+  float: left;
+  margin-right: 10px;
+}
+
+.SearchResult_address{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ababab;
+  flex: 100 0 7.5em;
+}

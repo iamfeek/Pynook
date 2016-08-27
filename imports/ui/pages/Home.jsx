@@ -9,7 +9,7 @@ export default class Home extends React.Component{
   }
 
   componentDidMount(){
-    $("body").css("background-image", "url('/serendipity.jpg')");
+    $("body").css("background-image", "url('/home2.jpg')");
     $("body").css("background-size", "100% 100vh");
     $("body").css("background-repeat", "no-repeat");
     $("nav").css("border-color", "transparent");
@@ -34,7 +34,7 @@ export default class Home extends React.Component{
   render(){
     return(
       <div>
-        <div id="cover" className="valign-wrapper" style={{width: "100%", height: "90vh"}}>
+        <div id="cover" className="valign-wrapper" style={{width: "100%", height: "100vh"}}>
           <div className="valign centerByMargin" style={{marginTop: "50vh"}}>
             <h2 className="white-text">Get Personal</h2>
             <div>
@@ -48,13 +48,13 @@ export default class Home extends React.Component{
         </div>
 
         <div className="wrapper striped">
-          <div className="row" style={{padding: "50px"}}>
+          <div className="row wider-content" style={{padding: "50px"}}>
             <TypeTiles />
           </div>
         </div>
 
         <div className="wrapper">
-          <div className="row" style={{padding: "50px"}}>
+          <div className="row wider-content" style={{padding: "50px"}}>
             <CategoryTiles />
           </div>
         </div>

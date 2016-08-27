@@ -10,6 +10,7 @@ export default class RegisterForm extends React.Component{
   }
 
   register(){
+    if(Meteor.user()) FlowRouter.go("home")
     let password = this.refs.registerPassword.value;
     let cPassword = this.refs.registerCPassword.value;
 

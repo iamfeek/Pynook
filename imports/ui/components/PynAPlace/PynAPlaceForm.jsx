@@ -20,8 +20,9 @@ export default class PynAPlaceForm extends React.Component{
 
   initTinyMCE(){
     // console.debug("Tiny MCE Initialising..");
+    tinymce.EditorManager.execCommand('mceRemoveEditor',true, "pynDescription");
     tinymce.init({
-      selector: 'textarea',
+      selector: '#pynDescription',
       skin_url: '/packages/teamon_tinymce/skins/lightgray',
       height: 180,
       menubar: false,

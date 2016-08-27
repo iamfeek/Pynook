@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageThumbnail from '/imports/ui/components/Image/ImageThumbnail.jsx';
+import {Session} from 'meteor/session';
 
 
 export default class PynAPlaceForm extends React.Component{
@@ -7,7 +8,7 @@ export default class PynAPlaceForm extends React.Component{
     super(props);
 
     this.state = {
-      loaded: GoogleMaps.loaded()
+      loaded: GoogleMaps.loaded(),
     }
 
     this.submit = this.submit.bind(this)
@@ -66,6 +67,7 @@ export default class PynAPlaceForm extends React.Component{
       var input = position.coords.latitude+","+position.coords.longitude;
       var latlngStr = input.split(',', 2);
       var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+      Session.set("latlng", latlng);
       geocoder.geocode({'location': latlng}, function(results, status) {
         if (status === 'OK') {
           if (results[1]) {
@@ -95,7 +97,8 @@ export default class PynAPlaceForm extends React.Component{
     tagline = this.refs.tagline.value;
     description = tinymce.get('pynDescription').getContent();
     category = document.getElementById('category').value;
-    lokasi = document.getElementById('loc').value;
+    address = document.getElementById('loc').value;
+    latlng = Session.get("latlng");
     photos = [];
 
     let status = true;
@@ -129,7 +132,8 @@ export default class PynAPlaceForm extends React.Component{
         tagline: tagline,
         description: description,
         category: category,
-        location: lokasi,
+        address: address,
+        latlng: latlng,
         photos: photos
       }
 

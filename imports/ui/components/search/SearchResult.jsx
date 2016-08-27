@@ -17,7 +17,7 @@ export default SearchResult = props => {
               </div>
 
               <div className="SearchResult_address">
-                {pyn.location}
+                {pyn.address}
               </div>
             </footer>
           </div>

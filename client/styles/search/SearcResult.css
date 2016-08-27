@@ -1,6 +1,5 @@
 .SearchResult{
   height: 387.8px;
-  cursor: pointer;
   padding: 0px 0px 30px 30px !important;
 }
 
@@ -9,6 +8,7 @@
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.075);
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .SearchResult .image{
@@ -17,7 +17,7 @@
   background: rgba(0, 0, 0, 0.075) center no-repeat;
   background-size: cover;
   position: relative;
-  border-radius: 8px;
+  border-radius: 8px 8px 0px 0px;
 }
 
 .SearchResult .body{

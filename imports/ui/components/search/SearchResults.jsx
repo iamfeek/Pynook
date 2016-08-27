@@ -5,7 +5,6 @@ import SearchResult from '/imports/ui/components/search/SearchResult.jsx';
 import SearchResultEmpty from '/imports/ui/components/search/SearchResultEmpty.jsx';
 
 export default SearchResults = props => {
-  console.debug(arguments)
   if(props.loading){
     return(
       <div>

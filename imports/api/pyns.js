@@ -18,7 +18,8 @@ if (Meteor.isServer) {
       check(pyn.tagline, String);
       check(pyn.description, String);
       check(pyn.category, String);
-      check(pyn.location, String);
+      check(pyn.latlng, Object);
+      check(pyn.address, String);
       check(pyn.photos, [String]);
 
       pyn.createdAt = new Date();

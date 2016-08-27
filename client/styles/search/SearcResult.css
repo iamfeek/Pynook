@@ -17,6 +17,7 @@
   background: rgba(0, 0, 0, 0.075) center no-repeat;
   background-size: cover;
   position: relative;
+  border-radius: 8px;
 }
 
 .SearchResult .body{

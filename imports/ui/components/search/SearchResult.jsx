@@ -4,8 +4,9 @@ export default SearchResult = props => {
   pyn = props.pyn;
   imageURL = props.pyn.photos[0]+"-/resize/313x192/";
   return(
-      <div className="col l6 SearchResult">
-        <div className="SearchResult_wrapper">
+    <div className="col l6 SearchResult" >
+      <div className="SearchResult_wrapper">
+        <a href={FlowRouter.path("pyn", {id: props.pyn._id})}>
           <div className="col s12 image" style={{backgroundImage: "url("+imageURL+")", backgroundSize: "cover"}} />
           <div className="col s12 body">
             <h2 className="SearchResult_title">{pyn.name}</h2>
@@ -21,7 +22,12 @@ export default SearchResult = props => {
               </div>
             </footer>
           </div>
-        </div>
+        </a>
       </div>
+    </div>
   )
+}
+
+const click = (id) => {
+
 }

@@ -12,6 +12,10 @@ if (Meteor.isServer) {
     return Pyns.find({});
   })
 
+  Meteor.publish("pyns.single", id => {
+    return Pyns.find({_id: id});
+  })
+
   Meteor.methods({
     'pyns.insert'(pyn){
       check(pyn.name, String);
@@ -26,7 +30,7 @@ if (Meteor.isServer) {
       pyn.owner = this.userId;
 
       return Pyns.insert(pyn);
-    }
+    },
   })
 
 }

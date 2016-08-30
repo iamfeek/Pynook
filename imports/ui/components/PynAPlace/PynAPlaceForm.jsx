@@ -30,7 +30,7 @@ export default class PynAPlaceForm extends React.Component{
       content_css: [
         '//www.tinymce.com/css/codepen.min.css'
       ],
-      toolbar: 'bold italic | bullist numlist | link image | undo redo'
+      toolbar: 'bold italic | numlist | link image | undo redo'
     });
   }
 

@@ -58,6 +58,11 @@
   margin-top: -16%;
 }
 
+.pyn_content{
+  width: 62%;
+  padding-right: 45px;
+}
+
 .pyn_widget{
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.075);
@@ -130,15 +135,50 @@
   font-size: 16px;
 }
 
-.pyn_action_icon{
-  border: 2px solid #ff4d55;
+.action{
+  display: inline-block;
+  color: #919191;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.action_icon{
+  border: 2px solid #ff4d5a;
   color: #ff4d58;
+  background-color: #f9f9f9;
   transition: all 0.1s linear;
   vertical-align: middle;
   border-radius: 50%;
   display: inline-block;
   height: 30px;
-  margin-right: 0.3125rem;
+  margin-right: 0.4rem;
   position: relative;
   width: 30px;
+}
+
+.action_text{
+  color: #484848;
+  font-size: 16px;
+  line-height: 2;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.1s linear;
+  vertical-align: middle;
+  height: 27px;
+}
+
+.action_icon svg{
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.action:hover > .action_icon{
+  background-color: #ff4d55;
+  color: white;
+}
+
+.action:hover > .action_text{
+  color: #ff4d55;
 }

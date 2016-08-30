@@ -1,3 +1,27 @@
+/*select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"],
+ input[type="search"], input[type="tel"], input[type="color"], .form-control, .select2-container .select2-choice{
+   border: 1px solid rgba(0, 0, 0, 0.075);
+    border-radius: 3px;
+    display: block;
+    outline: 0;
+    padding: 0.8125rem 0.9375rem;
+    vertical-align: middle;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+ }
+
+input, select, textarea{
+  background: white;
+border-radius: 3px;
+box-shadow: none;
+font-size: 14.95px;
+}*/
+
+
+
+
 /*normalising input*/
 input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid
 , input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime].valid, input[type=datetime]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid,

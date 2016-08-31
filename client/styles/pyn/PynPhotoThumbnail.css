@@ -1,0 +1,11 @@
+.pyn_photo_thumbnail-wrapper{
+  /*border: 1px solid;*/
+}
+
+.pyn_photo_thumbnail{
+  width: 33.33333%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+}

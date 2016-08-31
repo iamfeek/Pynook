@@ -1,8 +1,10 @@
 import React from 'react';
+import {createContainer} from 'meteor/react-meteor-data';
+
 import NavbarAccountItem from './NavbarAccountItem'
 import NavbarAccountDropdown from './NavbarAccountDropdown'
 
-export default class Navbar extends React.Component{
+class Navbar extends React.Component{
   constructor(props){
     super(props)
 
@@ -47,3 +49,9 @@ export default class Navbar extends React.Component{
     )
   }
 }
+
+export default createContainer(() => {
+  return {
+    user: Meteor.user()
+  }
+}, Navbar);

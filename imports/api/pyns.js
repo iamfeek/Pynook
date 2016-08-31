@@ -21,6 +21,7 @@ if (Meteor.isServer) {
       check(pyn.tagline, String);
       check(pyn.description, String);
       check(pyn.category, String);
+      check(pyn.type, String);
       check(pyn.latlng, Object);
       check(pyn.address, String);
       check(pyn.photos, [String]);
@@ -30,5 +31,5 @@ if (Meteor.isServer) {
 
       return Pyns.insert(pyn);
     }
-  });  
+  });
 }

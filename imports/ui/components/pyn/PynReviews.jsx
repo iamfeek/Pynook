@@ -9,7 +9,7 @@ export default PynReviews = props => {
     <div id="pyn_reviews">
       <h2 className="pyns_reviews-title">{reviews.length} Review{reviews.length > 1 ? "s" : ""}</h2>
 
-      {reviews.map(r => <PynReview review={r} />)}
+      {reviews.map(r => <PynReview review={r}  key={r._id}/>)}
     </div>
   )
 }

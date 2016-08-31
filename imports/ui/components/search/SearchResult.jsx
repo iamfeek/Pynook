@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default SearchResult = props => {
+  console.debug("Link: " + props.pyn._id)
   pyn = props.pyn;
   imageURL = props.pyn.photos[0]+"-/resize/313x192/";
   return(

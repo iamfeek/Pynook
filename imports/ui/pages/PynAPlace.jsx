@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeader from '/imports/ui/components/utils/PageHeader.jsx';
-import AccountDetails from '/imports/ui/components/accounts/AccountDetails.jsx';
+import IsLoggedInChecker from '/imports/ui/components/accounts/IsLoggedInChecker.jsx';
 import PynAPlaceForm from '/imports/ui/components/PynAPlace/PynAPlaceForm.jsx';
 
 export default class PynAPlace extends React.Component{
@@ -17,7 +17,9 @@ export default class PynAPlace extends React.Component{
       <div id="pynaplace">
         <PageHeader src="/pynaplace2.jpg" title="Pyn A Place"/>
 
-        <AccountDetails />
+        <div id="accountdetails" className="centerByMargin">
+          <IsLoggedInChecker />
+        </div>
 
         <PynAPlaceForm />
       </div>

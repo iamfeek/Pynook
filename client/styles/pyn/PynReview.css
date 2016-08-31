@@ -1,3 +1,27 @@
+/*Pyn Reviews*/
+#pyn_reviews{
+
+}
+
+.pyns_reviews-title{
+  /*font-size: 16px;*/
+  text-align: center;
+  color: #FF4d55;
+  margin-bottom: 0;
+  margin-top: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.075);
+  padding: 1.5rem 0;
+}
+
+/*END*/
+
+
+/*Pyn Review*/
+.pyn_review{
+  border-top: 1px solid rgba(0, 0, 0, 0.075);
+
+}
+
 .pyn_review-title{
   font-size: 20px;
   color: #484848;
@@ -8,11 +32,29 @@
   padding-bottom: 1.0625rem;
 }
 
+.pyn_review_content-wrapper{
+  padding: 2.1875rem 0;
+}
+
+.pyn_review-header{
+  float: left;
+position: relative;
+text-align: center;
+width: 4.6875rem;
+z-index: 1;
+}
+
+.pyn_review_content-title{
+  font-size: 16px;
+  font-weight: 600;
+    margin-bottom: -12px;
+    margin-top: 0;
+}
 
 
 
 
-
+/*END*/
 
 
 
@@ -57,3 +99,5 @@
 #pyn_review_rating-wrapper label{
   display: block;
 }
+
+/*END*/

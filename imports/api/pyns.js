@@ -3,10 +3,8 @@ import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
 
 export const Pyns = new Mongo.Collection('Pyns');
-export const Reviews = new Mongo.Collection("reviews");
 
 import {Roles} from 'meteor/alanning:roles'
-
 
 if (Meteor.isServer) {
   Meteor.publish("pyns.all", () => {
@@ -31,16 +29,6 @@ if (Meteor.isServer) {
       pyn.owner = this.userId;
 
       return Pyns.insert(pyn);
-    },
-    'pyns.insertReview'(review){
-      check(review.pyn, String);
-      check(review.title, String);
-      check(review.description, String);
-      review.createdAt = new Date();
-      review.owner = this.userId;
-
-      return Reviews.insert(review)
     }
-  })
-
+  });  
 }

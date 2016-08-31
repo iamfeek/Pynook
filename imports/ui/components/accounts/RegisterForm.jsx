@@ -21,6 +21,7 @@ export default class RegisterForm extends React.Component{
       Bert.alert("Passwords must match!", "info", "growl-bottom-right")
     } else{
       Accounts.createUser({
+        username: this.refs.registerUsername.value,
         email: this.refs.registerEmail.value,
         password: this.refs.registerPassword.value
       }, err => {
@@ -39,6 +40,12 @@ export default class RegisterForm extends React.Component{
   render(){
     return(
       <form>
+        <div className="row">
+          <div className="input-field col s12">
+            <input id="registerUsername" ref="registerUsername" type="text" className="validate" />
+            <label htmlFor="registerUsername">Username</label>
+          </div>
+        </div>
         <div className="row">
           <div className="input-field col s12">
             <input id="registerEmail" ref="registerEmail" type="email" className="validate" />

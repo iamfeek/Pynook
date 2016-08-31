@@ -42,7 +42,7 @@ let submit = e => {
 
   console.debug(review);
 
-  Meteor.call("pyns.insertReview", review, (err, res) => {
+  Meteor.call("reviews.insert", review, (err, res) => {
     if(err){
       Bert.alert("Oops! Something happened. Please try again later.", "danger", "growl-top-right");
     } else{

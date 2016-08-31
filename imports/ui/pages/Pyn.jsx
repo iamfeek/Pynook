@@ -1,6 +1,7 @@
 import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Pyns} from '/imports/api/pyns.js';
+import {Reviews} from '/imports/api/reviews.js';
 
 import Loading from '/imports/ui/components/utils/Loading';
 import PynHeader from '/imports/ui/components/pyn/PynHeader';
@@ -9,6 +10,7 @@ import PynGalleryWidget from '/imports/ui/components/pyn/PynGalleryWidget';
 import PynActions from '/imports/ui/components/pyn/PynActions';
 import PynDescription from '/imports/ui/components/pyn/PynDescription';
 import PynWriteReview from '/imports/ui/components/pyn/PynWriteReview';
+import PynReviews from '/imports/ui/components/pyn/PynReviews';
 
 const Pyn = props =>{
   // console.debug("Loading: " + this.props.loading)
@@ -20,6 +22,8 @@ const Pyn = props =>{
     )
   } else{
     pyn = props.pyn;
+    reviews = props.reviews;
+    // console.debug("Reviews: " + reviews);
     // console.debug("Loading: " + this.props.loading)
     // console.debug("Pyn render: " + pyn)
     return (
@@ -39,6 +43,8 @@ const Pyn = props =>{
 
             <PynDescription description={pyn.description} />
 
+            <PynReviews reviews={reviews} />
+
             <PynWriteReview _id={pyn._id}/>
           </div>
         </div>
@@ -48,12 +54,15 @@ const Pyn = props =>{
 }
 
 export default createContainer(({id}) => {
-  handle = Meteor.subscribe("pyns.single", id);
+  pynsHandle = Meteor.subscribe("pyns.single", id);
+  reviewsHandle = Meteor.subscribe("reviews.single", id);
   pyn = Pyns.findOne();
+  reviews = Reviews.find().fetch();
   // console.debug("Container pyn: " + pyn);
 
   return {
-    loading: (pyn && handle) ? false : true,
-    pyn: pyn
+    loading: (pynsHandle && reviewsHandle && pyn && reviews) ? false : true,
+    pyn: pyn,
+    reviews: reviews
   }
 }, Pyn)

@@ -13,7 +13,7 @@ export default NavbarAccountItem = props => {
       <li id="accountDropdownButton" data-beloworigin="true" data-constrainwidth="true" data-activates="accountDropdown" data-hover="true">
 
         <a>
-          {Meteor.user().emails[0].address} <i className="fa fa-caret-down" aria-hidden="true"></i>
+          {Meteor.user().username} <i className="fa fa-caret-down" aria-hidden="true"></i>
         </a>
       </li>
       <NavbarAccountDropdown instance={props.instance}/>

@@ -62,16 +62,16 @@ export default createContainer(({id}) => {
 
   if(pyn){
     DocHead.setTitle(pyn.name + " - Pynook")
-    SEO.set({
-      title: pyn.name,
-      description: pyn.description,
-      meta: {
-        'property="og:title"': pyn.title,
-        'property="og:description"': pyn.description,
-        'property="og:image"': pyn.photos[0],
-        'name="twitter:image"': pyn.photos[0]
-      }
-    });
+    // SEO.set({
+    //   title: pyn.name,
+    //   description: pyn.description,
+    //   meta: {
+    //     'property="og:title"': pyn.title,
+    //     'property="og:description"': pyn.description,
+    //     'property="og:image"': pyn.photos[0],
+    //     'name="twitter:image"': pyn.photos[0]
+    //   }
+    // });
     // var metaInfo = [
     //   {name: "description", content: pyn.tagline},
     //   {name: "og:title", content: pyn.name},

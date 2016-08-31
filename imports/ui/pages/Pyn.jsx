@@ -60,6 +60,15 @@ export default createContainer(({id}) => {
   reviews = Reviews.find().fetch();
   // console.debug("Container pyn: " + pyn);
 
+  if(pyn){
+    DocHead.setTitle(pyn.name + " - Pynook")
+    var metaInfo = {name: pyn.name, content: pyn.tagline};
+    DocHead.addMeta(metaInfo);
+  } else{
+    DocHead.setTitle("Loading Pyn - Pynook")
+  }
+
+
   return {
     loading: (pynsHandle && reviewsHandle && pyn && reviews) ? false : true,
     pyn: pyn,

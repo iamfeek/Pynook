@@ -9,7 +9,9 @@ class Pyns extends React.Component{
   constructor(props){
     super(props)
 
-
+    this.state = {
+      filterState: false
+    }
   }
 
   componentDidMount(){
@@ -31,7 +33,7 @@ class Pyns extends React.Component{
     if(!this.props.loading){
       // this.getMarkers(this.props.pyns);
       markers = this.getMarkers(this.props.pyns);
-      console.debug(markers)
+      // console.debug(markers)
       // markers = [
       //   new google.maps.LatLng(1.356895, 103.863355),
       //   new google.maps.LatLng(1.338000, 103.850880),
@@ -63,7 +65,6 @@ class Pyns extends React.Component{
 
     // return markers;
   }
-
 
   render(){
     return(

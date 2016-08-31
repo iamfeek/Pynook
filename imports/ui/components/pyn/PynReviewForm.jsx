@@ -4,19 +4,17 @@ export default PynReviewForm = props => {
   return(
     <form id="pyn_review-form" onSubmit={submit.bind(this)}>
       <input defaultValue={props._id} id="pynId" hidden />
-      <div className="row">
+      <div className="row" style={{height: "80px"}}>
         <div className="input-field col s12">
           <label htmlFor="pyn_review-title">Title of your review:</label>
           <input id="pyn_review-title" type="text" required />
-
         </div>
       </div>
 
-      <div className="row">
+      <div className="row" style={{marginBottom: "0px"}}>
         <div className="input-field col s12">
           <label htmlFor="pyn_review-description">Your Review:</label>
           <textarea id="pyn_review-description" className="materialize-textarea" required></textarea>
-
         </div>
       </div>
 

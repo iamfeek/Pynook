@@ -1,4 +1,4 @@
-import {FlowRouter} from 'meteor/kadira:flow-router-ssr';
+import {FlowRouter} from 'meteor/kadira:flow-router';
 import React from 'react';
 import {mount} from 'react-mounter';
 

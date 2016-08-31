@@ -62,17 +62,26 @@ export default createContainer(({id}) => {
 
   if(pyn){
     DocHead.setTitle(pyn.name + " - Pynook")
-    var metaInfo = [
-      {name: "description", content: pyn.tagline},
-      {name: "og:title", content: pyn.name},
-      {name: "og:site_name", content: "Pynook"},
-      {name: "og:description", content: pyn.description},
-      {name: "og:image", content: pyn.photos[0]},
-      {name: "og:type", content: "object"}
-    ]
-    metaInfo.map(mi => {
-      DocHead.addMeta(mi);
-    })
+    SEO.set({
+      title: pyn.name,
+      description: pyn.description,
+      meta: {
+        'property="og:title"': pyn.title,
+        'property="og:description"': pyn.description,
+        'property="og:image"': pyn.photos[0],
+        'name="twitter:image"': pyn.photos[0]
+      }
+    });
+    // var metaInfo = [
+    //   {name: "description", content: pyn.tagline},
+    //   {name: "og:title", content: pyn.name},
+    //   {name: "og:description", content: pyn.description},
+    //   {name: "og:image", content: pyn.photos[0]},
+    //   {name: "og:type", content: "object"}
+    // ]
+    // metaInfo.map(mi => {
+    //   DocHead.addMeta(mi);
+    // })
   } else{
     DocHead.setTitle("Loading Pyn - Pynook")
   }

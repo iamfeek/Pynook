@@ -9,6 +9,12 @@ if(Meteor.isServer){
     'users.init'(){
       console.log("Added " + this.userId + " to default.");
       Roles.addUsersToRoles(this.userId, "default");
+      Accounts.sendVerificationEmail(this.userId);
+      // var cursor = Meteor.users.findOne({_id: this.userId}, {fields: {_id: 0, "emails.address": 1}});
+      // console.log(cursor)
+      // console.log(cursor.emails[0].address);
+
+      // Meteor.call("email.send", )
     },
     'users.getUsername'(id){
       check(id, String);

@@ -68,6 +68,7 @@ label{
 
 .wider-content{
   width: 1000px;
+  min-height: 400px;
   margin: 0 auto;
 }
 
@@ -99,7 +100,7 @@ label{
 
 .header-image{
   background-size: cover;
-  height: 65vh;
+  height: 50vh;
   width: 100%;
   /*position: absolute;*/
   z-index: 2;

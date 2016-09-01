@@ -23,7 +23,7 @@ class Pyns extends React.Component{
         element: document.getElementById('map'),
         options: {
           center: new google.maps.LatLng(1.356895, 103.863355),
-          zoom: 12
+          zoom: 11
         }
       });
     }, 1000)
@@ -93,9 +93,9 @@ class Pyns extends React.Component{
 }
 
 export default createContainer(() => {
-  sub = Meteor.subscribe("pyns.all")
+  sub = Meteor.subscribe("pyns.approved")
   // console.debug("sub: " + sub.ready())
-  pyns = PynsDB.find({}).fetch();
+  pyns = PynsDB.find({}, {sort: {createdAt: 1}}).fetch();
   // console.debug("Pyns: " + JSON.stringify(pyns, null, 2))
 
   return {

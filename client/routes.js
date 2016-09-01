@@ -13,11 +13,40 @@ import Pyns from '/imports/ui/pages/Pyns.jsx';
 import Pyn from '/imports/ui/pages/Pyn.jsx';
 import PynAPlace from '/imports/ui/pages/PynAPlace.jsx';
 
+import AdminDashboard from '/imports/ui/pages/admin/AdminDashboard';
+import PynsManagement from '/imports/ui/pages/admin/PynsManagement';
+
 function becauseAuthenticated(context, redirect){
   if(Meteor.userId()){
     redirect("/");
   }
 }
+
+var adminRoutes = FlowRouter.group({
+  prefix: '/admin',
+  name: 'admin',
+});
+
+adminRoutes.route("/", {
+  action: () => {
+    mount(Layout, {
+      content: () => <AdminDashboard />
+    })
+  },
+  name: "admin.dashboard"
+});
+
+adminRoutes.route("/pyns", {
+  action: () => {
+    mount(Layout, {
+      content: () => <PynsManagement />
+    })
+  },
+  name: "admin.pyns"
+});
+
+
+
 
 FlowRouter.triggers.enter([becauseAuthenticated], {only: ["login", "register"]})
 

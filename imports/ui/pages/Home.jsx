@@ -48,13 +48,13 @@ export default class Home extends React.Component{
         </div>
 
         <div className="wrapper striped">
-          <div className="row wider-content" style={{padding: "50px"}}>
+          <div className="row wider-content">
             <TypeTiles />
           </div>
         </div>
 
         <div className="wrapper">
-          <div className="row wider-content" style={{padding: "50px"}}>
+          <div className="row wider-content">
             <CategoryTiles />
           </div>
         </div>

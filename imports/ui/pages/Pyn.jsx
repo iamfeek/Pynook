@@ -40,7 +40,7 @@ const Pyn = props =>{
 
           <div className="pyn_content">
             <PynActions />
-
+            
             <PynDescription description={pyn.description} />
 
             <PynReviews reviews={reviews} />

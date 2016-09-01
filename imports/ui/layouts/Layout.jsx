@@ -6,10 +6,6 @@ import Navbar from './Navs/Navbar.jsx';
 export default class Layout extends React.Component{
   constructor(props){
     super(props)
-
-    this.state = {
-      user: Meteor.user()
-    }
   }
 
   componentDidMount(){
@@ -26,15 +22,15 @@ export default class Layout extends React.Component{
       <div>
         <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hanken" type="text/css"/>
         <header>
-          <Navbar user={this.state.user}/>
+          <Navbar />
         </header>
 
         <main>
           {this.props.content()}
         </main>
 
-        <footer>
-          This is our footer.
+        <footer className="center" style={{marginTop: "40px", paddingTop: "40px", borderTop: "1px solid rgba(0, 0, 0, 0.075)"}}>
+          Pynook &copy; {new Date().getFullYear()}
         </footer>
       </div>
     )

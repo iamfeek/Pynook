@@ -7,12 +7,15 @@ export const Pyns = new Mongo.Collection('Pyns');
 import {Roles} from 'meteor/alanning:roles'
 
 if (Meteor.isServer) {
-  Meteor.publish("pyns.all", () => {
-    return Pyns.find({});
+  Meteor.publish("pyns.approved", () => {
+    return Pyns.find({approved: true});
   })
 
   Meteor.publish("pyns.single", id => {
     return Pyns.find({_id: id});
+  })
+  Meteor.publish("pyns.toApprove", () => {
+    return Pyns.find({approved: false});
   })
 
   Meteor.methods({
@@ -28,8 +31,16 @@ if (Meteor.isServer) {
 
       pyn.createdAt = new Date();
       pyn.owner = this.userId;
+      pyn.approved = false;
 
       return Pyns.insert(pyn);
+    },
+
+    'pyns.approve'(id){
+      console.log("Approving pyn: ", id)
+      if(Roles.userIsInRole(this.userId, "admin")){
+        return Pyns.update({_id: id}, {$set: {approved: true}});
+      } else throw new Meteor.Error(400, "Access denied");
     }
   });
 }

@@ -16,7 +16,7 @@ const MyPyns = props => {
 
       {pyns.length==0 ? <NoPyns /> : null}
       <div className="wider-content row" style={{marginTop: "40px"}}>
-        {pyns.map(p => <MyPyn pyn={p} />)}
+        {pyns.map(p => <MyPyn pyn={p} key={p._id}/>)}
       </div>
     </div>
   )

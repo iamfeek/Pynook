@@ -179,10 +179,23 @@ export default class PynAPlaceForm extends React.Component{
           </div>
         </div>
 
+        <div className="row" style={{marginTop: '45px'}}>
+          <div className="input-field col s12">
+            <select defaultValue="" id="type" required ref="type">
+              <option value="">Choose your type</option>
+              <option value="Learn">Learn</option>
+              <option value="Socialize">Socialize</option>
+              <option value="Buy">Buy</option>
+            </select>
+            <label>Pick the type</label>
+            <span style={{color: "#919191"}}>Pynook categorises all Pyns to three major types. Find out more at our FAQ.</span>
+          </div>
+        </div>
+
         <div className="row" style={{marginTop: '55px'}}>
           <div className="input-field col s12">
             <select defaultValue="" id="category" required ref="category">
-              <option value="">Choose your type</option>
+              <option value="">Choose your category</option>
               <option value="Food">Food</option>
               <option value="Travel">Travel</option>
               <option value="Sports">Sports</option>
@@ -195,18 +208,7 @@ export default class PynAPlaceForm extends React.Component{
           </div>
         </div>
 
-        <div className="row" style={{marginTop: '45px'}}>
-          <div className="input-field col s12">
-            <select defaultValue="" id="type" required ref="type">
-              <option value="">Choose your category</option>
-              <option value="Learn">Learn</option>
-              <option value="Socialize">Socialize</option>
-              <option value="Buy">Buy</option>
-            </select>
-            <label>Pick the type</label>
-            <span style={{color: "#919191"}}>Pynook categorises all Pyns to three major types. Find out more at our FAQ.</span>
-          </div>
-        </div>
+
 
         <div className="row" style={{marginTop: "45px"}}>
           <div className="col s12">

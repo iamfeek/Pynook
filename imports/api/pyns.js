@@ -45,6 +45,15 @@ if (Meteor.isServer) {
       if(Roles.userIsInRole(this.userId, "admin")){
         return Pyns.update({_id: id}, {$set: {approved: true}});
       } else throw new Meteor.Error(400, "Access denied");
+    },
+
+    'pyns.edit'(pyn, id){
+      console.log(JSON.stringify(pyn, null, 2));
+      console.log(id);
+
+
+
+      return Pyns.update({_id: id}, {$set: pyn});
     }
   });
 }

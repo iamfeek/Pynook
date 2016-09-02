@@ -21,3 +21,7 @@ nav ul li:hover > a{
 nav .brand-logo{
   color: #484848;
 }
+
+#accountDropdown{
+  width: 150px !important;
+}

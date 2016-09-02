@@ -9,9 +9,10 @@ import Register from '/imports/ui/pages/accounts/Register';
 
 import Home from '/imports/ui/pages/Home.jsx';
 
-import Pyns from '/imports/ui/pages/Pyns.jsx';
-import Pyn from '/imports/ui/pages/Pyn.jsx';
-import PynAPlace from '/imports/ui/pages/PynAPlace.jsx';
+import Pyns from '/imports/ui/pages/pyn/Pyns.jsx';
+import Pyn from '/imports/ui/pages/pyn/Pyn.jsx';
+import PynAPlace from '/imports/ui/pages/pyn/PynAPlace.jsx';
+import EditPyn from '/imports/ui/pages/pyn/EditPyn';
 
 import ProfileDashboard from '/imports/ui/pages/profile/ProfileDashboard';
 import MyPyns from '/imports/ui/pages/profile/MyPyns';
@@ -85,6 +86,15 @@ FlowRouter.route('/', {
     });
   }
 });
+
+FlowRouter.route("/pyn/edit/:id", {
+  name: "pyn.edit",
+  action: params => {
+    mount(Layout, {
+      content: () => <EditPyn id={params.id} />
+    })
+  }
+})
 
 FlowRouter.route('/pyn/:id', {
   name: "pyn",

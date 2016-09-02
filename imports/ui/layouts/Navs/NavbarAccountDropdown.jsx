@@ -2,7 +2,7 @@ import React from 'react';
 
 export default NavbarAccountDropdown = props => {
   return(
-    <ul id="accountDropdown" className="dropdown-content navDropdowns" data-constrainwidth="false">
+    <ul id="accountDropdown" className="dropdown-content navDropdowns" data-constrainwidth="false" style={{width: "300px"}}>
       <li><a href={FlowRouter.path("profile.dashboard")}>Dashboard</a></li>
       <li><a href={FlowRouter.path("profile.my-pyns")}>My Pyns</a></li>
       {Roles.userIsInRole(Meteor.userId(), "admin") ?

@@ -3,7 +3,7 @@ import React from 'react';
 export default PynHeader = props => {
   return(
     <header className="pyn_header">
-      <div className="wider-content">
+      <div className="wider-content" style={{minHeight: "0px"}}>
         <div className="pyn_breadcrumb">
           <a href={FlowRouter.path("pyns")}>Pyns </a>
           <span className="pyn_breadcrumb_arrow">&gt;&gt;</span>

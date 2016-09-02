@@ -22,7 +22,7 @@ export default MyPyn = props => {
           </footer>
           <footer className="SearchResult_adminActions">
             <div className="col s6 SearchResult_adminAction" onClick={() => {FlowRouter.go("pyn", {id: pyn._id})}} style={{borderRight: "1px solid rgba(0, 0, 0, 0.075)"}}>View</div>
-            <div className="col s6 SearchResult_adminAction">Edit</div>
+            <div className="col s6 SearchResult_adminAction" onClick={() => {FlowRouter.go("pyn.edit", {id: pyn._id})}}>Edit</div>
           </footer>
         </div>
 

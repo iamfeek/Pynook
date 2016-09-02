@@ -1,0 +1,13 @@
+#noPyns{
+  height: 400px;
+}
+
+#noPyns h2{
+  text-align: center;
+}
+
+.noPyn_action a{
+  text-decoration: underline;
+  cursor: pointer;
+  color: #484848;
+}

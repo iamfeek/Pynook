@@ -13,6 +13,9 @@ import Pyns from '/imports/ui/pages/Pyns.jsx';
 import Pyn from '/imports/ui/pages/Pyn.jsx';
 import PynAPlace from '/imports/ui/pages/PynAPlace.jsx';
 
+import ProfileDashboard from '/imports/ui/pages/profile/ProfileDashboard';
+import MyPyns from '/imports/ui/pages/profile/MyPyns';
+
 import AdminDashboard from '/imports/ui/pages/admin/AdminDashboard';
 import PynsManagement from '/imports/ui/pages/admin/PynsManagement';
 
@@ -43,6 +46,30 @@ adminRoutes.route("/pyns", {
     })
   },
   name: "admin.pyns"
+});
+
+
+var profileRoutes = FlowRouter.group({
+  prefix: "/profile",
+  name: "profile"
+});
+
+profileRoutes.route("/", {
+  action: () => {
+    mount(Layout, {
+      content: () => <ProfileDashboard />
+    })
+  },
+  name: "profile.dashboard"
+});
+
+profileRoutes.route("/my-pyns", {
+  action: () => {
+    mount(Layout, {
+      content: () => <MyPyns />
+    })
+  },
+  name: "profile.my-pyns"
 });
 
 

@@ -11,6 +11,10 @@ if (Meteor.isServer) {
     return Pyns.find({approved: true});
   })
 
+  Meteor.publish("pyns.self", function(){
+    return Pyns.find({owner: this.userId});
+  })
+
   Meteor.publish("pyns.single", id => {
     return Pyns.find({_id: id});
   })

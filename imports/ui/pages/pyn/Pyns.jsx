@@ -4,14 +4,13 @@ import {Pyns as PynsDB} from '/imports/api/pyns.js';
 import Loading from '/imports/ui/components/utils/Loading'
 
 import SearchResults from '/imports/ui/components/search/SearchResults'
+import CategorySearch from '/imports/ui/components/search/CategorySearch'
+import TypeSearch from '/imports/ui/components/search/TypeSearch'
+import TextSearch from '/imports/ui/components/search/TextSearch'
 
 class Pyns extends React.Component{
   constructor(props){
     super(props)
-
-    this.state = {
-      filterState: false
-    }
   }
 
   componentDidMount(){
@@ -72,10 +71,11 @@ class Pyns extends React.Component{
         <div id="resultsSection" className="col" style={{marginRight: "0px"}}>
           <div id="searchFilters" className="col l12">
             <div className="SearchFilter">
-              <label className="SearchFilter_title">Categories</label>
+              <TextSearch />
             </div>
-            <div className="SearchFilter">
-              <label className="SearchFilter_title">Location</label>
+            <div className="SearchFilter row">
+              <div className="col s6" style={{paddingLeft: "0"}}><CategorySearch /></div>
+              <div className="col s6" style={{paddingRight: "0"}}><TypeSearch /></div>
             </div>
           </div>
 
@@ -92,14 +92,17 @@ class Pyns extends React.Component{
   }
 }
 
-export default createContainer(() => {
-  sub = Meteor.subscribe("pyns.approved")
-  // console.debug("sub: " + sub.ready())
-  pyns = PynsDB.find({}, {sort: {createdAt: 1}}).fetch();
-  // console.debug("Pyns: " + JSON.stringify(pyns, null, 2))
+export default createContainer(({query}) => {
+  mQuery = {};
+  if(query.q) mQuery["name"] = {$regex: new RegExp(query.q, "i")};
+  if(query.category) mQuery["category"] = {$regex: new RegExp(query.category, "i")};
+  if(query.type) mQuery["type"] = {$regex: new RegExp(query.type, "i")};
+
+  sub = Meteor.subscribe("pyns.approved");
+  pyns = PynsDB.find(mQuery, {sort: {createdAt: 1}}).fetch();
 
   return {
-    loading: !sub.ready(),
+    loading: (!sub.ready() && pyns),
     pyns: pyns
   }
 }, Pyns)

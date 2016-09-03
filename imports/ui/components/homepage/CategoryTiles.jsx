@@ -8,32 +8,32 @@ export default CategoryTiles = props => {
 
       <div className="row">
         <div className="col s8 categoryTileWrapper">
-          <div className="categoryTile valign-wrapper" style={{backgroundImage: "url('/food1.jpg')", backgroundPosition: "center 70%"}}>
+          <a href={FlowRouter.path("pyns", "", {category: "Food"})} className="categoryTile valign-wrapper" style={{backgroundImage: "url('/food1.jpg')", backgroundPosition: "center 70%"}}>
             <h1 className="valign white-text">Food</h1>
-          </div>
+          </a>
         </div>
         <div className="col s4 categoryTileWrapper">
-          <div className="categoryTile valign-wrapper" style={{backgroundImage: "url('/food2.jpg')", backgroundSize: "cover"}}>
-            Food
-          </div>
+          <a href={FlowRouter.path("pyns", "", {category: "Food"})}  className="categoryTile valign-wrapper" style={{backgroundImage: "url('/food2.jpg')", backgroundSize: "cover"}}>
+
+          </a>
         </div>
       </div>
 
       <div className="row">
         <div className="col s4 categoryTileWrapper">
-          <div className="categoryTile valign-wrapper" style={{backgroundImage: "url('/travel2.jpg')", backgroundSize: "cover"}}>
+          <a href={FlowRouter.path("pyns", "", {category: "Travel"})} className="categoryTile valign-wrapper" style={{backgroundImage: "url('/travel2.jpg')", backgroundSize: "cover"}}>
 
-          </div>
+          </a>
         </div>
         <div className="col s4 categoryTileWrapper">
-          <div className="categoryTile valign-wrapper" style={{backgroundImage: "url('/travel1.jpg')", backgroundSize: "cover"}}>
+          <a href={FlowRouter.path("pyns", "", {category: "Travel"})} className="categoryTile valign-wrapper" style={{backgroundImage: "url('/travel1.jpg')", backgroundSize: "cover"}}>
             <h1 className="valign white-text">Travel</h1>
-          </div>
+          </a>
         </div>
         <div className="col s4 categoryTileWrapper">
-          <div className="categoryTile valign-wrapper" style={{backgroundImage: "url('/travel3.jpg')", backgroundSize: "cover"}}>
+          <a href={FlowRouter.path("pyns", "", {category: "Travel"})} className="categoryTile valign-wrapper" style={{backgroundImage: "url('/travel3.jpg')", backgroundSize: "cover"}}>
 
-          </div>
+          </a>
         </div>
       </div>
 
@@ -41,14 +41,14 @@ export default CategoryTiles = props => {
 
       <div className="row">
         <div className="col s4 categoryTileWrapper">
-          <div className="categoryTile valign-wrapper" style={{backgroundImage: "url('/skill2.jpg')"}}>
+          <a href={FlowRouter.path("pyns", "", {category: "Creative"})} className="categoryTile valign-wrapper" style={{backgroundImage: "url('/skill2.jpg')"}}>
 
-          </div>
+          </a>
         </div>
         <div className="col s8 categoryTileWrapper">
-          <div className="categoryTile valign-wrapper" style={{backgroundImage: "url('/skill1.jpg')", backgroundPosition: "center 70%"}}>
-            <h1 className="valign white-text">Skills</h1>
-          </div>
+          <a href={FlowRouter.path("pyns", "", {category: "Creative"})} className="categoryTile valign-wrapper" style={{backgroundImage: "url('/skill1.jpg')", backgroundPosition: "center 70%"}}>
+            <h1 className="valign white-text">Creative</h1>
+          </a>
         </div>
       </div>
     </div>

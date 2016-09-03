@@ -51,8 +51,8 @@ adminRoutes.route("/pyns", {
 
 
 var profileRoutes = FlowRouter.group({
-  prefix: "/profile",
-  name: "profile"
+  prefix: "/dashboard",
+  name: "dashboard"
 });
 
 profileRoutes.route("/", {
@@ -107,9 +107,10 @@ FlowRouter.route('/pyn/:id', {
 
 FlowRouter.route('/pyns', {
   name: "pyns",
-  action: () => {
+  action: (params, queryParams) => {
+    // console.log(queryParams)
     mount(Layout, {
-      content: () => <Pyns />
+      content: () => <Pyns query={queryParams}/>
     });
   }
 });

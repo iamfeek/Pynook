@@ -1,0 +1,30 @@
+div#searchBar{
+  width: 600px;
+}
+
+.searchBar_action-wrapper{
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+  text-align: center;
+  height: 45px;
+  background: #e1e1e1;
+}
+
+.searchBar_action:hover{
+  background: #484848;
+}
+
+.searchBar_action{
+  cursor: pointer;
+  background: #FF4D55;
+  transition: background 0.3s ease;
+  font-size: 21px;
+  color: white;
+  line-height: 45px;
+  display: block;
+}
+
+.searchBar_fields-wrapper{
+  background: white;
+  height: 50px;
+}

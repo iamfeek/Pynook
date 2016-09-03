@@ -2,6 +2,7 @@ import React from 'react';
 
 import CategoryTiles from '../components/homepage/CategoryTiles.jsx';
 import TypeTiles from '../components/homepage/TypeTiles.jsx';
+import SearchBar from '/imports/ui/components/search/SearchBar';
 
 export default class Home extends React.Component{
   constructor(props){
@@ -36,14 +37,8 @@ export default class Home extends React.Component{
       <div>
         <div id="cover" className="valign-wrapper" style={{width: "100%", height: "100vh"}}>
           <div className="valign centerByMargin" style={{marginTop: "50vh"}}>
-            <h2 className="white-text">Get Personal</h2>
-            <div>
-              <form>
-                <div className="input-field">
-                  <input name="search" type="text" placeholder="What are you searching for?"/>
-                </div>
-              </form>
-            </div>
+            <h2 className="white-text center">Get Personal</h2>
+            <SearchBar />
           </div>
         </div>
 

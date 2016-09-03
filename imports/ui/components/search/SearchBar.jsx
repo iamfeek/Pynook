@@ -40,7 +40,7 @@ const search = () => {
   let type = document.getElementById("searchType").value;
 
   mQuery = {};
-  if(q != "") mQuery["name"] = q;
+  if(q != "") mQuery["q"] = q;
   if(category != "") mQuery["category"] = category;
   if(type != "") mQuery["type"] = type;
 

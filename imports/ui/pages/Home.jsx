@@ -36,19 +36,19 @@ export default class Home extends React.Component{
     return(
       <div>
         <div id="cover" className="valign-wrapper" style={{width: "100%", height: "100vh"}}>
-          <div className="valign centerByMargin" style={{marginTop: "50vh"}}>
+          <div className="valign centerByMargin" style={{marginTop: "40vh"}}>
             <h2 className="white-text center">Get Personal</h2>
             <SearchBar />
           </div>
         </div>
 
-        <div className="wrapper striped">
+        <div className="wrapper striped" style={{paddingBottom: "50px"}}>
           <div className="row wider-content">
             <TypeTiles />
           </div>
         </div>
 
-        <div className="wrapper">
+        <div className="wrapper" style={{paddingTop: "60px"}}>
           <div className="row wider-content">
             <CategoryTiles />
           </div>

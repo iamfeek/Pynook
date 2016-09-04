@@ -3,8 +3,8 @@ import React from 'react';
 export default CategoryTiles = props => {
   return(
     <div style={{height: "100vh"}}>
-      <h2 className="center">Explore The World</h2>
-      <h5 className="center" style={{marginBottom: "30px", marginTop: "-20px"}}>Feel The Homeliness</h5>
+      <h5 className="center" style={{marginTop: "-20px"}}>Discover Your</h5>
+      <h2 className="center" style={{marginTop: "0px"}}>Neighbourhood</h2>
 
       <div className="row">
         <div className="col s8 categoryTileWrapper">

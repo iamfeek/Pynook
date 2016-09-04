@@ -5,7 +5,7 @@ export default HomeTextSearch = () => <input id="textSearch" placeholder="Findin
 export default HomeTypeSearch = () => {
   return (
     <select id="searchType">
-      <option value="">Type</option>
+      <option value="">Experience</option>
         <option value="Learn">Learn</option>
         <option value="Socialize">Socialize</option>
         <option value="Buy">Buy</option>

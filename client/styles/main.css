@@ -19,6 +19,9 @@ box-shadow: none;
 font-size: 14.95px;
 }*/
 
+.select-wrapper span.caret{
+  margin-right: 15px;
+}
 
 
 

@@ -7,7 +7,7 @@ export default PynReviews = props => {
   // console.debug("Reviews: " + JSON.stringify(props.reviews, null, 2))
   return(
     <div id="pyn_reviews">
-      <h2 className="pyns_reviews-title">{reviews.length} Review{reviews.length > 1 ? "s" : ""}</h2>
+      <h3 className="pyns_reviews-title">{reviews.length} Review{reviews.length > 1 ? "s" : ""}</h3>
 
       {reviews.map(r => <PynReview review={r}  key={r._id}/>)}
     </div>

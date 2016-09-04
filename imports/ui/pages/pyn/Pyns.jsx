@@ -71,9 +71,9 @@ class Pyns extends React.Component{
         <div id="resultsSection" className="col" style={{marginRight: "0px"}}>
           <div id="searchFilters" className="col l12">
             <div className="SearchFilter row">
-              <div className="col s6" style={{padding: "0"}}><TextSearch /></div>
-              <div className="col s3" style={{padding: "0"}}><CategorySearch /></div>
-              <div className="col s3" style={{padding: "0"}}><TypeSearch /></div>
+              <div className="col s8" style={{padding: "0"}}><TextSearch /></div>
+              <div className="col s2" style={{padding: "0"}}><CategorySearch /></div>
+              <div className="col s2" style={{padding: "0"}}><TypeSearch /></div>
               {$("select").material_select()}
             </div>
           </div>

@@ -10,7 +10,7 @@ export default PynHeader = props => {
           <a href=""> {props.category}</a>
         </div>
 
-        <h1 className="pyn_title">{props.name}</h1>
+        <h2 className="pyn_title">{props.name}</h2>
         <span className="pyn_tagline">{props.tagline}</span>
       </div>
     </header>

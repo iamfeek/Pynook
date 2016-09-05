@@ -1,32 +1,22 @@
 import React from 'react';
-import './HomeSearchFields';
+import {HomeTextSearch} from '/imports/ui/components/search/HomeSearchFields';
+import {HomeTypeSearch} from '/imports/ui/components/search/HomeSearchFields';
+import {HomeCategorySearch} from '/imports/ui/components/search/HomeSearchFields';
 
 export default SearchBar = props => {
-  setTimeout(() => {
-    $("select").material_select()
-  }, 500)
   return(
-    <div id="searchBar" style={{width: "600px"}}>
-      <div className="row" style={{marginBottom: "0px"}}>
-        <div className="col s4 searchBar_fields-wrapper" style={{borderRadius: "4px 0 0 0", borderRight: "1px solid rgba(0,0,0,0.1)"}}>
-          <HomeTextSearch />
-        </div>
-        <div className="col s4 searchBar_fields-wrapper">
-          <HomeTypeSearch />
-        </div>
-
-        <div className="col s4 searchBar_fields-wrapper" style={{borderRadius: "0 4px 0 0"}}>
-          <HomeCategorySearch />
-        </div>
+    <div id="searchBar" className="row" style={{width: "750px"}}>
+      <div className="col s8 searchBar_fields-wrapper" style={{padding: "0px 15px", borderRadius: "4px 0 0 4px", borderRight: "1px solid rgba(0,0,0,0.1)"}}>
+        <div className="col s6" style={{padding: "0"}}><HomeTextSearch /></div>
+        <div className="col s3" style={{padding: "0"}}><HomeTypeSearch /></div>
+        <div className="col s3" style={{padding: "0"}}><HomeCategorySearch /></div>
       </div>
-      <div className="row searchBar_action-wrapper">
-        <div className="col s6" style={{borderRight: "1px solid rgba(0,0,0,0.36)", padding: "0"}} onClick={() => search()}>
-          <span className="searchBar_action">Search</span>
+      <div className="col s4 searchBar_fields-wrapper" style={{padding: "0px", borderRadius: "0 4px 4px 0", overflow: "hidden"}}>
+        <div className="col s9 center valign-wrapper clickable" onClick={() => search()} style={{background: "#FF4d55", padding: "0", height: "100%", borderRight: "1px solid rgba(0,0,0,0.1)"}}>
+          <h5 className="valign centerByMargin white-text">Search</h5>
         </div>
-        <div className="col s6" style={{padding: "0"}}>
-          <span className="searchBar_action" >
-            Nearby
-          </span>
+        <div className="col s3 center valign-wrapper clickable" style={{background: "#FF4d55", padding: "0", height: "100%"}}>
+          <h5 className="valign centerByMargin white-text"><i className="fa fa-location-arrow" aria-hidden="true"></i></h5>
         </div>
       </div>
     </div>
@@ -35,9 +25,9 @@ export default SearchBar = props => {
 
 
 const search = () => {
-  let q = document.getElementById("textSearch").value;
-  let category = document.getElementById("searchCategory").value;
-  let type = document.getElementById("searchType").value;
+  let q = $("#textSearch").val();
+  let category = $("#searchCategory").val();
+  let type = $("#searchType").val();
 
   mQuery = {};
   if(q != "") mQuery["q"] = q;

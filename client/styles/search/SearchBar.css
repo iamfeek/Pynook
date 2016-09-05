@@ -27,4 +27,5 @@ div#searchBar{
 .searchBar_fields-wrapper{
   background: white;
   height: 50px;
+  /*margin-bottom: 0;*/
 }

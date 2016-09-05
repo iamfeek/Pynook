@@ -20,6 +20,8 @@ import MyPyns from '/imports/ui/pages/profile/MyPyns';
 import AdminDashboard from '/imports/ui/pages/admin/AdminDashboard';
 import PynsManagement from '/imports/ui/pages/admin/PynsManagement';
 
+import BusinessDashboard from '/imports/ui/pages/business/BusinessDashboard';
+
 function becauseAuthenticated(context, redirect){
   if(Meteor.userId()){
     redirect("/");
@@ -71,6 +73,22 @@ profileRoutes.route("/my-pyns", {
     })
   },
   name: "profile.my-pyns"
+});
+
+
+
+var businessRoutes = FlowRouter.group({
+  prefix: "/business",
+  name: "business"
+});
+
+businessRoutes.route("/", {
+  action: () => {
+    mount(Layout, {
+      content: () => <BusinessDashboard />
+    })
+  },
+  name: "business.dashboard"
 });
 
 

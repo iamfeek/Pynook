@@ -14,6 +14,10 @@ class Pyns extends React.Component{
   }
 
   componentDidMount(){
+    DocHead.addMeta({
+      name: "viewport",
+      content: "width=device-width, initial-scale=1"
+    });
     DocHead.setTitle("Pyns - Pynook")
 
     setTimeout(() => {
@@ -68,21 +72,22 @@ class Pyns extends React.Component{
   render(){
     return(
       <div id="pyns" className="row">
-        <div id="resultsSection" className="col" style={{marginRight: "0px"}}>
-          <div id="searchFilters" className="col l12">
+        <div id="resultsSection" className="col s12 l7">
+          <div id="searchFilters" className="col s12">
             <div className="SearchFilter row">
-              <div className="col s8" style={{padding: "0"}}><TextSearch /></div>
-              <div className="col s2" style={{padding: "0"}}><CategorySearch /></div>
-              <div className="col s2" style={{padding: "0"}}><TypeSearch /></div>
+              <div className="col s12 l8" style={{padding: "0"}}><TextSearch /></div>
+              <div className="col s6 l2" style={{padding: "0"}}><CategorySearch /></div>
+              <div className="col s6 l2" style={{padding: "0"}}><TypeSearch /></div>
               {$("select").material_select()}
             </div>
           </div>
 
-          <div id="searchResults" className="col l12">
+          <div id="searchResults" className="col s12">
             <SearchResults pyns={this.props.pyns} loading={this.props.loading}/>
           </div>
         </div>
-        <div id="map" className="col" height="100%">
+
+        <div id="map" className="hide-on-med-and-down col l5" height="100%">
           {this.mappify()}
           <Loading />
         </div>

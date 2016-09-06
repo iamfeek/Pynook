@@ -1,0 +1,9 @@
+@media(min-width: 992px){
+  #search-wrapper{
+    margin-top: 40vh
+  }
+}
+
+#cover{
+  width: 100%;
+}

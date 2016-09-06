@@ -33,8 +33,17 @@ class Navbar extends React.Component{
             <li><a href="#!">Businesses</a></li>
             <li><a href="#!">Neighbourhoods</a></li>
           </ul>
+
+          <ul className="side-nav" id="mobile-menu">
+            <li><a href={FlowRouter.path("pyns")}>Pyns</a></li>
+            <li><a className="dropdown-button" href="#!" data-constrainWidth="false" data-beloworigin="true" data-hover="true" data-activates="newbieDropdown">Newbie <i className="fa fa-caret-down" aria-hidden="true"></i></a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href={FlowRouter.path("pyn.a.place")}>Pyn A Place</a></li>
+            <NavbarAccountItem instance={this}/>
+          </ul>
           <div className="nav-wrapper ">
-            <a href={FlowRouter.path("home")} className="brand-logo" style={{marginLeft: "25px"}}>Pynook</a>
+            <a href={FlowRouter.path("home")} className="brand-logo">Pynook</a>
+            <a ref={() => {$(".button-collapse").sideNav()}} href="#" data-activates="mobile-menu" className="button-collapse" style={{color: "black", marginLeft:"10px", fontSize: "33px"}}><i className="fa fa-bars" aria-hidden="true"></i></a>
 
             <ul className="right hide-on-med-and-down" style={{marginRight: "25px"}}>
               <li><a href={FlowRouter.path("pyns")}>Pyns</a></li>

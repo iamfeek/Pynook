@@ -10,12 +10,20 @@ export default class Home extends React.Component{
   }
 
   componentDidMount(){
-    $("body").css("background-image", "url('/home2.jpg')");
-    $("body").css("background-size", "100% 100vh");
+    DocHead.addMeta({
+      name: "viewport",
+      content: "width=device-width, initial-scale=1"
+    });
+    bSize = "100% " + $(window).height()+"px"
+    cSize = $(window).height() + "px";
+    $("body").css("background-image", "url('/home.jpg')");
+    $("body").css("background-size", "cover");
     $("body").css("background-repeat", "no-repeat");
+    $("#cover").css("height", cSize)
     $("nav").css("border-color", "transparent");
     $("nav").css("background-color", "transparent");
     $("nav .brand-logo").css("color", "#fff");
+    $("nav .button-collapse").css("color", "#fff");
     $("nav ul a").css("color", "#fff");
     $("#navbar-wrapper").removeClass("navbar-fixed");
     $("nav").addClass("z-depth-0");
@@ -29,27 +37,28 @@ export default class Home extends React.Component{
     $("nav").css("border-color", "");
     $("nav").css("background-color", "");
     $("nav .brand-logo").css("color", "");
+    $("nav .button-collapse").css("color", "black");
     $("nav ul a").css("color", "");
   }
 
   render(){
     return(
       <div>
-        <div id="cover" className="valign-wrapper" style={{width: "100%", height: "100vh"}}>
-          <div className="valign centerByMargin" style={{marginTop: "40vh"}}>
+        <div id="cover" className="row valign-wrapper">
+          <div id="search-wrapper" className="col s12 valign centerByMargin">
             <h2 className="white-text center">Get Personal</h2>
             <SearchBar />
           </div>
         </div>
 
-        <div className="wrapper striped" style={{paddingBottom: "50px"}}>
-          <div className="row wider-content">
+        <div className="row wrapper striped" style={{marginBottom: "0px"}}>
+          <div className="wider-content col s12">
             <TypeTiles />
           </div>
         </div>
 
-        <div className="wrapper" style={{paddingTop: "60px"}}>
-          <div className="row wider-content">
+        <div className="row wrapper" style={{background: "#f9f9f9", marginBottom: "0px"}}>
+          <div className="wider-content col s12">
             <CategoryTiles />
           </div>
         </div>

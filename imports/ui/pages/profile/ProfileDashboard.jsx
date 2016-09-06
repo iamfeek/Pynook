@@ -2,22 +2,16 @@ import React from 'react';
 import '/imports/ui/components/utils';
 import {createContainer} from 'meteor/react-meteor-data';
 
+import ProfileAction from '/imports/ui/components/profile/ProfileAction';
+
 const ProfileDashboard = props => {
   return(
     <div id="profile">
       <PageHeader src="/skill2.jpg" title="Dashboard" />
       <div className="wider-content row">
-        <div className="profile_action-wrapper col s4">
-          <a className="profile_action" href={FlowRouter.path("profile.my-pyns")}>
-            My Pyns
-          </a>
-        </div>
+        <ProfileAction title="My Pyns" pathName="profile.my-pyns" />
 
-        <div className="profile_action-wrapper col s4">
-          <a className="profile_action" href={FlowRouter.path("business.dashboard")}>
-            My Business
-          </a>
-        </div>
+        {props.hasBusinessAccount ? <ProfileAction title="My Business" pathName="business.dashboard" /> : null}
       </div>
     </div>
   )
@@ -26,5 +20,6 @@ const ProfileDashboard = props => {
 export default createContainer(() => {
   DocHead.setTitle("Dashboard - Pynook");
   return {
+    hasBusinessAccount: Roles.userIsInRole(Meteor.userId(), "business")
   }
 }, ProfileDashboard )

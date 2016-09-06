@@ -1,7 +1,17 @@
 #TypeTiles{
-  /*padding-top: 50px;*/
+  padding-top: 20px;
   /*border: 1px solid;*/
   /*height: 100vh;*/
+}
+
+@media(min-width: 992px){
+  .typeImageWrapper{
+  height: 310px !important;
+  }
+
+  .typeImageWrapper-title{
+    margin-top: 180px !important;
+  }
 }
 
 .typeImageWrapper{
@@ -9,11 +19,13 @@
   text-align: center;
   padding: 0px 15px;
   /*border: 1px solid;*/
-  height: 310px;
+  height: 300px;
   width: 280px;
   overflow: hidden;
   position: relative;
   z-index: 1;
+  margin-bottom: 25px;
+  padding-bottom: 5px;
 }
 
 .typeImage{

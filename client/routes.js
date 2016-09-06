@@ -91,6 +91,15 @@ businessRoutes.route("/", {
   name: "business.dashboard"
 });
 
+businessRoutes.route("/my-listings", {
+  action: () => {
+    mount(Layout, {
+      content: () => <MyListings />
+    })
+  },
+  name: "business.my-listings"
+});
+
 
 
 

@@ -1,3 +1,13 @@
+@media(min-width: 992px){
+  .brand-logo{
+    margin-left: 25px;
+  }
+}
+
+nav .nav-wrapper{
+  height: 56px;
+}
+
 nav ul a{
   color: #919191;
 }

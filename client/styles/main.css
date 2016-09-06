@@ -63,6 +63,10 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 
 }
 
+.blue-text{
+  color: #4099FF !important;
+}
+
 .red-text{
   color: #ff4d55 !important;
 }

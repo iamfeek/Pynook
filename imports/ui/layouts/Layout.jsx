@@ -9,12 +9,7 @@ export default class Layout extends React.Component{
   }
 
   componentDidMount(){
-    DocHead.addMeta({
-      name: "viewport",
-      width: 'device-width',
-      "initial-scale": '1',
-      "user-scalable": "0"
-    });
+
   }
 
   render(){
@@ -29,8 +24,8 @@ export default class Layout extends React.Component{
           {this.props.content()}
         </main>
 
-        <footer className="center" style={{marginTop: "40px", paddingTop: "40px", borderTop: "1px solid rgba(0, 0, 0, 0.075)"}}>
-          Pynook &copy; {new Date().getFullYear()}
+        <footer className="valign-wrapper" style={{height: "45px", background: "#484848", borderTop: "1px solid rgba(0, 0, 0, 0.075)", color: "white"}}>
+          <span className="valign centerByMargin">Pynook &copy; {new Date().getFullYear()}</span>
         </footer>
       </div>
     )

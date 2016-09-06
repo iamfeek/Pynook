@@ -1,6 +1,10 @@
-div#searchBar{
-  width: 600px;
+@media(min-width: 992px){
+  div#searchBar{
+    width: 750px;
+  }
 }
+
+
 
 .searchBar_action-wrapper{
   border-radius: 0 0 4px 4px;
@@ -24,10 +28,14 @@ div#searchBar{
   display: block;
 }
 
+@media(min-width: 992px){
+  .searchBar_fields-wrapper{
+    height: 50px;
+  }
+}
+
 .searchBar_fields-wrapper{
   background: transparent;
-  height: 50px;
-  /*margin-bottom: 0;*/
 }
 
 .searchBar_fields-wrapper input, .searchBar_fields-wrapper .select-wrapper span.caret{

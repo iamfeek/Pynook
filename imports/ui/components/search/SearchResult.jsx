@@ -5,7 +5,7 @@ export default SearchResult = props => {
   pyn = props.pyn;
   imageURL = props.pyn.photos[0]+"-/resize/313x192/";
   return(
-    <div className="col l6 SearchResult" >
+    <div className="col l6 s12 SearchResult" >
       <div className="SearchResult_wrapper clickable">
         <a href={FlowRouter.path("pyn", {id: props.pyn._id})}>
           <div className="col s12 image" style={{backgroundImage: "url("+imageURL+")", backgroundSize: "cover"}}></div>

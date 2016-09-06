@@ -1,5 +1,10 @@
+@media (max-width: 992px){
+  .SearchFilter{
+    padding: 10px 20px !important;
+  }
+}
+
 .SearchFilter{
-  height: 50%;
   border-top: 1px solid rgba(0, 0, 0, 0.075);
   font-size: 14px;
 margin-bottom: 0;

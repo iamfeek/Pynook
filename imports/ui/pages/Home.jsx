@@ -30,13 +30,13 @@ export default class Home extends React.Component{
         </div>
 
         <div className="row wrapper striped" style={{marginBottom: "0px", zIndex: "20"}}>
-          <div className="wider-content col s12">
+          <div className="wider-content col s12 l8 offset-l2">
             <TypeTiles />
           </div>
         </div>
 
         <div className="row wrapper" style={{background: "#f9f9f9", marginBottom: "0px"}}>
-          <div className="wider-content col s12">
+          <div className="wider-content col s12 l8 offset-l2">
             <CategoryTiles />
           </div>
         </div>

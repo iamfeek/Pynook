@@ -1,9 +1,12 @@
 @media(min-width: 992px){
   div#searchBar{
-    width: 750px;
+    /*width: 750px;*/
   }
 }
 
+#searchBar, #searchBar .col{
+  padding: 0;
+}
 
 
 .searchBar_action-wrapper{
@@ -36,6 +39,7 @@
 
 .searchBar_fields-wrapper{
   background: transparent;
+  padding: 0;
 }
 
 .searchBar_fields-wrapper input, .searchBar_fields-wrapper .select-wrapper span.caret{

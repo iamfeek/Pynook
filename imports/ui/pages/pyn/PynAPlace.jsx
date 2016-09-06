@@ -10,18 +10,26 @@ export default class PynAPlace extends React.Component{
 
   componentDidMount(){
     DocHead.setTitle("Pyn A Place - Pynook")
+    DocHead.addMeta({
+      name: "viewport",
+      content: "width=device-width, initial-scale=1"
+    });
   }
 
   render(){
     return(
       <div id="pynaplace">
         <PageHeader src="/pynaplace2.jpg" title="Pyn A Place"/>
+        <h1 className="center hide-on-med-and-up">Pyn A Place</h1>
 
-        <div id="accountdetails" className="centerByMargin">
+        <div id="accountdetails" className="centerByMargin hide-on-small-only">
           <IsLoggedInChecker />
         </div>
 
-        <PynAPlaceForm />
+        <div className="row">
+          <PynAPlaceForm />
+        </div>
+
       </div>
     )
   }

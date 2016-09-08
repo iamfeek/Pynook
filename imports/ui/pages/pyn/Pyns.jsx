@@ -87,7 +87,7 @@ class Pyns extends React.Component{
           </div>
         </div>
 
-        <div id="map" className="hide-on-med-and-down col l5" height="100%">
+        <div id="map" className="hide-on-med-and-down col l5">
           {this.mappify()}
           <Loading />
         </div>

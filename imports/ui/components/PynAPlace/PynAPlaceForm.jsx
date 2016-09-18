@@ -174,6 +174,7 @@ export default class PynAPlaceForm extends React.Component{
 
         <div className="row">
           <div className="input-field col s12">
+          
             <textarea id="pynDescription" required  onClick={() => {this.initTinyMCE()}}></textarea>
             <label style={{marginTop: "-35px"}}htmlFor="pynDescription">Description</label>
           </div>

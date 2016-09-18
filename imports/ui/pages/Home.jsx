@@ -1,46 +1,49 @@
 import React from 'react';
+import {createContainer} from 'meteor/react-meteor-data';
 
-import CategoryTiles from '../components/homepage/CategoryTiles.jsx';
-import TypeTiles from '../components/homepage/TypeTiles.jsx';
+import CategoryTiles from '/imports/ui/components/homepage/CategoryTiles.jsx';
+import TypeTiles from '/imports/ui/components/homepage/TypeTiles.jsx';
+import CommunityTiles from '/imports/ui/components/homepage/CommunityTiles';
 import SearchBar from '/imports/ui/components/search/SearchBar';
-import Navbar from '/imports/ui/layouts/Navs/Navbar';
 
-export default class Home extends React.Component{
-  constructor(props){
-    super(props);
-  }
-
-  componentDidMount(){
-    DocHead.addMeta({
-      name: "viewport",
-      content: "width=device-width, initial-scale=1"
-    });
-    DocHead.setTitle("Pynook - Get Personal");
-  }
-
-  render(){
-    return(
-      <div>
-        <div id="cover" className="row valign-wrapper" style={{overflowY: "hidden"}}>
-          <div className="overlay" />
-          <div id="search-wrapper" className="col s12 valign centerByMargin">
-            <h2 className="white-text center">Get Personal</h2>
-            <SearchBar />
-          </div>
-        </div>
-
-        <div className="wrapper striped" style={{marginBottom: "0px", zIndex: "20"}}>
-          <div className="wider-content row">
-            <TypeTiles />
-          </div>
-        </div>
-
-        <div className="wrapper" style={{background: "#f9f9f9", marginBottom: "0px"}}>
-          <div className="wider-content row">
-            <CategoryTiles />
-          </div>
+export default Home = props => {
+  return(
+    <div>
+      <div id="cover" className="row valign-wrapper" style={{overflowY: "hidden"}}>
+        <div className="overlay" />
+        <div id="search-wrapper" className="col s12 valign centerByMargin">
+          <h2 className="white-text center">Get Personal</h2>
+          <SearchBar />
         </div>
       </div>
-    )
-  }
+
+      <div className="wrapper striped" style={{marginBottom: "0px", zIndex: "20"}}>
+        <div className="wider-content row valign-wrapper">
+          <TypeTiles />
+        </div>
+      </div>
+
+      <div className="wrapper striped" style={{background: "#f9f9f9", marginBottom: "0px"}}>
+        <div className="wider-content row valign-wrapper">
+          <CategoryTiles />
+        </div>
+      </div>
+
+      <div className="wrapper">
+        <div className="wider-content row valign-wrapper">
+          <CommunityTiles />
+        </div>
+      </div>
+    </div>
+  )
 }
+
+export default createContainer(() => {
+  DocHead.addMeta({
+    name: "viewport",
+    content: "width=device-width, initial-scale=1"
+  });
+  DocHead.setTitle("Pynook - Get Personal");
+
+  return {}
+}, Home)

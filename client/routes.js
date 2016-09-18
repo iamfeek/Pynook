@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlowRouter} from 'meteor/kadira:flow-router-ssr'
+import {FlowRouter} from 'meteor/kadira:flow-router'
 import {mount} from 'react-mounter';
 
 import Layout from '/imports/ui/layouts/Layout.jsx';
@@ -18,9 +18,15 @@ import ProfileDashboard from '/imports/ui/pages/profile/ProfileDashboard';
 import MyPyns from '/imports/ui/pages/profile/MyPyns';
 
 import AdminDashboard from '/imports/ui/pages/admin/AdminDashboard';
-import PynsManagement from '/imports/ui/pages/admin/PynsManagement';
+import PynsManagement from '/imports/ui/pages/admin/pyns/PynsManagement';
+import BusinessPlansManagement from '/imports/ui/pages/admin/plans/BusinessPlansManagement';
+import NewBusinessPlan from '/imports/ui/pages/admin/plans/NewBusinessPlan';
 
 import BusinessDashboard from '/imports/ui/pages/business/BusinessDashboard';
+import MyListings from '/imports/ui/pages/business/MyListings';
+import MyBusinessProfile from '/imports/ui/pages/business/MyBusinessProfile';
+
+import CreateAListing from '/imports/ui/pages/listing/CreateAListing';
 
 function becauseAuthenticated(context, redirect){
   if(Meteor.userId()){
@@ -49,6 +55,24 @@ adminRoutes.route("/pyns", {
     })
   },
   name: "admin.pyns"
+});
+
+adminRoutes.route("/plans", {
+  action: () => {
+    mount(Layout, {
+      content: () => <BusinessPlansManagement />
+    })
+  },
+  name: "admin.plans"
+});
+
+adminRoutes.route("/plans/new", {
+  action: () => {
+    mount(Layout, {
+      content: () => <NewBusinessPlan />
+    })
+  },
+  name: "admin.plans.new"
 });
 
 
@@ -99,6 +123,32 @@ businessRoutes.route("/my-listings", {
   },
   name: "business.my-listings"
 });
+
+businessRoutes.route("/my-profile", {
+  action: () => {
+    mount(Layout, {
+      content: () => <MyBusinessProfile />
+    })
+  },
+  name: "business.my-profile"
+});
+
+
+// Listings
+var listingsRoutes = FlowRouter.group({
+  prefix: "/listings",
+  name: "listings"
+});
+
+listingsRoutes.route("/create", {
+  name: "listings.create",
+  action: () => {
+    mount(Layout, {
+      content: () => <CreateAListing />
+    })
+  }
+});
+// End Listing
 
 
 
@@ -167,4 +217,4 @@ FlowRouter.route("/register", {
       content: () => <Register />
     })
   }
-})
+});

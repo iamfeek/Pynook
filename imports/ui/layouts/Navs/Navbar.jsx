@@ -50,7 +50,7 @@ class Navbar extends React.Component{
               <li><a className="dropdown-button" href="#!" data-constrainWidth="false" data-beloworigin="true" data-hover="true" data-activates="newbieDropdown">Newbie <i className="fa fa-caret-down" aria-hidden="true"></i></a></li>
               <li><a href="#">FAQ</a></li>
               <li><a href={FlowRouter.path("pyn.a.place")}>Pyn A Place</a></li>
-              <NavbarAccountItem instance={this}/>
+              <NavbarAccountItem user={this.props.user}/>
             </ul>
           </div>
         </nav>

@@ -9,11 +9,15 @@ const AdminDashboard = props => {
       <PageHeader title="Admin Panel" src="/admin3.jpg"/>
 
       <div className="wider-content">
-
-
         <div className="actionWrapper valign-wrapper">
           <a href={FlowRouter.path("admin.pyns")} className="valign">
             Pyns Management
+          </a>
+        </div>
+
+        <div className="actionWrapper valign-wrapper">
+          <a href={FlowRouter.path("admin.plans")} className="valign">
+            Business Plans
           </a>
         </div>
       </div>

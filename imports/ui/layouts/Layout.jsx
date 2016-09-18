@@ -24,8 +24,10 @@ export default class Layout extends React.Component{
           {this.props.content()}
         </main>
 
-        <footer className="valign-wrapper" style={{height: "45px", background: "#484848", borderTop: "1px solid rgba(0, 0, 0, 0.075)", color: "white"}}>
-          <span className="valign centerByMargin">Pynook &copy; {new Date().getFullYear()}</span>
+        <footer className="center" style={{padding: "25px", height: "auto", background: "#484848", borderTop: "1px solid rgba(0, 0, 0, 0.075)", color: "white"}}>
+          <i className="fa fa-facebook" aria-hidden="true"></i>
+          <p>About Us | Terms of Use | Privacy Policy | FAQ | Pyn A Place</p>
+          <p>Pynook &copy; {new Date().getFullYear()}</p>
         </footer>
       </div>
     )

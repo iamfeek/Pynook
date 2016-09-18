@@ -1,0 +1,8 @@
+.community-tiles-card{
+  cursor: pointer;
+}
+
+.community-tiles-card:hover > .header, .community-tiles-card:hover > p{
+  transition: background 0.9s ease;
+  color: #ff4d55;
+}

@@ -13,13 +13,11 @@ const BusinessDashboard = props => {
   return(
     <div id="businessDashboard">
       <PageHeader src="/business-dashboard.jpg" title="Pynook Business" />
-      <div className="tagline">
-        <h6>Powered by the <span className="italics">Pynook Network&trade;</span></h6>
-      </div>
 
+      <div className="wider-content center row">
+        <BusinessAction title="My Listings" pathName="business.my-listings" />
 
-      <div className="wider-content center">
-        <BusinessAction title="My Listings" pathName="business." />
+        <BusinessAction title="Business Profile" pathName="business.my-profile" />
       </div>
     </div>
   )

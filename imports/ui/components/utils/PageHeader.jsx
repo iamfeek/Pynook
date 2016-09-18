@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default PageHeader = props => {
-  console.debug($(window).height()/2)
+  // console.debug($(window).height()/2)
   height = $(window).height()/2;
   props.style ? style = props.style : style = {};
   style.backgroundImage = "url('"+ props.src + "')";
@@ -9,7 +9,7 @@ export default PageHeader = props => {
 
   return(
     <div className="valign-wrapper header-image hide-on-small-only" style={style}>
-      <h1 className="header-image-text valign centerByMargin">{props.title}</h1>
+      <h1 className="header-image-text valign centerByMargin center">{props.title}</h1>
     </div>
   )
 }

@@ -7,9 +7,8 @@ export const Business = new Mongo.Collection('business');
 if (Meteor.isServer) {
   Meteor.publish("business.self", function(){
     business = Business.find({owner: this.userId})
-    console.log(business);
     return business;
-  })
+  });
 
   Meteor.methods({
     "business.convert"(){
@@ -22,6 +21,10 @@ if (Meteor.isServer) {
 
       Business.insert(business);
       return Roles.userIsInRole(this.userId, "business");
+    },
+
+    "business.getId"(userId){
+      return Business.findOne({owner: userId}, {$fields: {id:1}})._id;
     }
   })
 }

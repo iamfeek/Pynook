@@ -1,24 +1,32 @@
 import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
+import {Listings as ListingsDB} from '/imports/api/listings';
+
+import Listing from '/imports/ui/components/listings/Listing';
 
 const MyListings = props => {
   if(props.loading) return <Loading />
-  listings = props.listings;
+  let listings = props.listings;
   return(
     <div>
-      <PageHeader src="/my-pyns.jpg" title={title} />
+      <PageHeader src="/my-pyns.jpg" title={listings.length+" listings"} />
 
-      {pyns.length==0 ? <NoPyns /> : null}
-      <div className="wider-content row" style={{marginTop: "40px"}}>
-        {pyns.map(p => <MyPyn pyn={p} key={p._id}/>)}
+      <div className="wider-content row">
+        <div className="col s12"><a href={FlowRouter.path("listings.create")} className="btn btn-flat transparent center">Create A Listing</a></div>
+        {listings.map(l => <Listing listing={l} key={l._id}/>)}
       </div>
+
     </div>
   )
 }
 
 export default createContainer(() => {
+  DocHead.setTitle("My Listings - Pynook")
   let handle = Meteor.subscribe("listings.self");
-  return {
+  let listings = ListingsDB.find().fetch();
 
+  return {
+    loading: !(handle.ready() && listings),
+    listings: listings
   }
-})
+}, MyListings);

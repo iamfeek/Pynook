@@ -18,19 +18,19 @@ export default Home = props => {
       </div>
 
       <div className="wrapper striped" style={{marginBottom: "0px", zIndex: "20"}}>
-        <div className="wider-content row valign-wrapper">
+        <div className="row valign-wrapper">
           <TypeTiles />
         </div>
       </div>
 
       <div className="wrapper striped" style={{background: "#f9f9f9", marginBottom: "0px"}}>
-        <div className="wider-content row valign-wrapper">
+        <div className="row valign-wrapper">
           <CategoryTiles />
         </div>
       </div>
 
       <div className="wrapper">
-        <div className="wider-content row valign-wrapper">
+        <div className="row valign-wrapper">
           <CommunityTiles />
         </div>
       </div>

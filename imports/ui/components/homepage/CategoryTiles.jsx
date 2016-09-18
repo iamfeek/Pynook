@@ -2,7 +2,7 @@ import React from 'react';
 
 export default CategoryTiles = props => {
   return(
-    <div id="categoryTiles" className="valign max-width">
+    <div id="categoryTiles" className="valign col s12 l10 offset-l1">
       <h5 className="center">Discover Your</h5>
       <h3 className="center" style={{marginTop: "-13px"}}>Neighbourhood</h3>
 
@@ -45,7 +45,7 @@ export default CategoryTiles = props => {
         </div>
         <div className="col l8 s12 categoryTileWrapper">
           <a href={FlowRouter.path("pyns", "", {category: "Sports"})} className="categoryTile valign-wrapper" style={{backgroundImage: "url('/sports1.jpg')",backgroundSize: "cover", backgroundPosition: "center 65%"}}>
-            <h1 className="valign white-text">Sports & Wellness</h1>
+            <h1 className="valign white-text center">Sports & Wellness</h1>
           </a>
         </div>
       </div>

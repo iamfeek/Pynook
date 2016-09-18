@@ -17,12 +17,12 @@ export default CommunityTiles = props => {
     },
   ]
   return(
-    <div id="communityTiles" className="valign max-width">
+    <div id="communityTiles" className="col s12 l10 offset-l1 valign">
       <h5 className="center">Find your way</h5>
       <h3 className="center" style={{marginTop: "-13px"}}>Around Pynook</h3>
 
       <div className="row">
-        {cards.map(c => <CommunityTilesCard card={c} />)}
+        {cards.map((c, i) => <CommunityTilesCard card={c} key={i}/>)}
       </div>
     </div>
   )

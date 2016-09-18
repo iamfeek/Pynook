@@ -2,7 +2,7 @@ import React from 'react';
 
 export default TypeTiles = props => {
   return(
-    <div id="TypeTiles" className="col s12 valign max-width">
+    <div id="TypeTiles" className="col s12 l10 offset-l1 valign">
       <h5 className="center">Discover A New</h5>
       <h2 className="center" style={{marginTop: "-20px"}}>Experience</h2>
 

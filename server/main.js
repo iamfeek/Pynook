@@ -7,6 +7,7 @@ import '/imports/api/email.js'
 import '/imports/api/business.js'
 import '/imports/api/listings.js'
 import '/imports/api/plans.js'
+import '/imports/api/orders.js'
 import '/lib/seo.js'
 
 Meteor.startup(() => {

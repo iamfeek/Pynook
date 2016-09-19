@@ -13,44 +13,34 @@ import PynWriteReview from '/imports/ui/components/pyn/PynWriteReview';
 import PynReviews from '/imports/ui/components/pyn/PynReviews';
 
 const Pyn = props =>{
-  // console.debug("Loading: " + this.props.loading)
-  if(props.loading){
-    return(
-      <div style={{height: "100vh", width: "100%"}}>
-        <Loading />
-      </div>
-    )
-  } else{
-    pyn = props.pyn;
-    reviews = props.reviews;
-    // console.debug("Reviews: " + reviews);
-    // console.debug("Loading: " + this.props.loading)
-    // console.debug("Pyn render: " + pyn)
-    return (
-      <div id="pyn" className="row">
-        <div className="pyn_image" style={{backgroundImage: "url("+ pyn.photos[0] +")", backgroundSize: "contain"}} />
+  if(props.loading) return <div className="wider-content"><Loading /></div>
 
-        <PynHeader name={pyn.name} category={pyn.category} tagline={pyn.tagline} />
+  let pyn = props.pyn;
+  let reviews = props.reviews;
+  return (
+    <div id="pyn" className="row">
+      <div className="pyn_image" style={{backgroundImage: "url("+ pyn.photos[0] +")", backgroundSize: "contain"}} />
 
-        <div className="wider-content">
-          <div className="pyn_sidebar">
-            <PynMapWidget address={pyn.address} latlng={pyn.latlng}/>
-            <PynGalleryWidget category={pyn.category} photos={pyn.photos} />
-          </div>
+      <PynHeader name={pyn.name} category={pyn.category} tagline={pyn.tagline} />
 
-          <div className="pyn_content">
-            <PynActions />
-            
-            <PynDescription description={pyn.description} />
+      <div className="wider-content">
+        <div className="pyn_sidebar">
+          <PynMapWidget address={pyn.address} latlng={pyn.latlng}/>
+          <PynGalleryWidget category={pyn.category} photos={pyn.photos} />
+        </div>
 
-            <PynReviews reviews={reviews} />
+        <div className="pyn_content">
+          <PynActions />
 
-            <PynWriteReview _id={pyn._id}/>
-          </div>
+          <PynDescription description={pyn.description} />
+
+          <PynReviews reviews={reviews} />
+
+          <PynWriteReview _id={pyn._id}/>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default createContainer(({id}) => {

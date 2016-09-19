@@ -51,9 +51,7 @@ if (Meteor.isServer) {
       console.log(JSON.stringify(pyn, null, 2));
       console.log(id);
 
-
-
       return Pyns.update({_id: id}, {$set: pyn});
-    }
+    },
   });
 }

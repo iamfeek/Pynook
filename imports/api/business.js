@@ -24,6 +24,8 @@ if (Meteor.isServer) {
     },
 
     "business.getId"(userId){
+      check(userId, String);
+
       return Business.findOne({owner: userId}, {$fields: {id:1}})._id;
     }
   })

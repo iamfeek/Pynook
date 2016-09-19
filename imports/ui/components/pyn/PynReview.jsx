@@ -14,7 +14,7 @@ const PynReview = props => {
           <h3 className="pyn_review_content-title">
             "{review.title}"
             <span style={{fontSize: "12px"}}> by </span>
-            <span style={{fontSize: "12px", textDecoration: "underline"}}> {review.username} </span>
+            <span style={{fontSize: "12px", textDecoration: "underline"}}> {review.username}</span>
             <span style={{fontSize: "12px"}}> on </span>
             <span style={{fontSize: "12px", textDecoration: "underline"}}> {date} </span>
             </h3>

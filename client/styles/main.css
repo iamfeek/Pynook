@@ -14,6 +14,10 @@ form{
   width: 100%;
 }
 
+.borderTop{
+  border-top: 1px solid rgba(0,0,0,0.075);
+}
+
 /*select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"],
  input[type="search"], input[type="tel"], input[type="color"], .form-control, .select2-container .select2-choice{
    border: 1px solid rgba(0, 0, 0, 0.075);
@@ -127,7 +131,7 @@ label{
 
 .wider-content{
   width: 1200px;
-  min-height: 400px;
+  min-height: 600px;
   margin: 0 auto;
 }
 

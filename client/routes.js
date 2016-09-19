@@ -6,6 +6,7 @@ import Layout from '/imports/ui/layouts/Layout.jsx';
 
 import Login from '/imports/ui/pages/accounts/Login';
 import Register from '/imports/ui/pages/accounts/Register';
+import NotFound from '/imports/ui/components/utils/NotFound';
 
 import Home from '/imports/ui/pages/Home.jsx';
 
@@ -25,6 +26,9 @@ import NewBusinessPlan from '/imports/ui/pages/admin/plans/NewBusinessPlan';
 import BusinessDashboard from '/imports/ui/pages/business/BusinessDashboard';
 import MyListings from '/imports/ui/pages/business/MyListings';
 import MyBusinessProfile from '/imports/ui/pages/business/MyBusinessProfile';
+import MyBusinessOrders from '/imports/ui/pages/business/MyBusinessOrders';
+
+import MyOrders from '/imports/ui/pages/orders/MyOrders';
 
 import CreateAListing from '/imports/ui/pages/listing/CreateAListing';
 
@@ -33,6 +37,22 @@ function becauseAuthenticated(context, redirect){
     redirect("/");
   }
 }
+
+var ordersRoutes = FlowRouter.group({
+  prefix: '/orders',
+  name: 'order',
+});
+
+ordersRoutes.route("/", {
+  action: () => {
+    mount(Layout, {
+      content: () => <MyOrders />
+    })
+  },
+  name: "orders.my-orders"
+});
+
+
 
 var adminRoutes = FlowRouter.group({
   prefix: '/admin',
@@ -133,6 +153,15 @@ businessRoutes.route("/my-profile", {
   name: "business.my-profile"
 });
 
+businessRoutes.route("/orders", {
+  action: () => {
+    mount(Layout, {
+      content: () => <MyBusinessOrders />
+    })
+  },
+  name: "business.my-orders"
+});
+
 
 // Listings
 var listingsRoutes = FlowRouter.group({
@@ -218,3 +247,11 @@ FlowRouter.route("/register", {
     })
   }
 });
+
+FlowRouter.notFound = {
+    action: () => {
+      mount(Layout, {
+        content: () => <NotFound />
+      })
+    }
+};

@@ -5,20 +5,13 @@ import SearchResult from '/imports/ui/components/search/SearchResult.jsx';
 import SearchResultEmpty from '/imports/ui/components/search/SearchResultEmpty.jsx';
 
 export default SearchResults = props => {
-  if(props.loading){
-    return(
-      <div>
-        <Loading />
-      </div>
-    )
-  } else{
+  let pyns = props.pyns;
     return(
       <div>
         {renderResult(pyns)}
       </div>
     )
   }
-}
 
 let renderResult = pyns => {
   if(pyns.length === 0) return <SearchResultEmpty />

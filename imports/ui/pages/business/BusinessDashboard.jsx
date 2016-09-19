@@ -18,6 +18,8 @@ const BusinessDashboard = props => {
         <BusinessAction title="My Listings" pathName="business.my-listings" />
 
         <BusinessAction title="Business Profile" pathName="business.my-profile" />
+
+        <BusinessAction title="Orders" pathName="business.my-orders" />
       </div>
     </div>
   )

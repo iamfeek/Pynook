@@ -2,101 +2,56 @@ import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Pyns as PynsDB} from '/imports/api/pyns.js';
 import Loading from '/imports/ui/components/utils/Loading'
+import Maps from '/imports/ui/components/utils/Maps';
 
-import SearchResults from '/imports/ui/components/search/SearchResults'
-import CategorySearch from '/imports/ui/components/search/CategorySearch'
-import TypeSearch from '/imports/ui/components/search/TypeSearch'
-import TextSearch from '/imports/ui/components/search/TextSearch'
-
-class Pyns extends React.Component{
-  constructor(props){
-    super(props)
-  }
-
-  componentDidMount(){
-    DocHead.addMeta({
-      name: "viewport",
-      content: "width=device-width, initial-scale=1"
-    });
-    DocHead.setTitle("Pyns - Pynook")
-
-    setTimeout(() => {
-      GoogleMaps.create({
-        name: 'map',
-        element: document.getElementById('map'),
-        options: {
-          center: new google.maps.LatLng(1.356895, 103.863355),
-          zoom: 11
-        }
-      });
-    }, 1000)
-  }
-
-  mappify(){
-    if(!this.props.loading){
-      // this.getMarkers(this.props.pyns);
-      markers = this.getMarkers(this.props.pyns);
-      // console.debug(markers)
-      // markers = [
-      //   new google.maps.LatLng(1.356895, 103.863355),
-      //   new google.maps.LatLng(1.338000, 103.850880),
-      //     new google.maps.LatLng(1.324000, 103.850880),
-      //     new google.maps.LatLng(1.328000, 103.850880)
-      // ]
+import SearchResults from '/imports/ui/components/search/SearchResults';
+import SearchFilters from '/imports/ui/components/search/SearchFilters';
 
 
-      GoogleMaps.ready('map', map => {
-        markers.map(latlng => {
-          marker = new google.maps.Marker({
-            animation: google.maps.Animation.DROP,
-            icon: window.location.origin+"/location_general.png",
-            position: new google.maps.LatLng(latlng),
-            map: map.instance
-          })
-        });
-      })
-    }
-  }
+const Pyns = props => {
+  if(props.loading) return <div className="wider-content"><Loading /></div>
 
-  getMarkers(pyns){
-    markers = []
-
-    return pyns.map(pyn => {
-      // return markers.push(pyn.latlng);
-      return pyn.latlng;
-    })
-
-    // return markers;
-  }
-
-  render(){
-    return(
-      <div id="pyns" className="row">
-        <div id="resultsSection" className="col s12 l7">
-          <div id="searchFilters" className="col s12">
-            <div className="SearchFilter row">
-              <div className="col s12 l6" style={{padding: "0"}}><TextSearch /></div>
-              <div className="col s6 l3" style={{padding: "0"}}><CategorySearch /></div>
-              <div className="col s6 l3" style={{padding: "0"}}><TypeSearch /></div>
-              {$("select").material_select()}
-            </div>
-          </div>
-
-          <div id="searchResults" className="col s12">
-            <SearchResults pyns={this.props.pyns} loading={this.props.loading}/>
+  let pyns = props.pyns;
+  return(
+    <div id="pyns" className="row">
+      <div id="resultsSection" className="col s12 l7">
+        <div id="searchFilters" className="col s12 fixed-top">
+          <SearchFilters />
+          <div className="row borderTop">
+            <ul className="tabs" ref={() => $('ul.tabs').tabs()}>
+              <li className="tab col s6"><a href="#pynsTab">Pyns</a></li>
+              <li className="tab col s6"><a href="#listingsTab">Listings</a></li>
+            </ul>
           </div>
         </div>
 
-        <div id="map" className="hide-on-med-and-down col l5">
-          {this.mappify()}
-          <Loading />
+        <div id="searchResults" className="col s12">
+
+          <div id="pynsTab">
+          <SearchResults pyns={pyns}/>
+          </div>
+          <div id="listingsTab">
+          <SearchResults pyns={[]} />
+          </div>
+
         </div>
       </div>
-    )
-  }
+
+      <div id="map" className="hide-on-med-and-down col l5 fixed-top">
+        <Maps id="map" pyns={pyns}/>
+        <Loading />
+      </div>
+    </div>
+  )
 }
 
 export default createContainer(({query}) => {
+  DocHead.setTitle("Pyns - Pynook")
+  DocHead.addMeta({
+    name: "viewport",
+    content: "width=device-width, initial-scale=1"
+  });
+
   mQuery = {};
   if(query.q) mQuery["name"] = {$regex: new RegExp(query.q, "i")};
   if(query.category) mQuery["category"] = {$regex: new RegExp(query.category, "i")};
@@ -106,7 +61,7 @@ export default createContainer(({query}) => {
   pyns = PynsDB.find(mQuery, {sort: {createdAt: 1}}).fetch();
 
   return {
-    loading: (!sub.ready() && pyns),
+    loading: !(sub.ready() && pyns),
     pyns: pyns
   }
 }, Pyns)

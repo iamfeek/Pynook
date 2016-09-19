@@ -25,13 +25,6 @@ const BusinessConvert = props => {
         </div>
       </div>
 
-      <div className="wider-content center">
-        <BusinessPlans />
-        
-        <div className="businessConvert_action centerByMargin">
-          <button ref={() => $('.modal-trigger').leanModal()} data-target="confirmConvertModal" className="z-index-0 btn modal-trigger">Convert Now</button>
-        </div>
-      </div>
       <ConfirmConvertModal />
     </div>
   )

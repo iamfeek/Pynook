@@ -19,6 +19,13 @@ if(Meteor.isServer){
     'users.getUsername'(id){
       check(id, String);
       return Meteor.users.find({_id: id}, {username: 1});
-    }
+    },
+    'users.getEmail'(id){
+      var email = Meteor.users.find(
+          {_id : id},
+          {fields : {'emails.address': 1} }
+        ).fetch();
+      return email;
+    },
   });
 }

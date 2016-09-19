@@ -3,6 +3,7 @@ import React from 'react';
 export default PageHeader = props => {
   // console.debug($(window).height()/2)
   height = $(window).height()/2;
+  // height = "300"
   props.style ? style = props.style : style = {};
   style.backgroundImage = "url('"+ props.src + "')";
   style.height = height+"px";

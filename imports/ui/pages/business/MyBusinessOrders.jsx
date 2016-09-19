@@ -13,11 +13,13 @@ const MyBusinessOrders = props => {
       <PageHeader src="/my-business-orders.jpg" title="Business Orders" />
 
       <div className="row">
-        <div className="row">
-          <h2 className="center"><span className="red-text">{orders.length}</span> Pending Orders</h2>
+        <h2 className="center"><span className="red-text">{orders.length}</span> Pending Orders</h2>
 
+
+        <div className="col s12 l8 offset-l2">
           <BusinessOrdersTable orders={orders} />
         </div>
+
       </div>
     </div>
   )

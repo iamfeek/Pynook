@@ -7,23 +7,7 @@ import OrdersTable from '/imports/ui/components/orders/OrdersTable';
 
 const MyOrders = props => {
   if(props.loading) return <div className="wider-content"><Loading /></div>
-
-  // let orders = [
-  //   {
-  //     _id: "1",
-  //     title: "Order #1",
-  //     description: "Order number one is order number one",
-  //     status: "preparing",
-  //     orderedAt: new Date()
-  //   },
-  //   {
-  //     _id: "2",
-  //     title: "Order #2",
-  //     description: "Order number two is order number two",
-  //     status: "shipped",
-  //     orderedAt: new Date()
-  //   }
-  // ];
+  
   let orders = props.orders;
   return(
     <div id="myOrders">
@@ -32,7 +16,9 @@ const MyOrders = props => {
       <div className="row">
         <h2 className="center"><span className="red-text">{orders.length}</span> Pending Orders</h2>
 
-        <OrdersTable orders={orders} />
+        <div className="col s12 l8 offset-l2">
+          <OrdersTable orders={orders} />
+        </div>
       </div>
     </div>
   )

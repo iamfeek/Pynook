@@ -7,7 +7,7 @@ import OrderInfo from './OrderInfo';
 export default OrdersTable = props => {
   let orders = props.orders;
   return(
-    <ul className="collapsible col s12 l8 offset-l2" data-collapsible="accordion" ref={() => $('.collapsible').collapsible()}>
+    <ul className="collapsible" data-collapsible="accordion" ref={() => $('.collapsible').collapsible()}>
       {orders.map(o => <BusinessOrderItem item={o} key={o._id} />)}
     </ul>
   )

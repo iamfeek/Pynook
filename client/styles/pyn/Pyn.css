@@ -55,7 +55,7 @@
 .pyn_sidebar{
   width: 38%;
   float: right;
-  margin-top: -16%;
+  /*margin-top: -16%;*/
 }
 
 .pyn_content{
@@ -102,7 +102,7 @@
 .pyn_map{
   border: 1px solid rgba(0, 0, 0, 0.075);
   height: 208px;
-  width: 323px;
+  /*width: 323px;*/
 }
 
 .pyn_address{

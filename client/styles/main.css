@@ -2,6 +2,9 @@
   border: 1px solid rgba(0, 0, 0, 0.075);
 }
 
+#textSearch{
+  font-size: 16px !important;
+}
 
 form{
   margin-top: 20px;

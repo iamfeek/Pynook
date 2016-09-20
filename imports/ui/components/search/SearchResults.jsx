@@ -5,17 +5,12 @@ import SearchResult from '/imports/ui/components/search/SearchResult.jsx';
 import SearchResultEmpty from '/imports/ui/components/search/SearchResultEmpty.jsx';
 
 export default SearchResults = props => {
-  let pyns = props.pyns;
-    return(
-      <div>
-        {renderResult(pyns)}
-      </div>
-    )
-  }
+  let items = props.items;
+  if(items.length === 0) return <SearchResultEmpty />
 
-let renderResult = pyns => {
-  if(pyns.length === 0) return <SearchResultEmpty />
-  return pyns.map((pyn, number) => {
-    return <SearchResult pyn={pyn} key={number} />
-  })
+  return(
+    <div>
+      {items.map(item => <SearchResult item={item} key={item._id} />)}  
+    </div>
+  )
 }

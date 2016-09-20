@@ -6,6 +6,7 @@ import {Reviews} from '/imports/api/reviews.js';
 import Loading from '/imports/ui/components/utils/Loading';
 import PynHeader from '/imports/ui/components/pyn/PynHeader';
 import PynMapWidget from '/imports/ui/components/pyn/PynMapWidget';
+import PynBuyWidget from '/imports/ui/components/pyn/PynBuyWidget';
 import PynGalleryWidget from '/imports/ui/components/pyn/PynGalleryWidget';
 import PynActions from '/imports/ui/components/pyn/PynActions';
 import PynDescription from '/imports/ui/components/pyn/PynDescription';
@@ -17,6 +18,7 @@ const Pyn = props =>{
 
   let pyn = props.pyn;
   let reviews = props.reviews;
+  let type = pyn.type;
   return (
     <div id="pyn" className="row">
       <div className="pyn_image" style={{backgroundImage: "url("+ pyn.photos[0] +")", backgroundSize: "contain"}} />
@@ -25,17 +27,17 @@ const Pyn = props =>{
 
       <div className="wider-content">
         <div className="pyn_sidebar">
-          <PynMapWidget address={pyn.address} latlng={pyn.latlng}/>
+          {
+            type=="pyn" ? <PynMapWidget address={pyn.address} latlng={pyn.latlng}/> : <PynBuyWidget businessId={pyn.business} listingId={pyn._id} price={pyn.price} />
+          }
+
           <PynGalleryWidget category={pyn.category} photos={pyn.photos} />
         </div>
 
         <div className="pyn_content">
           <PynActions />
-
           <PynDescription description={pyn.description} />
-
           <PynReviews reviews={reviews} />
-
           <PynWriteReview _id={pyn._id}/>
         </div>
       </div>
@@ -43,42 +45,22 @@ const Pyn = props =>{
   )
 }
 
-export default createContainer(({id}) => {
-  pynsHandle = Meteor.subscribe("pyns.single", id);
-  reviewsHandle = Meteor.subscribe("reviews.single", id);
-  pyn = Pyns.findOne();
-  reviews = Reviews.find().fetch();
+export default createContainer(({id, type}) => {
+  let pynsHandle = Meteor.subscribe("pyns.single", id);
+  let reviewsHandle = Meteor.subscribe("reviews.single", id);
+  let pyn = Pyns.findOne();
+  let reviews = Reviews.find().fetch();
   // console.debug("Container pyn: " + pyn);
 
   if(pyn){
     DocHead.setTitle(pyn.name + " - Pynook")
-    // SEO.set({
-    //   title: pyn.name,
-    //   description: pyn.description,
-    //   meta: {
-    //     'property="og:title"': pyn.title,
-    //     'property="og:description"': pyn.description,
-    //     'property="og:image"': pyn.photos[0],
-    //     'name="twitter:image"': pyn.photos[0]
-    //   }
-    // });
-    // var metaInfo = [
-    //   {name: "description", content: pyn.tagline},
-    //   {name: "og:title", content: pyn.name},
-    //   {name: "og:description", content: pyn.description},
-    //   {name: "og:image", content: pyn.photos[0]},
-    //   {name: "og:type", content: "object"}
-    // ]
-    // metaInfo.map(mi => {
-    //   DocHead.addMeta(mi);
-    // })
   } else{
     DocHead.setTitle("Loading Pyn - Pynook")
   }
 
 
   return {
-    loading: (pynsHandle && reviewsHandle && pyn && reviews) ? false : true,
+    loading: !(pynsHandle.ready() && reviewsHandle.ready() && pyn && reviews),
     pyn: pyn,
     reviews: reviews
   }

@@ -5,9 +5,9 @@ import '/imports/api/reviews.js';
 import '/imports/api/users.js';
 import '/imports/api/email.js'
 import '/imports/api/business.js'
-import '/imports/api/listings.js'
 import '/imports/api/plans.js'
 import '/imports/api/orders.js'
+import '/imports/api/payments.js'
 import '/lib/seo.js'
 
 Meteor.startup(() => {

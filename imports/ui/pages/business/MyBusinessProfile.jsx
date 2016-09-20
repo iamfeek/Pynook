@@ -13,18 +13,11 @@ const MyBusinessProfile = props => {
     <div>
       <PageHeader src="/my-business-profile2.jpg" title="My Business Profile" />
 
-      <div className="wider-content row">
-        <h4 className="center">Created at {profile.createdAt.getFullYear()}</h4>
-        <BusinessForm profile={profile} />
-      </div>
-
-      <div className="divider" />
-
-      <div className="wider-content row" style={{marginTop: "40px"}}>
-        <div className="col s12">
-          <h4 className="center">
-            Subscription Details
-          </h4>
+      <div className="row">
+        <div className="col s12 l10 offset-l1">
+          <h2 className="center">Business Profile</h2>
+          <h5 className="center">Created at {profile.createdAt.getFullYear()}</h5>
+          <BusinessForm profile={profile} />
         </div>
       </div>
     </div>

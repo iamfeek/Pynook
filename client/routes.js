@@ -21,6 +21,7 @@ import MyPyns from '/imports/ui/pages/profile/MyPyns';
 import AdminDashboard from '/imports/ui/pages/admin/AdminDashboard';
 import PynsManagement from '/imports/ui/pages/admin/pyns/PynsManagement';
 import BusinessPlansManagement from '/imports/ui/pages/admin/plans/BusinessPlansManagement';
+import OrdersManagement from '/imports/ui/pages/admin/orders/OrdersManagement';
 import NewBusinessPlan from '/imports/ui/pages/admin/plans/NewBusinessPlan';
 
 import BusinessDashboard from '/imports/ui/pages/business/BusinessDashboard';
@@ -93,6 +94,15 @@ adminRoutes.route("/plans/new", {
     })
   },
   name: "admin.plans.new"
+});
+
+adminRoutes.route("/orders", {
+  action: () => {
+    mount(Layout, {
+      content: () => <OrdersManagement />
+    })
+  },
+  name: "admin.orders"
 });
 
 

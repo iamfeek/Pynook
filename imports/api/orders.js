@@ -12,27 +12,35 @@ if (Meteor.isServer) {
   Meteor.publish("orders.forBusiness", function(){
     businessId = Meteor.call("business.getId", this.userId);
     return Orders.find({business: businessId});
+  });
+
+  Meteor.publish("orders.unpaid", function(){
+    let isAdmin = Roles.userIsInRole(this.userId, "admin");
+
+    if(isAdmin){
+      return Orders.find({status: "received", paymentStatus: "unpaid"});
+    } else{
+      throw new Meteor.Error(500, "Access Denied");
+    }
   })
 
   Meteor.methods({
     "orders.create"(order){
       console.log("Incoming order Creation from user: " + this.userId)
-      check(order.title, String);
-      check(parseInt(order.price), Number);
-      check(parseInt(order.quantity), Number)
-      check(order.description, String);
-
       let shippingInfo = order.shippingInfo;
+      check(order.quantity, Number);
+      check(order.listing, String)
+      check(shippingInfo.email, String);
+      check(shippingInfo.name, String);
       check(shippingInfo.address, String);
-      check(shippingInfo.address2, String);
+      check(shippingInfo.block, String);
       check(shippingInfo.unit, String);
-      check(shippingInfo.postal, String);
-      check(shippingInfo.country, String);
+      check(shippingInfo.postal, Number);
 
       order.createdAt = new Date();
       order.buyer = this.userId;
       order.buyerEmail = Meteor.call("users.getEmail", this.userId);
-      order.business = Meteor.call("business.getId", this.userId);
+      order.businessEmail = Meteor.call('business.getEmail', order.business); //should be businessId.
       order.status = "pending";
       order.orderedAt = new Date();
       order.lastModified = new Date();
@@ -51,7 +59,7 @@ if (Meteor.isServer) {
     },
 
     'orders.hasReceived'(orderId){
-      return Orders.update({_id: orderId}, {$set: {status: "received"}})
-    }
+      return Orders.update({_id: orderId}, {$set: {status: "received", receivedDate: new Date()}})
+    },
   })
 }

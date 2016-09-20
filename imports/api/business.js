@@ -11,22 +11,44 @@ if (Meteor.isServer) {
   });
 
   Meteor.methods({
-    "business.convert"(){
+    "business.convert"(profile){
       Roles.addUsersToRoles(this.userId, "business");
 
-      business = {
-        owner: this.userId,
-        createdAt: new Date(),
-      }
+      check(profile.email, String);
+      check(profile.name, String);
+      check(profile.block, String);
+      check(profile.address, String);
+      check(profile.unit, String);
+      check(profile.hours, String);
+      check(profile.postal, Number);
 
-      Business.insert(business);
-      return Roles.userIsInRole(this.userId, "business");
+      profile.owner = this.userId;
+      profile.createdAt = new Date();
+      profile.lastModified = new Date();
+
+      if(Business.insert(profile)) return Roles.userIsInRole(this.userId, "business");
+
     },
 
     "business.getId"(userId){
       check(userId, String);
 
-      return Business.findOne({owner: userId}, {$fields: {id:1}})._id;
-    }
+      return Business.findOne({owner: userId}, {fields: {_id:1}})._id;
+    },
+
+    "business.getEmail"(businessId){
+      check(businessId, String);
+      console.log("Business Get Email - ", businessId)
+
+      if(Roles.userIsInRole(this.userId, "admin")){
+        let result = Business.findOne({_id: businessId}, {fields: {email: 1}});
+        console.log("Business Get Email - Granted - ", result.email);
+
+        return result.email;
+      }
+    },
   })
+
+
+
 }

@@ -14,12 +14,15 @@ const BusinessDashboard = props => {
     <div id="businessDashboard">
       <PageHeader src="/business-dashboard.jpg" title="Pynook Business" />
 
-      <div className="wider-content center row">
-        <BusinessAction title="My Listings" pathName="business.my-listings" />
+      <div className="row">
+        <h2 className="center">Dashboard</h2>
+        <div className="col s12 l10 offset-l1">
+          <BusinessAction title="My Listings" pathName="business.my-listings" />
 
-        <BusinessAction title="Business Profile" pathName="business.my-profile" />
+          <BusinessAction title="Business Profile" pathName="business.my-profile" />
 
-        <BusinessAction title="Orders" pathName="business.my-orders" />
+          <BusinessAction title="Orders" pathName="business.my-orders" />
+        </div>
       </div>
     </div>
   )

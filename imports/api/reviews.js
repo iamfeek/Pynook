@@ -7,7 +7,7 @@ export const Reviews = new Mongo.Collection("reviews");
 
 if(Meteor.isServer){
   Meteor.publish("reviews.single", pynId => {
-    return Reviews.find({}, {pyn: pynId});
+    return Reviews.find({pyn: pynId});
   });
 
   Meteor.methods({

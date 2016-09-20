@@ -1,5 +1,6 @@
 #pyns{
-  height: 100vh;
+height: calc(100vh - 64px);
+  margin-bottom: 0;
 }
 
 #pyns #searchFilters, #pyns #searchResults, #pyns #map, #pyns #resultsSection{
@@ -7,12 +8,13 @@
 }
 
 #pyns #map, #pyns #resultsSection{
-  height: calc(100vh - 64px);
+
+  height: 100%;
 }
 
 @media(min-width: 992px){
   #pyns #resultsSection{
-    max-width: 750px;
+    /*max-width: 750px;*/
   }
 }
 
@@ -23,12 +25,13 @@
 }
 
 #pyns #resultsSection{
+  width: 48%;
   /*width: 750px;*/
   margin-right: 0;
   padding: 0px;
 }
 #pyns #map{
-  width: calc(100% - 750px);
+  width: 52%;
   padding: 0px;
   border-left: 1px solid rgba(0, 0, 0, 0.075);
 }
@@ -41,7 +44,7 @@
 }
 
 #pyns #searchFilters{
-  height: 150px;
+  height: 100px;
   background-color: #fff;
   padding: 0px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.075);

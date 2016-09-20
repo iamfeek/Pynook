@@ -20,6 +20,12 @@ const AdminDashboard = props => {
             Business Plans
           </a>
         </div>
+
+        <div className="actionWrapper valign-wrapper">
+          <a href={FlowRouter.path("admin.orders")} className="valign">
+            Orders Management
+          </a>
+        </div>
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Pyns as PynsDB} from '/imports/api/pyns.js';
+import {Listings as PynsDB} from '/imports/api/pyns.js';
 import Loading from '/imports/ui/components/utils/Loading'
 import Maps from '/imports/ui/components/utils/Maps';
 
@@ -8,32 +8,26 @@ import SearchResults from '/imports/ui/components/search/SearchResults';
 import SearchFilters from '/imports/ui/components/search/SearchFilters';
 
 
-const Pyns = props => {
+const Listings = props => {
   if(props.loading) return <div className="wider-content"><Loading /></div>
 
   let pyns = props.pyns;
   return(
     <div id="pyns" className="row">
-      <div id="resultsSection" className="col s12 l7">
+      <div id="resultsSection" className="col s12">
         <div id="searchFilters" className="col s12 fixed-top">
           <SearchFilters />
         </div>
-
         <div id="searchResults" className="col s12">
-          <SearchResults items={pyns} />
+          <SearchResults items={listings}/>
         </div>
-      </div>
-
-      <div id="map" className="hide-on-med-and-down col l5 fixed-top">
-        <Maps id="map" pyns={pyns}/>
-        <Loading />
       </div>
     </div>
   )
 }
 
 export default createContainer(({query}) => {
-  DocHead.setTitle("Pyns - Pynook")
+  DocHead.setTitle("Listings - Pynook")
   DocHead.addMeta({
     name: "viewport",
     content: "width=device-width, initial-scale=1"
@@ -44,11 +38,11 @@ export default createContainer(({query}) => {
   if(query.category) mQuery["category"] = {$regex: new RegExp(query.category, "i")};
   if(query.type) mQuery["type"] = {$regex: new RegExp(query.type, "i")};
 
-  let sub = Meteor.subscribe("pyns.approved");
-  let pyns = PynsDB.find(mQuery, {sort: {type: 1, createdAt: 1}}).fetch();
+  sub = Meteor.subscribe("pyns.approved");
+  pyns = PynsDB.find(mQuery, {sort: {createdAt: 1}}).fetch();
 
   return {
     loading: !(sub.ready() && pyns),
     pyns: pyns
   }
-}, Pyns)
+}, Listings)

@@ -13,10 +13,14 @@ const MyPyns = props => {
   return(
     <div>
       <PageHeader src="/my-pyns.jpg" title={title} />
+      <h2 className="center">My Pyns</h2>
 
       {pyns.length==0 ? <NoPyns /> : null}
-      <div className="wider-content row" style={{marginTop: "40px"}}>
-        {pyns.map(p => <MyPyn pyn={p} key={p._id}/>)}
+      <div className="row" style={{marginTop: "40px"}}>
+        <div className="col s12 l10 offset-l1">
+            {pyns.map(p => <MyPyn pyn={p} key={p._id}/>)}
+        </div>
+
       </div>
     </div>
   )
@@ -24,6 +28,10 @@ const MyPyns = props => {
 
 export default createContainer(() => {
   DocHead.setTitle("My Pyns - Pynook")
+  DocHead.addMeta({
+    name: "viewport",
+    content: "width=device-width, initial-scale=1"
+  });
   var handle = Meteor.subscribe("pyns.self");
   var pyns = Pyns.find().fetch();
 

@@ -10,6 +10,11 @@ export default NewListingForm = props => {
       </div>
 
       <div className="input-field col s12">
+        <h5 className="field-header">Tagline</h5>
+        <input required id="listings_tagline" type="text" className="validate" />
+      </div>
+
+      <div className="input-field col s12">
         <h5 className="field-header">Price</h5>
         <input required id="listings_price" type="number" className="validate" />
       </div>
@@ -50,6 +55,7 @@ const submit = e => {
   e.preventDefault();
 
   let name = document.getElementById("listings_name").value;
+  let tagline = document.getElementById("listings_tagline").value;
   let price = document.getElementById("listings_price").value;
   let description = tinyMCE.get('listings_description').getContent();
   let photos = [];
@@ -67,6 +73,7 @@ const submit = e => {
 
   let listing = {
     name: name,
+    tagline: tagline,
     price: price,
     photos: photos,
     description: description,

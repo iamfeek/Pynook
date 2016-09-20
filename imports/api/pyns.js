@@ -23,6 +23,24 @@ if (Meteor.isServer) {
   })
 
   Meteor.methods({
+    'pyns.insertListing'(listing){
+      console.log("Incoming Listing Creation from user: " + this.userId)
+      check(listing.name, String);
+      check(listing.tagline, String);
+      check(parseInt(listing.price), Number);
+      check(listing.description, String);
+
+      listing.createdAt = new Date();
+      listing.owner = this.userId;
+      listing.type = "listing";
+      listing.approved = true;
+
+      listing.business = Meteor.call("business.getId", this.userId);
+      listing.address = Meteor.call("business.getAddressString", listing.business);//listing.business is the business ID at this point
+
+      // console.log(JSON.stringify(listing, null, 2))
+      return Pyns.insert(listing);
+    },
     'pyns.insert'(pyn){
       check(pyn.name, String);
       check(pyn.tagline, String);
@@ -36,6 +54,7 @@ if (Meteor.isServer) {
       pyn.createdAt = new Date();
       pyn.owner = this.userId;
       pyn.approved = false;
+      pyn.type = "pyn";
 
       return Pyns.insert(pyn);
     },

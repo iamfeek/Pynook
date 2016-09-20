@@ -1,6 +1,6 @@
 import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Listings as ListingsDB} from '/imports/api/listings';
+import {Pyns} from '/imports/api/pyns';
 
 import Listing from '/imports/ui/components/listings/Listing';
 
@@ -22,8 +22,8 @@ const MyListings = props => {
 
 export default createContainer(() => {
   DocHead.setTitle("My Listings - Pynook")
-  let handle = Meteor.subscribe("listings.self");
-  let listings = ListingsDB.find().fetch();
+  let handle = Meteor.subscribe("pyns.listings.self");
+  let listings = Pyns.find().fetch();
 
   return {
     loading: !(handle.ready() && listings),

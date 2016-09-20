@@ -21,11 +21,13 @@ if(Meteor.isServer){
       return Meteor.users.find({_id: id}, {username: 1});
     },
     'users.getEmail'(id){
-      var email = Meteor.users.find(
+      if(Roles.userIsInRole(this.userId, "admin")){
+        var email = Meteor.users.findOne(
           {_id : id},
           {fields : {'emails.address': 1} }
-        ).fetch();
-      return email;
+        ).emails[0].address;
+        return email;
+      }
     },
   });
 }

@@ -9,6 +9,10 @@ if (Meteor.isServer) {
     return Orders.find({buyer: this.userId, status: {$not: /received/}})
   });
 
+  Meteor.publish("orders.done", function(){
+    return Orders.find({buyer: this.userId, status: "received"})
+  });
+
   Meteor.publish("orders.forBusiness", function(){
     businessId = Meteor.call("business.getId", this.userId);
     return Orders.find({business: businessId});

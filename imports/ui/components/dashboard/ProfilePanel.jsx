@@ -7,7 +7,7 @@ export default ProfilePanel = () => {
       <h2 className="center">Profile</h2>
       <DashboardAction title="My Pyns" pathName="profile.my-pyns" />
       <DashboardAction title="My Orders" pathName="orders.my-orders" />
-      <DashboardAction title="Purchase History" pathName="#"/>
+      <DashboardAction title="Purchase History" pathName="orders.purchase-history"/>
     </div>
   )
 }

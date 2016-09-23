@@ -17,7 +17,6 @@ import Pyn from '/imports/ui/pages/pyn/Pyn.jsx';
 import PynAPlace from '/imports/ui/pages/pyn/PynAPlace.jsx';
 import EditPyn from '/imports/ui/pages/pyn/EditPyn';
 
-
 import MyPyns from '/imports/ui/pages/profile/MyPyns';
 
 import AdminDashboard from '/imports/ui/pages/admin/AdminDashboard';
@@ -33,6 +32,7 @@ import MyBusinessOrders from '/imports/ui/pages/business/MyBusinessOrders';
 import Pay from '/imports/ui/pages/pay/Pay';
 
 import MyOrders from '/imports/ui/pages/orders/MyOrders';
+import PurchaseHistory from '/imports/ui/pages/orders/PurchaseHistory';
 
 import CreateAListing from '/imports/ui/pages/listing/CreateAListing';
 
@@ -54,6 +54,15 @@ ordersRoutes.route("/", {
     })
   },
   name: "orders.my-orders"
+});
+
+ordersRoutes.route("/history", {
+  action: () => {
+    mount(Layout, {
+      content: () => <PurchaseHistory />
+    })
+  },
+  name: "orders.purchase-history"
 });
 
 

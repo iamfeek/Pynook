@@ -25,13 +25,13 @@ height: calc(100vh - 64px);
 }
 
 #pyns #resultsSection{
-  width: 48%;
+  /*width: 48%;*/
   /*width: 750px;*/
   margin-right: 0;
   padding: 0px;
 }
 #pyns #map{
-  width: 52%;
+  /*width: 52%;*/
   padding: 0px;
   border-left: 1px solid rgba(0, 0, 0, 0.075);
 }

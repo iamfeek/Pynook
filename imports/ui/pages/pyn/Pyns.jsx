@@ -14,7 +14,7 @@ const Pyns = props => {
   let pyns = props.pyns;
   return(
     <div id="pyns" className="row">
-      <div id="resultsSection" className="col s12 l7">
+      <div id="resultsSection" className="col s12 l6">
         <div id="searchFilters" className="col s12 fixed-top">
           <SearchFilters />
         </div>
@@ -24,7 +24,7 @@ const Pyns = props => {
         </div>
       </div>
 
-      <div id="map" className="hide-on-med-and-down col l5 fixed-top">
+      <div id="map" className="hide-on-med-and-down col l6 fixed-top">
         <Maps id="map" pyns={pyns}/>
         <Loading />
       </div>

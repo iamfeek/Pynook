@@ -28,10 +28,7 @@ const Listings = props => {
 
 export default createContainer(({query}) => {
   DocHead.setTitle("Listings - Pynook")
-  DocHead.addMeta({
-    name: "viewport",
-    content: "width=device-width, initial-scale=1"
-  });
+  
 
   mQuery = {};
   if(query.q) mQuery["name"] = {$regex: new RegExp(query.q, "i")};

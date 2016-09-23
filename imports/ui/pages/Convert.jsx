@@ -31,10 +31,7 @@ const Convert = props => {
 
 export default createContainer(() => {
   DocHead.setTitle("Convert To Business - Pynook");
-  DocHead.addMeta({
-    name: "viewport",
-    content: "width=device-width, initial-scale=1"
-  });
+
 
   let isBusinessAccount = Roles.userIsInRole(Meteor.userId(), "business");
   if(isBusinessAccount) FlowRouter.go("dashboard");

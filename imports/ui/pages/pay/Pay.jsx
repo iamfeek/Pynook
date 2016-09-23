@@ -63,10 +63,7 @@ const responseHandler = res => {
 
 export default createContainer(({orderId}) => {
   DocHead.setTitle("Checkout - Pynook");
-  DocHead.addMeta({
-    name: "viewport",
-    content: "width=device-width, initial-scale=1"
-  });
+
 
   let handle = Meteor.subscribe("orders.single", orderId);
   let order = Orders.findOne();

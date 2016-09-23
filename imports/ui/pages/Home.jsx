@@ -39,10 +39,6 @@ export default Home = props => {
 }
 
 export default createContainer(() => {
-  DocHead.addMeta({
-    name: "viewport",
-    content: "width=device-width, initial-scale=1"
-  });
   DocHead.setTitle("Pynook - Get Personal");
 
   return {}

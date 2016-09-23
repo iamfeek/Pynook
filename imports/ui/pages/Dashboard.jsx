@@ -24,10 +24,7 @@ const Dashboard = props => {
 
 export default createContainer(() => {
   DocHead.setTitle("Dashboard - Pynook");
-  DocHead.addMeta({
-    name: "viewport",
-    content: "width=device-width, initial-scale=1"
-  });
+
 
   let isBusinessAccount = Roles.userIsInRole(Meteor.userId(), "business");
 

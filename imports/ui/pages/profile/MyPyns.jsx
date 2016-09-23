@@ -28,10 +28,7 @@ const MyPyns = props => {
 
 export default createContainer(() => {
   DocHead.setTitle("My Pyns - Pynook")
-  DocHead.addMeta({
-    name: "viewport",
-    content: "width=device-width, initial-scale=1"
-  });
+  
   var handle = Meteor.subscribe("pyns.self");
   var pyns = Pyns.find({type: "pyn"}).fetch();
 

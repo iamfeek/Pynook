@@ -27,10 +27,7 @@ const MyOrders = props => {
 
 export default createContainer(() => {
   DocHead.setTitle("My Orders - Pynook");
-  DocHead.addMeta({
-    name: "viewport",
-    content: "width=device-width, initial-scale=1"
-  });
+
 
   let handle = Meteor.subscribe("orders.pending");
   let orders = Orders.find().fetch();

@@ -26,11 +26,7 @@ const PurchaseHistory = props => {
 }
 
 export default createContainer(() => {
-  DocHead.setTitle("My Orders - Pynook");
-  DocHead.addMeta({
-    name: "viewport",
-    content: "width=device-width, initial-scale=1"
-  });
+  DocHead.setTitle("Purchase History - Pynook");
 
   let handle = Meteor.subscribe("orders.done");
   let orders = Orders.find().fetch();

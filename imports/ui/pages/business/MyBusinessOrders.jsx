@@ -26,10 +26,7 @@ const MyBusinessOrders = props => {
 
 export default createContainer(() => {
   DocHead.setTitle("Business Orders - Pynook")
-  DocHead.addMeta({
-    name: "viewport",
-    content: "width=device-width, initial-scale=1"
-  });
+
 
   let handle = Meteor.subscribe("orders.forBusiness");
   let orders = Orders.find().fetch();

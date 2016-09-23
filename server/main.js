@@ -8,7 +8,9 @@ import '/imports/api/business.js'
 import '/imports/api/plans.js'
 import '/imports/api/orders.js'
 import '/imports/api/payments.js'
+import '/imports/api/transactions.js'
 import '/lib/seo.js'
+
 
 Meteor.startup(() => {
   process.env.MAIL_URL = "smtp://postmaster%40mg.pynook.com:blablabla@smtp.mailgun.org:587";
@@ -16,4 +18,7 @@ Meteor.startup(() => {
   BrowserPolicy.content.allowInlineStyles();
   BrowserPolicy.content.allowInlineScripts();
   BrowserPolicy.content.allowOriginForAll('*');
+  // console.log(Meteor.settings.private.braintree.ACCESS_TOKEN);
+
+  // Initialize Braintree connection:
 });

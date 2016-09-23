@@ -1,8 +1,8 @@
 import React from 'react';
-import Status from './Status'
 import PaymentStatus from './PaymentStatus'
 import CollapsibleBody from '/imports/ui/components/utils/CollapsibleBody'
 import OrderInfo from './OrderInfo';
+import OrderItemHeader from './OrderItemHeader';
 
 export default OrdersTable = props => {
   let orders = props.orders;
@@ -18,21 +18,7 @@ const BusinessOrderItem = props => {
   return(
     <li>
       <div className="collapsible-header">
-        <div className="col s4 center">
-          {item.title}
-        </div>
-
-        <div className="col s2 center">
-          {item.orderedAt.getDate()}/{item.orderedAt.getMonth()}/{item.orderedAt.getFullYear()}
-        </div>
-
-        <div className="col s2 center">
-          Qty: {item.quantity}
-        </div>
-
-        <div className="col s4 center">
-          <Status status={item.status} />
-        </div>
+        <OrderItemHeader order={item} />
       </div>
       {
         item.status != "received" ?

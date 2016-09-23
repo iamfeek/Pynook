@@ -9,13 +9,15 @@ import Register from '/imports/ui/pages/accounts/Register';
 import NotFound from '/imports/ui/components/utils/NotFound';
 
 import Home from '/imports/ui/pages/Home.jsx';
+import Dashboard from '/imports/ui/pages/Dashboard';
+import Convert from '/imports/ui/pages/Convert';
 
 import Pyns from '/imports/ui/pages/pyn/Pyns.jsx';
 import Pyn from '/imports/ui/pages/pyn/Pyn.jsx';
 import PynAPlace from '/imports/ui/pages/pyn/PynAPlace.jsx';
 import EditPyn from '/imports/ui/pages/pyn/EditPyn';
 
-import ProfileDashboard from '/imports/ui/pages/profile/ProfileDashboard';
+
 import MyPyns from '/imports/ui/pages/profile/MyPyns';
 
 import AdminDashboard from '/imports/ui/pages/admin/AdminDashboard';
@@ -24,10 +26,11 @@ import BusinessPlansManagement from '/imports/ui/pages/admin/plans/BusinessPlans
 import OrdersManagement from '/imports/ui/pages/admin/orders/OrdersManagement';
 import NewBusinessPlan from '/imports/ui/pages/admin/plans/NewBusinessPlan';
 
-import BusinessDashboard from '/imports/ui/pages/business/BusinessDashboard';
 import MyListings from '/imports/ui/pages/business/MyListings';
 import MyBusinessProfile from '/imports/ui/pages/business/MyBusinessProfile';
 import MyBusinessOrders from '/imports/ui/pages/business/MyBusinessOrders';
+
+import Pay from '/imports/ui/pages/pay/Pay';
 
 import MyOrders from '/imports/ui/pages/orders/MyOrders';
 
@@ -114,10 +117,10 @@ var profileRoutes = FlowRouter.group({
 profileRoutes.route("/", {
   action: () => {
     mount(Layout, {
-      content: () => <ProfileDashboard />
+      content: () => <Dashboard />
     })
   },
-  name: "profile.dashboard"
+  name: "dashboard"
 });
 
 profileRoutes.route("/my-pyns", {
@@ -136,16 +139,7 @@ var businessRoutes = FlowRouter.group({
   name: "business"
 });
 
-businessRoutes.route("/", {
-  action: () => {
-    mount(Layout, {
-      content: () => <BusinessDashboard />
-    })
-  },
-  name: "business.dashboard"
-});
-
-businessRoutes.route("/my-listings", {
+businessRoutes.route("/listings", {
   action: () => {
     mount(Layout, {
       content: () => <MyListings />
@@ -154,7 +148,7 @@ businessRoutes.route("/my-listings", {
   name: "business.my-listings"
 });
 
-businessRoutes.route("/my-profile", {
+businessRoutes.route("/profile", {
   action: () => {
     mount(Layout, {
       content: () => <MyBusinessProfile />
@@ -190,6 +184,22 @@ listingsRoutes.route("/create", {
 // End Listing
 
 
+// Pay
+var listingsRoutes = FlowRouter.group({
+  prefix: "/pay",
+  name: "pay"
+});
+
+listingsRoutes.route("/:id", {
+  name: "pay",
+  action: params => {
+    mount(Layout, {
+      content: () => <Pay orderId={params.id} />
+    })
+  }
+});
+// End Pay
+
 
 
 FlowRouter.triggers.enter([becauseAuthenticated], {only: ["login", "register"]})
@@ -202,6 +212,7 @@ FlowRouter.route('/', {
     });
   }
 });
+
 
 FlowRouter.route("/pyn/edit/:id", {
   name: "pyn.edit",
@@ -254,6 +265,15 @@ FlowRouter.route("/register", {
   action: () => {
     mount(Layout, {
       content: () => <Register />
+    })
+  }
+});
+
+FlowRouter.route("/convert", {
+  name: "convert",
+  action: () => {
+    mount(Layout, {
+      content: () => <Convert />
     })
   }
 });

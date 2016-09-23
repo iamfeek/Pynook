@@ -7,16 +7,17 @@ import OrdersTable from '/imports/ui/components/orders/OrdersTable';
 
 const MyOrders = props => {
   if(props.loading) return <div className="wider-content"><Loading /></div>
-  
+
   let orders = props.orders;
   return(
     <div id="myOrders">
       <PageHeader src="my-orders.jpg" title="My Orders" style={{backgroundPosition: "center 25%"}}/>
 
       <div className="row">
-        <h2 className="center"><span className="red-text">{orders.length}</span> Pending Orders</h2>
+        <h2 className="center hide-on-large-only">My Orders</h2>
+        <h2 className="center">{orders.length} order(s)</h2>
 
-        <div className="col s12 l8 offset-l2">
+        <div className="col s12 l10 offset-l1">
           <OrdersTable orders={orders} />
         </div>
       </div>
@@ -31,7 +32,7 @@ export default createContainer(() => {
     content: "width=device-width, initial-scale=1"
   });
 
-  let handle = Meteor.subscribe("orders.self");
+  let handle = Meteor.subscribe("orders.pending");
   let orders = Orders.find().fetch();
 
   return {

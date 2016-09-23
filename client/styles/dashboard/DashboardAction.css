@@ -1,8 +1,8 @@
-.profile_action-wrapper{
+  .dashboard_action-wrapper{
     height: 100px;
 }
 
-.profile_action{
+.dashboard_action{
   font-size: 30px;
   text-align: center;
   width: 100%;
@@ -15,6 +15,6 @@
 }
 
 
-.profile_action:hover{
+.dashboard_action:hover{
   background: #FF4D55;
 }

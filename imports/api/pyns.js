@@ -9,10 +9,14 @@ import {Roles} from 'meteor/alanning:roles'
 if (Meteor.isServer) {
   Meteor.publish("pyns.approved", () => {
     return Pyns.find({approved: true});
-  })
+  });
 
   Meteor.publish("pyns.self", function(){
     return Pyns.find({owner: this.userId});
+  });
+
+  Meteor.publish("pyns.listings.self", function(){
+    return Pyns.find({owner: this.userId, type: "listing"});
   })
 
   Meteor.publish("pyns.single", id => {
@@ -23,6 +27,10 @@ if (Meteor.isServer) {
   })
 
   Meteor.methods({
+    "pyns.getListingName"(listingId){
+      // console.log("Getting name for - ", listingId);
+      return Pyns.findOne({_id: listingId}, {fields: {name: 1}}).name;
+    },
     'pyns.insertListing'(listing){
       console.log("Incoming Listing Creation from user: " + this.userId)
       check(listing.name, String);

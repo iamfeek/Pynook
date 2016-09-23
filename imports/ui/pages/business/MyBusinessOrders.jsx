@@ -19,7 +19,6 @@ const MyBusinessOrders = props => {
         <div className="col s12 l8 offset-l2">
           <BusinessOrdersTable orders={orders} />
         </div>
-
       </div>
     </div>
   )

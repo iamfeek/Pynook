@@ -7,6 +7,9 @@
   "private": {
     "uploadcare": {
       "secretkey": "572672251c49cb9bfa76"
+    },
+    "braintree": {
+      "ACCESS_TOKEN": "access_token$sandbox$r9kmq8x4x5msvc52$e6360c3a43c708dda433b24844c08aea"
     }
   }
 }

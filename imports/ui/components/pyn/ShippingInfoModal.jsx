@@ -54,8 +54,6 @@ const confirm = (listingId, businessId) => {
       postal: parseInt(postal)
     }
 
-    console.log(JSON.stringify(shippingInfo, null, 2))
-
     let order ={
       listing: listingId,
       business: businessId,
@@ -75,6 +73,7 @@ const confirm = (listingId, businessId) => {
       return;
     }
 
-    FlowRouter.go("pay", {id: orderId});
+    $("#shippingInfoModal").closeModal();
+    // FlowRouter.go("pay", {id: orderId});
   });
 }

@@ -3,7 +3,6 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {Business} from '/imports/api/business';
 
 import BusinessForm from '/imports/ui/components/business/BusinessForm';
-import BusinessConvert from '/imports/ui/components/business/BusinessConvert';
 
 const MyBusinessProfile = props => {
   if(!props.isBusinessAccount) return <BusinessConvert />

@@ -1,14 +1,12 @@
 import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
-import "/imports/ui/components/utils/PageHeader";
+import PageHeader from '/imports/ui/components/utils/PageHeader';
 
-import ConfirmConvertModal from './ConfirmConvertModal'
-import BusinessPlans from './BusinessPlans';
+import ConfirmConvertModal from '/imports/ui/components/convert/ConfirmConvertModal';
 
-
-const BusinessConvert = props => {
+const Convert = props => {
   return(
-    <div id="businessConvert">
+    <div id="convert">
       <PageHeader src="/business-convert.jpg" title="Why Us?" />
 
       <div className="row">
@@ -32,11 +30,14 @@ const BusinessConvert = props => {
 }
 
 export default createContainer(() => {
-  DocHead.setTitle("Convert To Business Account - Pynook");
+  DocHead.setTitle("Convert To Business - Pynook");
   DocHead.addMeta({
     name: "viewport",
     content: "width=device-width, initial-scale=1"
   });
 
-  return{}
-}, BusinessConvert)
+  let isBusinessAccount = Roles.userIsInRole(Meteor.userId(), "business");
+  if(isBusinessAccount) FlowRouter.go("dashboard");
+
+  return {};
+}, Convert)

@@ -1,19 +1,22 @@
 import React from 'react';
 
 export default TextArea = props => {
+  let value = props.defaultValue;
+  value ? null : value="";
+
   return(
     <div className="input-field col s12">
       <h5 className="field-header">{props.header}</h5>
       <textarea
         id={props.id}
-        onClick={() => initTinyMCE(props.id)}
-        ref={() => initTinyMCE(props.id)}
+        onClick={() => initTinyMCE(props.id, value)}
+        ref={() => initTinyMCE(props.id, value) }
         />
     </div>
   )
 }
 
-const initTinyMCE = id => {
+const initTinyMCE = (id, value) => {
   tinymce.EditorManager.execCommand('mceRemoveEditor',true, id);
   tinymce.init({
     selector: "#"+id,
@@ -34,4 +37,5 @@ const initTinyMCE = id => {
     //   });
     // }
   });
+  tinyMCE.activeEditor.setContent(value);
 }

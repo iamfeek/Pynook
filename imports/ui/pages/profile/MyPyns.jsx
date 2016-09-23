@@ -33,7 +33,7 @@ export default createContainer(() => {
     content: "width=device-width, initial-scale=1"
   });
   var handle = Meteor.subscribe("pyns.self");
-  var pyns = Pyns.find().fetch();
+  var pyns = Pyns.find({type: "pyn"}).fetch();
 
   return {
     loading: (handle.ready() && pyns) ? false : true,

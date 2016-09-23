@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading from '/imports/ui/components/utils/Loading'
-import BusinessForm from './BusinessForm';
+import BusinessForm from '/imports/ui/components/business/BusinessForm';
 
 export default ConfirmConvertModal = props => {
 

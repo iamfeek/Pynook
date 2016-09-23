@@ -9,7 +9,7 @@ export default NavbarAccountDropdown = props => {
         :
         null
       }
-      <li><a href={FlowRouter.path("profile.dashboard")}>Dashboard</a></li>
+      <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li>
       <li><a href={FlowRouter.path("profile.my-pyns")}>My Pyns</a></li>
       <li><a href={FlowRouter.path("orders.my-orders")}>My Orders</a></li>
       <li>

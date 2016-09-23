@@ -19,7 +19,7 @@ const Navbar = props => {
 
         <ul className="side-nav" id="mobile-menu" ref={() => $(".button-collapse").sideNav({closeOnClick: true})}>
           <li><a href={FlowRouter.path("pyns")}>Pyns</a></li>
-          <li><a href={FlowRouter.path("profile.dashboard")}>Dashboard</a></li>
+          <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li>
           <li><a href={FlowRouter.path("newbie")}>Newbie</a></li>
           <li><a href="#">FAQ</a></li>
           <li><a href={FlowRouter.path("pyn.a.place")}>Pyn A Place</a></li>
@@ -32,7 +32,7 @@ const Navbar = props => {
 
           <ul className="right hide-on-med-and-down" style={{marginRight: "25px"}}>
             <li><a href={FlowRouter.path("pyns")}>Pyns</a></li>
-            <li><a href={FlowRouter.path("profile.dashboard")}>Dashboard</a></li>
+            <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li>
             <li><a className="dropdown-button" href="#!" data-constrainWidth="false" data-beloworigin="true" data-hover="true" data-activates="newbieDropdown">Newbie <i className="fa fa-caret-down" aria-hidden="true"></i></a></li>
             <li><a href="#">FAQ</a></li>
             <li><a href={FlowRouter.path("pyn.a.place")}>Pyn A Place</a></li>

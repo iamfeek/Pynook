@@ -5,8 +5,8 @@ import {check} from 'meteor/check';
 export const Orders = new Mongo.Collection('orders');
 
 if (Meteor.isServer) {
-  Meteor.publish("orders.self", function(){
-    return Orders.find({buyer: this.userId})
+  Meteor.publish("orders.pending", function(){
+    return Orders.find({buyer: this.userId, status: {$not: /received/}})
   });
 
   Meteor.publish("orders.forBusiness", function(){
@@ -24,7 +24,18 @@ if (Meteor.isServer) {
     }
   })
 
+  Meteor.publish("orders.single", orderId => {
+    return Orders.find({_id: orderId});
+  })
+
   Meteor.methods({
+    "orders.updateRemark"(orderId, remark){
+      check(orderId, String);
+      check(remark, String);
+
+      return Orders.update({_id: orderId}, {$set: {remarks: remark}});
+    },
+
     "orders.create"(order){
       console.log("Incoming order Creation from user: " + this.userId)
       let shippingInfo = order.shippingInfo;
@@ -38,6 +49,7 @@ if (Meteor.isServer) {
       check(shippingInfo.postal, Number);
 
       order.createdAt = new Date();
+      order.listingName = Meteor.call("pyns.getListingName", order.listing);
       order.buyer = this.userId;
       order.buyerEmail = Meteor.call("users.getEmail", this.userId);
       order.businessEmail = Meteor.call('business.getEmail', order.business); //should be businessId.

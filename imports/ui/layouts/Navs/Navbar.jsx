@@ -22,7 +22,7 @@ const Navbar = props => {
           <a href="#"
             data-activates="mobile-menu"
             className="button-collapse show-on-large"
-            ref={() => $(".button-collapse").off('click').sideNav({edge: "right", closeOnClick: true})}>
+            ref={() => $(".button-collapse").off('click').sideNav({edge: "left", closeOnClick: true})}>
             <i className="fa fa-bars" aria-hidden="true"></i>
           </a>
         </div>

@@ -2,7 +2,8 @@ import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import PageHeader from '/imports/ui/components/utils/PageHeader';
 
-import ConfirmConvertModal from '/imports/ui/components/convert/ConfirmConvertModal';
+import ConvertPanel from '/imports/ui/components/convert/ConvertPanel';
+import BusinessForm from '/imports/ui/components/business/BusinessForm';
 
 const Convert = props => {
   return(
@@ -19,12 +20,11 @@ const Convert = props => {
           <p>With a total of around 12,000 users on our platform at this very moment, we are sure that your
           outreach to the masses will be expanded.</p>
 
-          <div className="businessConvert_action">
-            <button ref={() => $('.modal-trigger').leanModal()} data-target="confirmConvertModal" className="center z-index-0 btn modal-trigger">Convert Now</button>
-          </div>
+
+        <ConvertPanel />
+
         </div>
       </div>
-      <ConfirmConvertModal />
     </div>
   )
 }

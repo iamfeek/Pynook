@@ -21,8 +21,8 @@ export default BusinessForm = props => {
       </div>
 
       <div className="input-field col s12">
-        <input disabled defaultValue={profile.address} id="business_address" type="text" className="validate" />
-        <label htmlFor="business_address">Address</label>
+        <input disabled defaultValue={profile.address} id="business_street" type="text" className="validate" />
+        <label htmlFor="business_street">Address</label>
       </div>
 
       <div className="input-field col s12">

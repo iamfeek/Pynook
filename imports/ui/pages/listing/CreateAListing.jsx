@@ -13,10 +13,9 @@ const CreateAListing = props => {
     <div id="createAListing">
       <PageHeader src="/create-a-listing.jpg" title="Create A Listing" />
 
-      <div className="wider-content row">
-      <h4 className="center" style={{marginBottom: "0px"}}>You are creating a new listing for...</h4>
-      <h4 className="center red-text" style={{marginTop: "0px"}}>{props.profile.name}</h4>
-      <NewListingForm />
+      <div className="row center">
+      <h2 className="hide-on-large-only">Create A Listing</h2>
+        <NewListingForm />
       </div>
 
     </div>

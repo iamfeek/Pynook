@@ -46,8 +46,8 @@ if (Meteor.isServer) {
       listing.type = "listing";
       listing.approved = true;
 
-      listing.business = Meteor.call("business.getId", this.userId);
-      listing.address = Meteor.call("business.getAddressString", listing.business);//listing.business is the business ID at this point
+      listing.businessId = Meteor.call("business.getId", this.userId);
+      listing.address = Meteor.call("business.getAddressString", listing.businessId);
 
       // console.log(JSON.stringify(listing, null, 2))
       return Pyns.insert(listing);

@@ -14,13 +14,14 @@ if (Meteor.isServer) {
     "business.convert"(profile){
       Roles.addUsersToRoles(this.userId, "business");
 
+      let address = profile.address;
       check(profile.email, String);
       check(profile.name, String);
-      check(profile.block, String);
-      check(profile.address, String);
-      check(profile.unit, String);
+      check(address.block, String);
+      check(address.street, String);
+      check(address.unit, String);
       check(profile.hours, String);
-      check(profile.postal, Number);
+      check(address.postal, Number);
 
       profile.owner = this.userId;
       profile.createdAt = new Date();
@@ -44,6 +45,16 @@ if (Meteor.isServer) {
         return result.email;
       }
     },
+
+    "business.getAddressString"(businessId){
+      check(businessId, String);
+      let business = Business.findOne({_id: businessId});
+      let address = business.address;
+
+      let addressString = "Block " + address.block + ", " + address.street + ", #" + address.unit + ", Singapore " + address.postal;
+      console.log(addressString);
+      return addressString
+    }
   })
 
 

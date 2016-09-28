@@ -15,7 +15,7 @@ if (Meteor.isServer) {
 
   Meteor.publish("orders.forBusiness", function(){
     businessId = Meteor.call("business.getId", this.userId);
-    return Orders.find({business: businessId});
+    return Orders.find({businessId: businessId});
   });
 
   Meteor.publish("orders.unpaid", function(){
@@ -79,9 +79,7 @@ if (Meteor.isServer) {
       check(orderId, String);
       check(status, String);
 
-      let businessId = Meteor.call("business.getId", this.userId);
-
-      return Orders.update({_id: orderId, business: businessId}, {$set: {status: status}});
+      return Orders.update({_id: orderId}, {$set: {status: status}});
     },
 
     'orders.hasReceived'(orderId){

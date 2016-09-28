@@ -3,7 +3,7 @@ import TextArea from '/imports/ui/components/forms/TextArea'
 
 export default NewListingForm = props => {
   return(
-    <form id="newListingForm" className="col s6 offset-s3" onSubmit={submit.bind(this)}>
+    <form id="newListingForm" className="col s12 l8 offset-l2" onSubmit={submit.bind(this)}>
       <div className="input-field col s12">
         <h5 className="field-header">Name</h5>
         <input required id="listings_name" type="text" className="validate" />
@@ -81,11 +81,11 @@ const submit = e => {
 
   // console.debug(JSON.stringify(listing, null, 2))
 
-  Meteor.call("listings.create", listing, (err, res) => {
-    if(err) Bert.alert("Something went wrong! Please email our support team.", "danger", "growl-bottom-left");
+  Meteor.call("pyns.insertListing", listing, (err, res) => {
+    if(err){} Bert.alert("Something went wrong! ERROR:" + err, "danger");
 
     if(res){
-      Bert.alert("New listing created!", "success", "growl-bottom-left");
+      Bert.alert("New listing created!", "success");
       clearForm();
     }
   });

@@ -28,7 +28,7 @@ const Listings = props => {
 
 export default createContainer(({query}) => {
   DocHead.setTitle("Listings - Pynook")
-  
+
 
   mQuery = {};
   if(query.q) mQuery["name"] = {$regex: new RegExp(query.q, "i")};

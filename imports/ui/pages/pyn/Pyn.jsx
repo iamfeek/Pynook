@@ -41,7 +41,7 @@ const Pyn = props =>{
 
         <div className="col s12 l4">
           {
-            type=="pyn" ? <PynMapWidget address={pyn.address} latlng={pyn.latlng}/> : <PynBuyWidget businessId={pyn.business} listingId={pyn._id} price={pyn.price} />
+            type=="pyn" ? <PynMapWidget address={pyn.address} latlng={pyn.latlng}/> : <PynBuyWidget businessId={pyn.businessId} listingId={pyn._id} price={pyn.price} />
         }
 
         <PynGalleryWidget category={pyn.category} photos={pyn.photos} />

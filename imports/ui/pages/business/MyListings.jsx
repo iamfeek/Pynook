@@ -11,9 +11,16 @@ const MyListings = props => {
     <div>
       <PageHeader src="/my-pyns.jpg" title={listings.length+" listings"} />
 
-      <div className="wider-content row">
-        <div className="col s12"><a href={FlowRouter.path("listings.create")} className="btn btn-flat transparent center">Create A Listing</a></div>
+      <div className="row">
+        <h2 className="center">My Listings</h2>
+        <div className="col s12 center">
+          <a href={FlowRouter.path("listings.create")} className="btn btn-flat blue white-text center">Create A Listing</a>
+        </div>
         {listings.map(l => <Listing listing={l} key={l._id}/>)}
+
+        <div className="col s12 center">
+          <a href={FlowRouter.path("listings.create")} className="btn btn-flat blue white-text center">Create A Listing</a>
+        </div>
       </div>
 
     </div>

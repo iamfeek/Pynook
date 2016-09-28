@@ -2,8 +2,9 @@ import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 
 import PageHeader from '/imports/ui/components/utils/PageHeader';
-
+import AccessDenied from '/imports/ui/components/utils/AccessDenied';
 const AdminDashboard = props => {
+  if(!props.isAdmin) return <AccessDenied />
   return(
     <div id="adminPanel">
       <PageHeader title="Admin Panel" src="/admin3.jpg"/>
@@ -32,10 +33,8 @@ const AdminDashboard = props => {
 }
 
 export default createContainer(() => {
-  Roles.userIsInRole(Meteor.userId(), "admin") ? null : window.location=location.origin+FlowRouter.path("home");
-
   DocHead.setTitle("Admin Panel - Pynook")
   return {
-
+    isAdmin: Roles.userIsInRole(Meteor.userId(), "admin")
   }
 }, AdminDashboard)

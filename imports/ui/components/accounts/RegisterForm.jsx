@@ -39,12 +39,15 @@ export default RegisterForm = props => {
             <i className="fa fa-caret-right" aria-hidden="true"></i>
           </button>
         </div>
+        <div className="col s12 center">
+          By registering, you are agreeing to our terms of use.
+        </div>
       </div>
 
       <div className="row" id="signUpText">
         <div className="col s12">
           Have an account?
-          <span className="red-text clickable" onClick={() => {FlowRouter.go("login")}}>Log In</span>
+          <span className="red-text clickable" onClick={() => {FlowRouter.go("login")}}> Log In</span>
         </div>
       </div>
     </form>

@@ -48,11 +48,6 @@ export default class LoginForm extends React.Component{
               <label htmlFor="remember-me">Remember me</label>
             </p>
           </div>
-          <div className="col s6 clickable">
-            <p style={{color: "#ff4d55"}}>
-              Lost your password?
-            </p>
-          </div>
         </div>
 
         <div className="row">
@@ -64,12 +59,17 @@ export default class LoginForm extends React.Component{
           </div>
         </div>
 
-        <div className="row" id="signUpText">
+        <div className="row center" id="signUpText">
           <div className="col s12">
-            Don't have an account? <span className="red-text clickable" onClick={() => {FlowRouter.go("register")}}>Sign Up</span>
+            Don't have an account?
+            <span className="red-text clickable" onClick={() => {FlowRouter.go("register")}}> Sign Up</span>
+          </div>
+          <div className="col s12">
+            <a href="#" className="red-text">Lost your password?</a>
+
+          </div>
         </div>
-      </div>
-    </form>
-  )
-}
+      </form>
+    )
+  }
 }

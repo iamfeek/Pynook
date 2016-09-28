@@ -36,13 +36,28 @@ const MyOrders = props => {
         null
       }
 
-      <div className="row">
-        <h2 className="center">{confirmed.length} order(s)</h2>
-
-        <div className="col s12 l10 offset-l1 center paddingZero">
-          {confirmed.length > 0 ? <OrdersTable orders={confirmed} /> : <h4>You have no pending orders.</h4>}
+      {
+        confirmed.length > 0 ?
+        <div className="row">
+          <h3 className="center">{confirmed.length} order(s)</h3>
+          <div className="col s12 l10 offset-l1 center paddingZero">
+            <OrdersTable orders={confirmed} />
+          </div>
         </div>
-      </div>
+        :
+        null
+      }
+
+      {
+        orders.length == 0 ?
+        <div className="row valign-wrapper min-height">
+          <div className="col s12 center valign">
+            <h4>We have great Pyns for purchase.</h4>
+            <a href={FlowRouter.path("pyns")}>Visit Pyns Now!</a>
+          </div>
+        </div>
+        : null
+      }
     </div>
   )
 }

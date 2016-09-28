@@ -11,7 +11,7 @@ export default SideNav = props => {
       <li><a href="#">FAQ</a></li>
 
       <li><div className="divider"></div></li>
-      {props.user ? <li><a className="subheader">{Meteor.user().username}</a></li> : null}
+      {props.user ? <li><a className="subheader">{props.user.username}</a></li> : null}
       {props.user ? <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li> : null}
       {props.user ? <li><a href={FlowRouter.path("orders.my-orders")}>My Orders</a></li> : null}
       {props.user ? <li><div className="divider"></div></li> : null}

@@ -61,7 +61,7 @@ const register = e => {
     cPasswordElement.blur();
     cPasswordElement.value = "";
     cPasswordElement.focus();
-    Bert.alert("Passwords must match!", "info", "growl-bottom-right")
+    Bert.alert("Passwords must match!", "danger")
   } else{
     Accounts.createUser({
       username: document.getElementById("registerUsername").value,
@@ -72,7 +72,7 @@ const register = e => {
         Bert.alert("Something went wrong.....", "danger", "fixed-top")
       } else {
         Meteor.call("users.init");
-        Bert.alert("Welcome to Pynook!", "info", "fixed-top");
+        Bert.alert("Welcome to Pynook!", "success");
         back = Session.get("back");
         back ? FlowRouter.go(back) : FlowRouter.go("home");
       }

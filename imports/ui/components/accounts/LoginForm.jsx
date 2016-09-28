@@ -19,7 +19,7 @@ export default class LoginForm extends React.Component{
         console.info("Login success")
         back = Session.get("back");
         back ? FlowRouter.go(back) : FlowRouter.go("home");
-        Bert.alert("Welcome back!", "success", "growl-bottom-right")
+        Bert.alert("Welcome back!", "success")
       }
     })
   }

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default PynMapWidget = props => {
   return(
-    <div className="pyn_widget">
+    <div className="pyn_widget col s12">
       <div className="pyn_map" id="map">
         {getMap(props.latlng)}
         <Loading />

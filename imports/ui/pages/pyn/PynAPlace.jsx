@@ -3,7 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 
 import PageHeader from '/imports/ui/components/utils/PageHeader.jsx';
 import IsLoggedInChecker from '/imports/ui/components/accounts/IsLoggedInChecker.jsx';
-import PynAPlaceForm from '/imports/ui/components/PynAPlace/PynAPlaceForm.jsx';
+import PynForm from '/imports/ui/components/pyn/PynForm.jsx';
 
 const PynAPlace = props => {
   return(
@@ -11,13 +11,9 @@ const PynAPlace = props => {
       <PageHeader src="/pynaplace2.jpg" title="Pyn A Place"/>
       <h1 className="center hide-on-med-and-up">Pyn A Place</h1>
 
-      <div id="accountdetails" className="centerByMargin hide-on-small-only">
-        <IsLoggedInChecker />
-      </div>
-
-      <div className="wider-content row">
+      <div className="row">
         <div className="col l8 offset-l2">
-          <PynAPlaceForm />
+          <PynForm />
         </div>
 
       </div>

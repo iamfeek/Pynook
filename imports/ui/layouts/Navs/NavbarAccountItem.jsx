@@ -5,15 +5,7 @@ import NavbarAccountDropdown from './NavbarAccountDropdown'
 export default NavbarAccountItem = props => {
   if(props.user){
   return(
-    <span>
-      <li id="accountDropdownButton" data-beloworigin="true" data-constrainwidth="true" data-activates="accountDropdown" data-hover="true" ref={() => $(".dropdown-button").dropdown({hover: true,beloworigin: true})}>
-        <a>
-          {Meteor.user().username} <i className="fa fa-caret-down" aria-hidden="true"></i>
-        </a>
-      </li>
-      <NavbarAccountDropdown />
-    </span>
-
+    <li><a className="dropdown-button" href="#!" data-constrainWidth="false" data-beloworigin="true" data-hover="true" data-activates="accountDropdown" ref={() => $('.dropdown-button').dropdown({beloworigin: true})}>{Meteor.user().username} <i className="fa fa-caret-down" aria-hidden="true"></i></a></li>
   )
 } else {
   return(

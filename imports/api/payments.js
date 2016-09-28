@@ -14,6 +14,13 @@ var gateway = braintree.connect({
 })
 
 Meteor.methods({
+  'payments.init'(){
+    console.log(this.userId)
+    console.log(Meteor.isServer);
+  },
+
+
+
   "payments.getClientToken"(){
     // console.log("Client Token Request")
     var clientToken = new Future();
@@ -32,6 +39,7 @@ Meteor.methods({
   },
 
   "payments.pay"(nonce, orderId){
+    console.log("Making payment...");
     var saleRequest = {
       amount: "10.00",
       paymentMethodNonce: nonce,
@@ -42,38 +50,26 @@ Meteor.methods({
 
     let transactionResponse = new Future();
 
-    gateway.transaction.sale(saleRequest, function (err, result) {
-      console.log("Making request!")
-      if (err) {
-        console.log("ERROR: " + err)
-        transactionResponse.return({status: "failed", message: err});
-      } else if (result.success) {
-        console.log("success")
-        Meteor.bindEnvironment(transactionHandler(result.transaction))
+    gateway.transaction.sale(saleRequest, Meteor.bindEnvironment(function (err, transactionResult) {
+      if(err) transactionResponse.return({status: "failed", message: err});
 
-      } else {
-        console.log("Another error ", result.message)
-        transactionResponse.return({status: "failed", message: result.message});
-      }
-    });
-
-    const transactionHandler = transaction => {
-      transaction.orderId = orderId;
-      Meteor.call("transactions.insert", transaction, (err, res) => {
-        if(err){
-          transactionResponse.return({
-            status: "failed",
-            message: err
-          });
-          return;
-        }
-
-        if(res){
-          transactionResponse.return({status: "success", message: "All done!"})
-        }
-      })
-    }
+      if(transactionResult) transactionHandler(transactionResult.transaction, orderId, transactionResponse);
+    }));
 
     return transactionResponse.wait();
   }
 });
+
+const transactionHandler = (transaction, orderId, transactionResponse) => {
+  console.log("Payment complete!")
+  if(!transaction){
+    transactionResponse.return({status: "restart", message: "There is no transaction object."});
+    return;
+  }
+
+  console.log("Finalising transaction...");
+  Meteor.call("transactions.insert", orderId, transaction, (err, res) => {
+    err ? transactionResponse.return({status: "failed", message: err}) : transactionResponse.return({status: "success", message: res})
+    console.log("Done!")
+  })
+}

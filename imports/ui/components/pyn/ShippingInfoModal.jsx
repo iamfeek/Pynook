@@ -17,9 +17,7 @@ export default ShippingInfoModal = props => {
       <div className="modal-content main center">
         <h2>Shipping Info</h2>
 
-        <div className="col s8 offset-s2">
           <ShippingInfoForm email={Meteor.user().emails[0].address} />
-        </div>
       </div>
 
 
@@ -74,6 +72,6 @@ const confirm = (listingId, businessId) => {
     }
 
     $("#shippingInfoModal").closeModal();
-    // FlowRouter.go("pay", {id: orderId});
+    FlowRouter.go("pay", {id: orderId});
   });
 }

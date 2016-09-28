@@ -3,7 +3,7 @@ import ImageThumbnail from '/imports/ui/components/Image/ImageThumbnail.jsx';
 import {Session} from 'meteor/session';
 
 
-export default class PynAPlaceForm extends React.Component{
+export default class PynForm extends React.Component{
   constructor(props){
     super(props);
 
@@ -174,7 +174,7 @@ export default class PynAPlaceForm extends React.Component{
 
         <div className="row">
           <div className="input-field col s12">
-          
+
             <textarea id="pynDescription" required  onClick={() => {this.initTinyMCE()}}></textarea>
             <label style={{marginTop: "-35px"}}htmlFor="pynDescription">Description</label>
           </div>

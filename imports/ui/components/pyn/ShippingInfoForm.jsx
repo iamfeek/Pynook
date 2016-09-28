@@ -2,7 +2,7 @@ import React from 'react';
 
 export default ShippingInfoForm = props => {
   return(
-    <form className="col s12 l8 offset-l2" id="businessForm" ref={() => Materialize.updateTextFields()}>
+    <form className="col s12" id="businessForm" ref={() => Materialize.updateTextFields()}>
       <div className="input-field col s12">
         <input defaultValue={props.email} id="order_email" type="email" className="validate" />
         <label htmlFor="order_email">Email</label>

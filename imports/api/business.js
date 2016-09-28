@@ -37,13 +37,10 @@ if (Meteor.isServer) {
     },
 
     "business.getEmail"(businessId){
-      check(businessId, String);
-      console.log("Business Get Email - ", businessId)
 
       if(Roles.userIsInRole(this.userId, "admin")){
         let result = Business.findOne({_id: businessId}, {fields: {email: 1}});
-        console.log("Business Get Email - Granted - ", result.email);
-
+        console.log("Business Get Email - "+ businessId +" - Granted - ", result.email);
         return result.email;
       }
     },

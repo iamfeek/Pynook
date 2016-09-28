@@ -33,6 +33,14 @@ if (Meteor.isServer) {
   })
 
   Meteor.methods({
+    "orders.get"(orderId){
+      return Orders.findOne({_id: orderId});
+    },
+
+    "orders.updateTransaction"(orderId, transactionId){
+      return Orders.update({_id: orderId}, {$set: {lastModified: new Date, transactionId: transactionId, paymentStatus: "paid"}});
+    },
+
     "orders.updateRemark"(orderId, remark){
       check(orderId, String);
       check(remark, String);
@@ -44,19 +52,21 @@ if (Meteor.isServer) {
       console.log("Incoming order Creation from user: " + this.userId)
       let shippingInfo = order.shippingInfo;
       check(order.quantity, Number);
-      check(order.listing, String)
-      check(shippingInfo.email, String);
-      check(shippingInfo.name, String);
-      check(shippingInfo.address, String);
-      check(shippingInfo.block, String);
-      check(shippingInfo.unit, String);
-      check(shippingInfo.postal, Number);
+      check(order.listingId, String)
+      check(order.businessId, String)
+      // check(shippingInfo.email, String);
+      // check(shippingInfo.name, String);
+      // check(shippingInfo.address, String);
+      // check(shippingInfo.block, String);
+      // check(shippingInfo.unit, String);
+      // check(shippingInfo.postal, Number);
 
+      order.shippingInfo = {};
       order.createdAt = new Date();
-      order.listingName = Meteor.call("pyns.getListingName", order.listing);
+      order.listingName = Meteor.call("pyns.getListingName", order.listingId);
       order.buyer = this.userId;
       order.buyerEmail = Meteor.call("users.getEmail", this.userId);
-      order.businessEmail = Meteor.call('business.getEmail', order.business); //should be businessId.
+      order.businessEmail = Meteor.call('business.getEmail', order.businessId); //should be businessId.
       order.status = "pending";
       order.orderedAt = new Date();
       order.lastModified = new Date();

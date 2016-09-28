@@ -7,7 +7,8 @@ export default Register = props => {
     return(
       <div>
         <PageHeader src="/register.jpg" title="Register" />
-          <div className="content" style={{paddingTop: "45px"}}>
+          <div className="row">
+            <h2 className="center hide-on-large-only">Register</h2>
             <RegisterForm />
           </div>
       </div>

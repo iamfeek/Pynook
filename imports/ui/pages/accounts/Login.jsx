@@ -8,7 +8,8 @@ export default Login = props => {
     <div>
       <PageHeader src="/login3.jpg" title="Login" />
 
-      <div className="content" style={{paddingTop: "45px"}}>
+      <div className="row">
+        <h2 className="center hide-on-large-only">Login</h2>
         <LoginForm />
       </div>
 

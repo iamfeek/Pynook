@@ -4,7 +4,7 @@ import {Session} from 'meteor/session';
 
 export default RegisterForm = props => {
   return(
-    <form onSubmit={register.bind(this)}>
+    <form onSubmit={register.bind(this)} className="col s12 l8 offset-l2">
       <div className="row">
         <div className="input-field col s12">
           <input id="registerUsername"  type="text" className="validate" />

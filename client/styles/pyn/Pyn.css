@@ -1,3 +1,10 @@
+@media(min-width: 992px){
+  .pyn_carousel{
+    height: 380px !important;
+    max-height: 380px !important;
+  }
+}
+
 #pyn{
   line-height: 1.7;
 }
@@ -14,6 +21,7 @@
 .pyn_header{
   background: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+  border-top: 1px solid rgba(0, 0, 0, 0.075);
   z-index: -1;
   padding: 23px 0 15px;
 }

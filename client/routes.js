@@ -30,6 +30,7 @@ import MyBusinessProfile from '/imports/ui/pages/business/MyBusinessProfile';
 import MyBusinessOrders from '/imports/ui/pages/business/MyBusinessOrders';
 
 import Pay from '/imports/ui/pages/pay/Pay';
+import Receipt from '/imports/ui/pages/pay/Receipt';
 
 import MyOrders from '/imports/ui/pages/orders/MyOrders';
 import PurchaseHistory from '/imports/ui/pages/orders/PurchaseHistory';
@@ -41,6 +42,13 @@ function becauseAuthenticated(context, redirect){
     redirect("/");
   }
 }
+
+function isAuthenticated(context, redirect){
+  if(!Meteor.userId()) redirect("login")
+}
+
+FlowRouter.triggers.enter([becauseAuthenticated], {only: ["login", "register"]})
+FlowRouter.triggers.enter([isAuthenticated], {only: ["dashboard"]})
 
 var ordersRoutes = FlowRouter.group({
   prefix: '/orders',
@@ -209,9 +217,16 @@ listingsRoutes.route("/:id", {
 });
 // End Pay
 
+FlowRouter.route("/receipt/:id", {
+  name: "receipt",
+  action: params => {
+    mount(Layout, {
+      content: () => <Receipt id={params.id} />
+    })
+  }
+});
 
 
-FlowRouter.triggers.enter([becauseAuthenticated], {only: ["login", "register"]})
 
 FlowRouter.route('/', {
   name: "home",
@@ -251,7 +266,7 @@ FlowRouter.route('/pyns', {
   }
 });
 
-FlowRouter.route('/pyn-a-place', {
+FlowRouter.route('/pyns/new', {
   name: "pyn.a.place",
   action: () => {
     mount(Layout, {

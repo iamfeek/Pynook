@@ -27,7 +27,7 @@ export default class LoginForm extends React.Component{
 
   render(){
     return(
-      <form>
+      <form className="col s12 l8 offset-l2">
         <div className="row">
           <div className="input-field col s12">
             <input id="email" ref="loginEmail" type="email" className="validate" />

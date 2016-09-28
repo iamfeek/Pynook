@@ -2,7 +2,7 @@ import React from 'react';
 
 export default NavbarAccountDropdown = props => {
   return(
-    <ul id="accountDropdown" className="dropdown-content navDropdowns" data-constrainwidth="false" style={{width: "300px"}} ref={() => $('#accountDropdownButton').dropdown()}>
+    <ul id="accountDropdown" className="dropdown-content navDropdowns" data-constrainwidth="false" style={{width: "300px"}}>
 
       {Roles.userIsInRole(Meteor.userId(), "admin") ?
         <li><a href={FlowRouter.path("admin.dashboard")}>Admin Panel</a></li>

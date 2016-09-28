@@ -18,11 +18,28 @@ export default PynBuyWidget = props => {
           <input type="number" id="quantity" defaultValue="1" ref={() => Materialize.updateTextFields()}/>
         </div>
         <div className="col s12 center marginTop20">
-          <button ref={() => $('.modal-trigger').leanModal()} data-target="shippingInfoModal" className="btn btn-flat red white-text modal-trigger">Order Now</button>
+          <button onClick={() => createOrder(listingId, businessId)} data-target="shippingInfoModal" className="btn btn-flat red white-text modal-trigger">Order Now</button>
         </div>
-
-        <ShippingInfoModal listingId={listingId} businessId={businessId}/>
       </div>
     </div>
   )
+}
+
+const createOrder = (listingId, businessId) => {
+  if(confirm("Are you sure you want to buy?")){
+    let order = {
+      businessId: businessId,
+      listingId: listingId,
+      quantity: parseInt($("#quantity").val())
+    }
+
+    Meteor.call("orders.create", order, (err, res) => {
+      if(err) Bert.alert("Error: " + err.reason);
+
+      if(!err){
+        console.log(res)
+        FlowRouter.go("pay", {id: res});
+      }
+    })
+  }
 }

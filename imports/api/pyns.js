@@ -27,6 +27,9 @@ if (Meteor.isServer) {
   })
 
   Meteor.methods({
+    "pyns.getListing"(listingId){
+      return Pyns.findOne({_id: listingId});
+    },
     "pyns.getListingName"(listingId){
       // console.log("Getting name for - ", listingId);
       return Pyns.findOne({_id: listingId}, {fields: {name: 1}}).name;

@@ -4,6 +4,7 @@ import OrderItemHeader from './OrderItemHeader';
 
 export default OrdersTable = props => {
   let orders = props.orders;
+  let type = props.type;
   return(
     <ul className="collapsible" data-collapsible="accordion" ref={() => $('.collapsible').collapsible()}>
       {orders.map(o => <OrderItem item={o} key={o._id} />)}

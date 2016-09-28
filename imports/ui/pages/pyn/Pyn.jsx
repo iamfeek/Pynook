@@ -60,6 +60,8 @@ export default createContainer(({id, type}) => {
 
   if(pyn){
     DocHead.setTitle(pyn.name + " - Pynook")
+    DocHead.addMeta({name: "description", content: pyn.description});
+
   } else{
     DocHead.setTitle("Loading Pyn - Pynook")
   }

@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-
+// import './routes.js'
 import '/imports/api/pyns.js';
 import '/imports/api/reviews.js';
 import '/imports/api/users.js';
@@ -9,7 +9,6 @@ import '/imports/api/plans.js'
 import '/imports/api/orders.js'
 import '/imports/api/payments.js'
 import '/imports/api/transactions.js'
-import '/lib/seo.js'
 
 
 Meteor.startup(() => {

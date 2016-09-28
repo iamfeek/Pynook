@@ -18,10 +18,10 @@ const Navbar = props => {
 
         <SideNav user={Meteor.user()}/>
         <div className="nav-wrapper ">
-          <a href={FlowRouter.path("home")} className="brand-logo center">Pynook</a>
+          <a href={FlowRouter.path("home")} className="brand-logo">Pynook</a>
           <a href="#"
             data-activates="mobile-menu"
-            className="button-collapse show-on-large right"
+            className="button-collapse show-on-large"
             ref={() => $(".button-collapse").off('click').sideNav({edge: "right", closeOnClick: true})}>
             <i className="fa fa-bars" aria-hidden="true"></i>
           </a>

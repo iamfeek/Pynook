@@ -3,6 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 
 import NavbarAccountItem from './NavbarAccountItem'
 import NavbarAccountDropdown from './NavbarAccountDropdown'
+import SideNav from './SideNav';
 
 const Navbar = props => {
   return(
@@ -21,15 +22,7 @@ const Navbar = props => {
         </ul>
         {props.user ? <NavbarAccountDropdown /> : null}
 
-        <ul className="side-nav" id="mobile-menu">
-          <li><a href={FlowRouter.path("pyns")}>Pyns</a></li>
-          <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li>
-          <li><a href={FlowRouter.path("newbie")}>Newbie</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href={FlowRouter.path("pyn.a.place")}>Pyn A Place</a></li>
-          <NavbarAccountItem user={props.user}/>
-          <li><a href={FlowRouter.path("orders.my-orders")}>My Orders</a></li>
-        </ul>
+        <SideNav user={props.user}/>
 
         <div className="nav-wrapper ">
           <a href={FlowRouter.path("home")} className="brand-logo">Pynook</a>
@@ -50,7 +43,7 @@ const Navbar = props => {
 }
 
 export default createContainer(() => {
-  
+
 
   return {
     user: Meteor.user()

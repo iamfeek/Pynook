@@ -47,7 +47,7 @@ export default class Layout extends React.Component{
 
         <footer id="pageFooter" className="center" style={{padding: "25px", height: "auto", background: "#484848", borderTop: "1px solid rgba(0, 0, 0, 0.075)", color: "white"}}>
           <i className="fa fa-facebook" aria-hidden="true"></i>
-          <p><a href={FlowRouter.path("about")}>About Us</a> | <a href={FlowRouter.path("termsofuse")}>Terms Of Use</a> | Privacy Policy | <a href={FlowRouter.path("faq")}>FAQ</a> | <a href={FlowRouter.path("pyn.a.place")}>Pyn A Place</a></p>
+          <p><a href={FlowRouter.path("about")}>About Us</a> | <a href={FlowRouter.path("termsofuse")}>Terms Of Use</a> | <a href={FlowRouter.path("privacy")}>Privacy Policy</a> | <a href={FlowRouter.path("faq")}>FAQ</a> | <a href={FlowRouter.path("pyn.a.place")}>Pyn A Place</a></p>
           <p>Pynook &copy; {new Date().getFullYear()}</p>
         </footer>
       </div>

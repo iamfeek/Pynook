@@ -38,6 +38,7 @@ import CreateAListing from '/imports/ui/pages/listing/CreateAListing';
 
 import AboutUs from '/imports/ui/pages/misc/AboutUs';
 import TermsOfUse from '/imports/ui/pages/misc/TermsOfUse';
+import Privacy from '/imports/ui/pages/misc/Privacy';
 import FAQ from '/imports/ui/pages/misc/FAQ';
 
 function becauseAuthenticated(context, redirect){
@@ -301,6 +302,15 @@ FlowRouter.route("/faq", {
   action: () => {
     mount(Layout, {
       content: () => <FAQ />
+    })
+  }
+})
+
+FlowRouter.route("/privacy", {
+  name: "privacy",
+  action: () => {
+    mount(Layout, {
+      content: () => <Privacy />
     })
   }
 })

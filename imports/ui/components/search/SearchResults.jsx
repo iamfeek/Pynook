@@ -9,8 +9,8 @@ export default SearchResults = props => {
   if(items.length === 0) return <SearchResultEmpty />
 
   return(
-    <div>
-      {items.map(item => <SearchResult item={item} key={item._id} />)}  
+    <div id="searchResults" className="col s12">
+      {items.map(item => <SearchResult item={item} key={item._id} />)}
     </div>
   )
 }

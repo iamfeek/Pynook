@@ -4,7 +4,7 @@ export default CategoryTiles = props => {
   return(
     <div id="categoryTiles" className="valign col s12 l10 offset-l1">
       <h5 className="center">Discover Your</h5>
-      <h3 className="center" style={{marginTop: "-13px"}}>Neighbourhood</h3>
+      <h3 className="center" style={{marginTop: "-5px"}}>Neighbourhood</h3>
 
       <div className="row">
         <div className="col s12 l8 categoryTileWrapper">

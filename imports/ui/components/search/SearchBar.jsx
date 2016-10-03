@@ -7,9 +7,9 @@ export default SearchBar = props => {
   return(
     <div id="searchBar" className="col s12 l10 offset-l1">
       <div className="col s12 l10 searchBar_fields-wrapper" style={{padding: "0px 15px", borderRight: "1px solid rgba(0,0,0,0.1)"}}>
-        <div className="col s12 l6" style={{padding: "0"}}><HomeTextSearch /></div>
-        <div className="col s6 l3" style={{padding: "0"}}><HomeTypeSearch /></div>
-        <div className="col s6 l3" style={{padding: "0"}}><HomeCategorySearch /></div>
+        <div className="col s12 l4" style={{padding: "0"}}><HomeTextSearch /></div>
+        <div className="col s6 l4" style={{padding: "0"}}><HomeTypeSearch /></div>
+        <div className="col s6 l4" style={{padding: "0"}}><HomeCategorySearch /></div>
       </div>
 
       <div className="col s12 l2 searchBar_fields-wrapper" style={{padding: "0px", borderRadius: "4px", overflow: "hidden"}}>

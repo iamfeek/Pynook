@@ -4,7 +4,7 @@ export default TypeTiles = props => {
   return(
     <div id="TypeTiles" className="col s12 l10 offset-l1 valign">
       <h5 className="center">Discover A New</h5>
-      <h2 className="center" style={{marginTop: "-20px"}}>Experience</h2>
+      <h2 className="center" style={{marginTop: "-10px"}}>Experience</h2>
 
       <div className="col s12 l3 typeImageWrapper">
         <a href={FlowRouter.path("pyns", "", {type: "Socialize"})} className="typeImage valign-wrapper" style={{backgroundPosition: "50% 70%", height: "100%", width: "100%", backgroundImage: "url('/socialize.jpg')"}}>

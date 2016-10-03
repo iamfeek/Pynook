@@ -11,7 +11,7 @@ export default SearchResult = props => {
         <a href={FlowRouter.path("pyn", {id: item._id})}>
           <div className="col s12 image" style={{backgroundImage: "url("+imageURL+")", backgroundSize: "cover"}}></div>
 
-          {type=="pyn" ? <PynBody item={item} /> : <ListingBody item={item} />}
+          <PynBody item={item}/>
         </a>
       </div>
     </div>
@@ -22,18 +22,13 @@ const PynBody = props => {
   let item = props.item;
   return(
     <div className="col s12 body">
-      <h2 className="SearchResult_title">{item.name}</h2>
-      <div className="SearchResult_tagline">{item.tagline}</div>
+      <div className="col s9">
+          <h5 className="SearchResult_title">{item.name}</h5>
+      </div>
 
-      <footer className="SearchResult_footer">
-        <div className="SearchResult_cardpin">
-          <img src="/pin2.svg"/>
-        </div>
-
-        <div className="SearchResult_address">
-          {item.address}
-        </div>
-      </footer>
+      <div className="col s3">
+        {item.type != "pyn" ? <h5>${item.price}</h5> : null}
+      </div>
     </div>
   )
 }

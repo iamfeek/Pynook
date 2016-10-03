@@ -1,0 +1,9 @@
+@media(max-width: 992px){
+  .pyn_header{
+    margin-bottom: 0px;
+  }
+
+  .pyn_actions{
+    margin-top: 25px;
+  }
+}

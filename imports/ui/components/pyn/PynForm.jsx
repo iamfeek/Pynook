@@ -157,6 +157,27 @@ export default class PynForm extends React.Component{
   render(){
     return(
       <div id="pynaplaceform">
+
+                <div className="row" style={{marginTop: "45px"}}>
+                  <div className="col s12">
+                    Gallery
+                    <br></br>
+                    <input
+                      required
+                      ref="photos"
+                      id="photos"
+                      type="hidden"
+                      role="uploadcare-uploader"
+                      data-tabs="file camera url"
+                      data-multiple="true"
+                      data-preview-step="true"
+                      data-clearable="true"
+                      data-crop="free"
+                      data-multiple-max="9"
+                      />
+                  </div>
+                </div>
+                
         <div className="row">
           <div className="input-field col s12">
             <input id="pynName" ref="name" type="text" className="validate" required />
@@ -206,28 +227,6 @@ export default class PynForm extends React.Component{
             </select>
             <label>Pick the category</label>
             <span style={{color: "#919191"}}>Visitors can filter their search by the categories and amenities they want - so make sure you choose wisely</span>
-          </div>
-        </div>
-
-
-
-        <div className="row" style={{marginTop: "45px"}}>
-          <div className="col s12">
-            Gallery
-            <br></br>
-            <input
-              required
-              ref="photos"
-              id="photos"
-              type="hidden"
-              role="uploadcare-uploader"
-              data-tabs="file camera url"
-              data-multiple="true"
-              data-preview-step="true"
-              data-clearable="true"
-              data-crop="free"
-              data-multiple-max="9"
-              />
           </div>
         </div>
 

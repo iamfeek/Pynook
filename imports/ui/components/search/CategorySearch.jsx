@@ -3,7 +3,7 @@ import React from 'react';
 export default CategorySearch = props => {
   return(
     <select id="searchCategory" defaultValue={FlowRouter.getQueryParam("category")}>
-      <option value="">Category</option>
+      <option value="">Pick a Category</option>
         <option value="Food">Food</option>
         <option value="Travel">Travel</option>
         <option value="Sports">Sports</option>

@@ -1,8 +1,9 @@
 import React from 'react';
 
 export default PynMapWidget = props => {
+  if(!props.latlng) return;
   return(
-    <div className="pyn_widget col s12">
+    <div className="pyn_widget">
       <div className="pyn_map" id="map">
         {getMap(props.latlng)}
         <Loading />
@@ -37,6 +38,6 @@ let getMap = latlng => {
         position: new google.maps.LatLng(latlng.lat, latlng.lng),
         map: map.instance
       })
-    })
+    });
   }, 500)
 }

@@ -10,7 +10,7 @@ export const HomeTypeSearch = () => {
   }, 200)
   return(
     <select id="searchType" defaultValue={FlowRouter.getQueryParam("type")}>
-      <option value="">Experience</option>
+      <option value="">Pick an Experience</option>
       <option value="Learn">Learn</option>
       <option value="Socialize">Socialize</option>
       <option value="Buy">Buy</option>
@@ -24,7 +24,7 @@ export const HomeCategorySearch = () => {
   }, 200)
   return (
     <select id="searchCategory" defaultValue={FlowRouter.getQueryParam("category")}>
-      <option value="">Category</option>
+      <option value="">Pick a Category</option>
         <option value="Food">Food</option>
         <option value="Travel">Travel</option>
         <option value="Sports">Sports</option>

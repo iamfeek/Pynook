@@ -36,6 +36,10 @@ import PurchaseHistory from '/imports/ui/pages/orders/PurchaseHistory';
 
 import CreateAListing from '/imports/ui/pages/listing/CreateAListing';
 
+import AboutUs from '/imports/ui/pages/misc/AboutUs';
+import TermsOfUse from '/imports/ui/pages/misc/TermsOfUse';
+import FAQ from '/imports/ui/pages/misc/FAQ';
+
 function becauseAuthenticated(context, redirect){
   if(Meteor.userId()){
     redirect("/");
@@ -47,7 +51,7 @@ function isAuthenticated(context, redirect){
 }
 
 FlowRouter.triggers.enter([becauseAuthenticated], {only: ["login", "register"]})
-FlowRouter.triggers.enter([isAuthenticated], {only: ["dashboard"]})
+FlowRouter.triggers.enter([isAuthenticated], {except: ["login", "register"]})
 
 var ordersRoutes = FlowRouter.group({
   prefix: '/orders',
@@ -273,6 +277,33 @@ FlowRouter.route('/pyns/new', {
     });
   }
 });
+
+FlowRouter.route("/about-us", {
+  name: "about",
+  action: () => {
+    mount(Layout, {
+      content: () => <AboutUs />
+    })
+  }
+})
+
+FlowRouter.route("/terms-of-use", {
+  name: "termsofuse",
+  action: () => {
+    mount(Layout, {
+      content: () => <TermsOfUse />
+    })
+  }
+})
+
+FlowRouter.route("/faq", {
+  name: "faq",
+  action: () => {
+    mount(Layout, {
+      content: () => <FAQ />
+    })
+  }
+})
 
 FlowRouter.route("/login", {
   name: "login",

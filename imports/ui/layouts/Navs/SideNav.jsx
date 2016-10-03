@@ -1,4 +1,5 @@
 import React from 'react';
+import UserSection from './UserSection'
 
 export default SideNav = props => {
   return(
@@ -11,11 +12,8 @@ export default SideNav = props => {
       <li><a href="#">FAQ</a></li>
 
       <li><div className="divider"></div></li>
-      {props.user ? <li><a className="subheader">{props.user.username}</a></li> : null}
-      {props.user ? <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li> : null}
-      {props.user ? <li><a href={FlowRouter.path("orders.my-orders")}>My Orders</a></li> : null}
-      {props.user ? <li><div className="divider"></div></li> : null}
-
+      <UserSection user={props.user}/>
+      
       {props.user ? <li onClick={() => logout()}><a>Logout</a></li> : <li><a href={FlowRouter.go("login")}>Login/Register</a></li>}
     </ul>
   )

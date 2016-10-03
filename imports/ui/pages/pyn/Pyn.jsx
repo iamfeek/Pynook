@@ -31,6 +31,7 @@ const Pyn = props =>{
 
       <PynHeader name={pyn.name} category={pyn.category} tagline={pyn.tagline} />
 
+
       <div className="row">
         <div className="col s12 l6 offset-l1">
           <PynActions />
@@ -40,15 +41,17 @@ const Pyn = props =>{
         </div>
 
         <div className="col s12 l4">
+          <PynMapWidget address={pyn.address} latlng={pyn.latlng}/>
           {
-            type=="pyn" ? <PynMapWidget address={pyn.address} latlng={pyn.latlng}/> : <PynBuyWidget businessId={pyn.businessId} listingId={pyn._id} price={pyn.price} />
-        }
 
-        <PynGalleryWidget category={pyn.category} photos={pyn.photos} />
+            type!="pyn" ? <PynBuyWidget businessId={pyn.businessId} listingId={pyn._id} price={pyn.price} /> : null
+          }
+
+          <PynGalleryWidget category={pyn.category} photos={pyn.photos} />
+        </div>
       </div>
     </div>
-  </div>
-)
+  )
 }
 
 export default createContainer(({id, type}) => {

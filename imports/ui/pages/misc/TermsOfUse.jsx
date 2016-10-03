@@ -11,13 +11,11 @@ const TermsOfUse = props => {
       <PageHeader src="/termsofuse-header.jpg" title="Terms Of Use" />
 
       <div className="container">
-        <div className="row">
-          <h5>These Do’s and Don’ts are an integral part of the Terms of Use.</h5>
-          <h5>As a condition to access and use of Pynook´s Services, you agree to strictly observe the following:</h5>
-        </div>
-
         <UserAgreement />
-
+          <div className="row center">
+            <h5>These Do’s and Don’ts are an integral part of the Terms of Use.</h5>
+            <h5>As a condition to access and use of Pynook´s Services, you agree to strictly observe the following:</h5>
+          </div>
         <DosDonts />
       </div>
     </div>

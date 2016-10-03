@@ -1,6 +1,7 @@
 .SearchResult{
   height: 387.8px;
-  padding: 0px 0px 30px 30px !important;
+  /*padding: 0px 0px 30px 30px !important;*/
+  padding: 0px !important;
 }
 
 .SearchResult_wrapper{

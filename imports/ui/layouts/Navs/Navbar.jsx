@@ -37,6 +37,7 @@ const Navbar = props => {
 
         <SideNav user={Meteor.user()}/>
         <div className="nav-wrapper ">
+          <img className="hide-on-med-and-down" src="/logo.png" id="logo" style={{height: "40px", marginLeft: "10px", marginTop: "10px"}}/>
           <a href={FlowRouter.path("home")} className="brand-logo left">Pynook</a>
           <a href="#"
             data-activates="mobile-menu"

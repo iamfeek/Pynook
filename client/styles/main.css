@@ -7,6 +7,10 @@
   color: white;
 }
 
+.collection-item a{
+  color: #333;
+}
+
 .caret{
   margin-top: -5px;
 }

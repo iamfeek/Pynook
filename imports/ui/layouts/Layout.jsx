@@ -12,6 +12,7 @@ export default class Layout extends React.Component{
     DocHead.addMeta({name: "msapplication-TileColor", content: "#ffffff"});
     DocHead.addMeta({name: "msapplication-TileImage", content: "/ms-icon-144x144.png"});
     DocHead.addMeta({name: "theme-color", content: "#FF4d55"});
+    DocHead.addMeta({name: "fragment", content: "!"});
     DocHead.addLink({rel:"icon", sizes:"16x16 32x32", href:"/favicon.ico?v:2"});
     DocHead.addLink({rel:"apple-touch-icon", sizes:"57x57", href:"/apple-icon-57x57.png"});
     DocHead.addLink({rel:"apple-touch-icon", sizes:"60x60", href:"/apple-icon-60x60.png"});

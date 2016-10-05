@@ -2,7 +2,7 @@ import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Pyns} from '/imports/api/pyns';
 
-import Listing from '/imports/ui/components/listings/Listing';
+import SearchResults from '/imports/ui/components/search/SearchResults';
 
 const MyListings = props => {
   if(props.loading) return <Loading />
@@ -16,7 +16,8 @@ const MyListings = props => {
         <div className="col s12 center">
           <a href={FlowRouter.path("listings.create")} className="btn btn-flat blue white-text center">Create A Listing</a>
         </div>
-        {listings.map(l => <Listing listing={l} key={l._id}/>)}
+
+        <SearchResults items={listings} mode="edit" />
 
         <div className="col s12 center">
           <a href={FlowRouter.path("listings.create")} className="btn btn-flat blue white-text center">Create A Listing</a>

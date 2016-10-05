@@ -4,14 +4,17 @@ import CommunityTilesCard from './CommunityTilesCard';
 export default CommunityTiles = props => {
   let cards = [
     {
+      section: "travellers",
       header: "For Travellers",
       body: "Travelling to a region that you're not familiar with? We've got you covered!"
     },
     {
+      section: "neighbourhoods",
       header: "For Neighbourhoods",
       body: "Are you bored of your neighbourhood? We can help you unlock more of it!"
     },
     {
+      section: "business",
       header: "For Businesses",
       body: "Are you a home business owner? Click here to find out how to increase your revenue!"
     },

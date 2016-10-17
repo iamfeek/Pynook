@@ -16,7 +16,9 @@ if (Meteor.isServer) {
   });
 
   Meteor.publish("pyns.listings.self", function(){
-    return Pyns.find({owner: this.userId, type: "listing"});
+    let businessId = Meteor.call("users.getBusinessId", this.userId);
+
+    return Pyns.find({businessId: businessId, type: "listing"});
   })
 
   Meteor.publish("pyns.single", id => {
@@ -42,12 +44,14 @@ if (Meteor.isServer) {
       check(listing.description, String);
 
       listing.createdAt = new Date();
-      listing.owner = this.userId;
       listing.type = "listing";
       listing.approved = true;
+      listing.owner = this.userId;
 
       listing.businessId = Meteor.call("business.getId", this.userId);
       listing.address = Meteor.call("business.getAddressString", listing.businessId);
+      let latlngReturn = Meteor.call("business.getLatlng", listing.businessId);
+      listing.latlng = latlngReturn.latlng;
 
       // console.log(JSON.stringify(listing, null, 2))
       return Pyns.insert(listing);

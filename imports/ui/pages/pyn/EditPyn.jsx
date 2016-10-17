@@ -26,8 +26,10 @@ export default createContainer(({id}) => {
   var handle = Meteor.subscribe("pyns.single", id);
   var pyn = Pyns.findOne({_id: id});
   // console.log(Meteor.userId())
+  let allowed = false;
+
   if(pyn){
-    var allowed = (pyn.owner === Meteor.userId())
+    allowed = (pyn.owner === Meteor.user()._id)
   }
   // console.log(allowed)
   return {

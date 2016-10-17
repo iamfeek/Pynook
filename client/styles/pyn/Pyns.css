@@ -8,7 +8,6 @@ height: calc(100vh - 64px);
 }
 
 #pyns #map, #pyns #resultsSection{
-
   height: 100%;
 }
 

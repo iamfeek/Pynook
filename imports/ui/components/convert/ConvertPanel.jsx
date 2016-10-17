@@ -48,30 +48,47 @@ const convert = () => {
   let hours = document.getElementById("business_hours").value;
   let postal = document.getElementById("business_postal").value;
 
-  if(name.length=="" || block.length=="" || street.length=="" || unit.length=="" || postal.length=="" || hours.length==""){
-    Bert.alert("Please fill up all the fields!", "danger");
-    return;
-  }
+  var geocoder = new google.maps.Geocoder();
+  let address = block + " " + street + " Singapore " + postal;
+  geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            let latlng = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng()
+            }
+            doIt(latlng);
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
 
-  let profile = {
-    email: email,
-    name: name,
-    address: {
-      block: block,
-      street: street,
-      unit: unit,
-      postal: parseInt(postal)
-    },
-    hours: hours,
-  }
-
-  Meteor.call("business.convert", profile, (err, res) => {
-    if(res){
-      Bert.alert("Welcome to Pynook Business!", "success")
-      showSuccess();
-    } else{
-      Bert.alert("Something went wrong!", "danger");
-      showForm();
+  const doIt = latlng => {
+    if(name.length=="" || block.length=="" || street.length=="" || unit.length=="" || postal.length=="" || hours.length==""){
+      Bert.alert("Please fill up all the fields!", "danger");
+      return;
     }
-  })
+
+    let profile = {
+      email: email,
+      name: name,
+      address: {
+        block: block,
+        street: street,
+        unit: unit,
+        postal: parseInt(postal)
+      },
+      latlng: latlng,
+      hours: hours,
+    }
+
+    Meteor.call("business.convert", profile, (err, res) => {
+      if(res){
+        Bert.alert("Welcome to Pynook Business!", "success")
+        showSuccess();
+      } else{
+        Bert.alert("Something went wrong!", "danger");
+        showForm();
+      }
+    })
+  }
 }

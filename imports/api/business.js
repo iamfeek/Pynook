@@ -11,9 +11,10 @@ if (Meteor.isServer) {
   });
 
   Meteor.methods({
+    "business.test"(){
+      var geocoder = new google.maps.Geocoder();
+    },
     "business.convert"(profile){
-      Roles.addUsersToRoles(this.userId, "business");
-
       let address = profile.address;
       check(profile.email, String);
       check(profile.name, String);
@@ -22,13 +23,17 @@ if (Meteor.isServer) {
       check(address.unit, String);
       check(profile.hours, String);
       check(address.postal, Number);
+      check(profile.latlng, Object);
 
       profile.owner = this.userId;
       profile.createdAt = new Date();
       profile.lastModified = new Date();
 
-      if(Business.insert(profile)) return Roles.userIsInRole(this.userId, "business");
-
+      Roles.addUsersToRoles(this.userId, "business");
+      let id = Business.insert(profile);
+      Meteor.call("users.addBusinessId", id)
+      
+      if(id) return Roles.userIsInRole(this.userId, "business");
     },
 
     "business.getId"(userId){
@@ -54,6 +59,15 @@ if (Meteor.isServer) {
       let addressString = "Block " + address.block + ", " + address.street + ", #" + address.unit + ", Singapore " + address.postal;
       console.log(addressString);
       return addressString
+    },
+
+    "business.getLatlng"(businessId){
+      console.log("Latlng Request: " + businessId)
+      check(businessId, String);
+
+      let latlng = Business.findOne({_id: businessId}, {fields: {_id: 0, latlng: 1}});
+
+      return latlng;
     }
   })
 

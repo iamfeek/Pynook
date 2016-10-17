@@ -23,7 +23,7 @@ const Pyns = props => {
           <label className="info left valign col s12 l9 paddingZero"><i className="fa fa-info-circle" aria-hidden="true"></i> Some Pyns may contain in-app purchases</label>
           <label className="info right valign col s12 l3 paddingZero textAlignRight resultsFound">{pyns.length} found</label>
         </div>
-          <SearchResults items={pyns} mode="add"/>
+          <SearchResults items={pyns} mode="view"/>
       </div>
 
       <div id="map" className="hide-on-med-and-down col l5 fixed-top">

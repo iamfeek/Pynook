@@ -11,7 +11,7 @@ if(Meteor.isServer){
       Roles.addUsersToRoles(this.userId, "default");
       Accounts.sendVerificationEmail(this.userId);
 
-      
+
       // var cursor = Meteor.users.findOne({_id: this.userId}, {fields: {_id: 0, "emails.address": 1}});
       // console.log(cursor)
       // console.log(cursor.emails[0].address);
@@ -31,5 +31,13 @@ if(Meteor.isServer){
         return email;
       }
     },
+
+    'users.addBusinessId'(businessId){
+      Meteor.users.update({_id: this.userId}, { $set: {businessId: businessId} });
+    },
+
+    "users.getBusinessId"(userId){
+      return Meteor.users.findOne({_id: userId}, {fields: {_id: 0, businessId: 1}}).businessId;
+    }
   });
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default PynMapWidget = props => {
-  if(!props.latlng) return;
+  if(!props.latlng) return {};
   return(
     <div className="pyn_widget">
       <div className="pyn_map" id="map">

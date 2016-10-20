@@ -29,7 +29,13 @@ let getMap = latlng => {
       element: document.getElementById('map'),
       options: {
         center: new google.maps.LatLng(latlng.lat, latlng.lng),
-        zoom: 14
+        zoom: 16,
+        scrollwheel: false,
+        navigationControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        draggable: false,
+        zoomControl:false
       }
     });
 

@@ -52,7 +52,7 @@ function isAuthenticated(context, redirect){
 }
 
 FlowRouter.triggers.enter([becauseAuthenticated], {only: ["login", "register"]})
-FlowRouter.triggers.enter([isAuthenticated], {except: ["login", "register", "privacy", "faq", "termsofuse", "about"]})
+FlowRouter.triggers.enter([isAuthenticated], {except: ["home", "pyns", "pyn", "login", "register", "privacy", "faq", "termsofuse", "about"]})
 
 var ordersRoutes = FlowRouter.group({
   prefix: '/orders',

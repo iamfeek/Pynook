@@ -5,7 +5,7 @@ import NavbarAccountItem from './NavbarAccountItem'
 import NavbarAccountDropdown from './NavbarAccountDropdown'
 import BusinessDropdown from './BusinessDropdown';
 import SideNav from './SideNav';
-import UserSection from './UserSection'
+import DesktopSideNav from './DesktopSideNav';
 
 const Navbar = props => {
   const businessDropdownRender = () => {
@@ -33,16 +33,15 @@ const Navbar = props => {
           <li><a href={FlowRouter.path("about") + "#travellers"}>Travellers</a></li>
         </ul>
 
-        <NavbarAccountDropdown />
-
         <SideNav user={Meteor.user()}/>
+        <DesktopSideNav user={Meteor.user()} />
         <div className="nav-wrapper ">
           <img className="hide-on-med-and-down" src="/logo.png" id="logo" style={{height: "40px", marginLeft: "10px", marginTop: "10px"}}/>
           <a href={FlowRouter.path("home")} className="brand-logo left">Pynook</a>
           <a href="#"
             data-activates="mobile-menu"
             className="button-collapse right"
-            ref={() => $(".button-collapse").off('click').sideNav({edge: "right", closeOnClick: true})}>
+            ref={() => $(".button-collapse").sideNav({edge: "right", closeOnClick: true})}>
             <i className="fa fa-bars" aria-hidden="true"></i>
           </a>
 
@@ -50,7 +49,7 @@ const Navbar = props => {
             <li><a href={FlowRouter.path("pyn.a.place")}>Pyn A Place</a></li>
             <li><a className="dropdown-button" href={FlowRouter.path("about")} data-activates="newbieDropdown" data-constrainwidth="false">Newbie <i className="fa fa-caret-down" aria-hidden="true"></i></a></li>
             {props.user ? <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li> : null}
-            {props.user ? <li><a className="dropdown-button" href="#!" data-activates="accountDropdown">{props.user.username} <i className="fa fa-caret-down" aria-hidden="true"></i></a></li> : <li><a href={FlowRouter.go("login")}>Login/Signup </a></li>}
+            {props.user ? <li><a href="#!" className="button-collapse show-on-large" data-activates="desktop-sidenav">{props.user.username}</a></li> : <li><a href={FlowRouter.go("login")}>Login/Signup </a></li>}
           </ul>
         </div>
       </nav>

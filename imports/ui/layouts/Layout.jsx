@@ -35,6 +35,7 @@ export default class Layout extends React.Component{
   }
 
   render(){
+    $('html, body').animate({ scrollTop: 0 });
     return(
       <div>
         <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hanken" type="text/css"/>

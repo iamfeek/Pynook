@@ -16,6 +16,8 @@
 }
 .select-wrapper span.caret{
   margin-top: 1px;
+  margin-right: 20px;
+  z-index: 1
 }
 
 .textAlignRight{
@@ -28,11 +30,6 @@
 
 .divider{
   border: 1px solid rgba(0, 0, 0, 0.075);
-}
-
-#textSearch{
-  font-size: 16px !important;
-  margin-top: 0.2px;
 }
 
 form{
@@ -87,6 +84,14 @@ form{
   padding-top: 0px !important;
 }
 
+.paddingBottom20{
+  padding-bottom: 20px !important;
+}
+
+.padding20{
+  padding: 20px !important;
+}
+
 .marginZero{
   margin: 0 !important;
 }
@@ -130,6 +135,7 @@ form button[type=submit]:hover{
 
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea, input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid, input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime].valid, input[type=datetime]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid, input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.valid, input[type=search].valid, input[type=search]:focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid{
       /*box-shadow: 0;*/
+      border-bottom: 1px solid #484848;
 }
 /*normalising input*/
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea,
@@ -139,8 +145,8 @@ input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.
   /*border-bottom: 1px solid #484848;*/
   /*box-shadow: 0 1px 0 0 #484848;*/
   /*color: #FF4d55;*/
-  font-size: 2.5rem;
-  text-align: center;
+  /*font-size: 2.5rem;*/
+  /*text-align: center;*/
 }
 
 input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=datetime]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label
@@ -173,6 +179,10 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 
 }
 
+.my-blue{
+  background-color: #30638E;
+}
+
 .blue-text{
   color: #4099FF !important;
 }
@@ -185,13 +195,17 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   font-family: 'Raleway', sans-serif;
 }
 
-body{
+body, html{
   background-color: #f9f9f9;
-  color: #484848;
+  /*color: #484848;*/
 }
 
 label{
   font-size: 14.95px;
+}
+
+.borderBottomGray{
+  border-bottom: 1px solid rgba(0,0,0,0.075);
 }
 
 .content{

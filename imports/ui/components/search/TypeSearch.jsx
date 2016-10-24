@@ -4,24 +4,19 @@ export default TypeSearch = props => {
 
 
   return(
-    <select id="searchType" defaultValue={FlowRouter.getQueryParam("type")}>
+    <select className="center" id={props.id} defaultValue={FlowRouter.getQueryParam("type")} ref={init.bind(this)}>
       <option value="">Pick an Experience</option>
       <option value="Learn">Learn</option>
       <option value="Socialize">Socialize</option>
       <option value="Buy">Buy</option>
-      {init()}
     </select>
   )
 }
 
-
-const init = () => {
-  setTimeout(() => {console.log("SETTINGS"); $("#searchType").material_select(change())}, 5000)
+const init = e => {
+  $(e).material_select(() => change(e));
 }
 
-const change = () => {
-  $("#searchType").material_select(change.bind(this))
-  FlowRouter.setQueryParams({type: $("#searchType").val()})
-  console.log("change")
-
+const change = e => {
+  FlowRouter.go("pyns", {}, {type: $(e).val()})
 }

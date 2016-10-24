@@ -14,20 +14,19 @@ export default Home = props => {
         <HomeSlider />
       </div>
 
-      <div className="col s12 paddingZero red" style={{paddingBottom: "15px !important"}}>
-        <h3 className="center white-text">Find A Pyn</h3>
+      <div className="col s12 padding20 white borderBottomGray">
         <SearchBar />
       </div>
 
-      <div className="col s12 paddingZero valign-wrapper">
+      <div className="col s12 home-tile">
         <TypeTiles />
       </div>
 
-      <div className="col s12 paddingZero valign-wrapper">
+      <div className="col s12 white home-tile">
         <CategoryTiles />
       </div>
 
-      <div className="col s12 paddingZero valign-wrapper">
+      <div className="col s12 home-tile">
         <CommunityTiles />
       </div>
     </div>

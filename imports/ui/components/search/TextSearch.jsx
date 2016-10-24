@@ -2,6 +2,6 @@ import React from 'react';
 
 export default TextSearch = props => {
   return(
-    <input id="textSearch" placeholder="Search" defaultValue={FlowRouter.getQueryParam("q")} onChange={() => FlowRouter.setQueryParams({q: document.getElementById("textSearch").value})}/>
+    <input ref={() => $("#textSearch").focus()} id="textSearch" placeholder="Search" defaultValue={FlowRouter.getQueryParam("q")} onChange={() => FlowRouter.go("pyns", {}, {q: document.getElementById("textSearch").value})}/>
   )
 }

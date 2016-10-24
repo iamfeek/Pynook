@@ -1,8 +1,9 @@
 import React from 'react';
+import SearchBar from '/imports/ui/components/search/SearchBar';
 
 export default HomeSlider = props => {
   return(
-    <div className="slider">
+    <div className="slider overflowHidden">
       <ul className="slides" ref={() =>  $('.slider').slider({full_width: true, indicators: false})}>
         <li>
           <img src="/home.jpg" />
@@ -11,7 +12,6 @@ export default HomeSlider = props => {
               <h3>Pynook</h3>
               <h5 className="light grey-text text-lighten-3">A sad but true fact.</h5>
             </div>
-
           </div>
         </li>
       </ul>

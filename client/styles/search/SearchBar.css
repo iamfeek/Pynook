@@ -8,6 +8,7 @@
   border: 0px;
   background: #fff;
   color: #333;
+  border-bottom: 1px solid #484848;
 }
 
 #searchBar, #searchBar .col{
@@ -19,8 +20,9 @@
   background: white;
   border-radius: 0px;
   color: #333;
-  padding: 0px 5px;
-  border-bottom: 0px;
+  /*padding: 0px 5px;*/
+  /*border-bottom: 0px;*/
+  margin:0;
 }
 
 #textSearch:focus{
@@ -76,6 +78,6 @@
 }
 
 .searchBar_fields-wrapper input, .searchBar_fields-wrapper .select-wrapper span.caret{
-  color: white;
+  /*color: white;*/
   font-size: 16px !important;
 }

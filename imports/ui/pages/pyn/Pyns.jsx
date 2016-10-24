@@ -14,12 +14,12 @@ const Pyns = props => {
   let pyns = props.pyns;
   return(
     <div id="pyns" className="row">
-      <div id="resultsSection" className="col s12 l7">
+      <div id="resultsSection" className="col s12 l7 white">
         <div id="searchFilters" className="col s12">
           <SearchFilters />
         </div>
 
-        <div className="col s12" style={{lineHeight: "40px", background: "#f7f7f7", padding: "0px 30px"}}>
+        <div className="col s12" style={{lineHeight: "40px", background: "#f7f7f7", padding: "0px 30px", borderBottom: "1px solid rgba(0,0,0,0.075)"}}>
           <label className="info left valign col s12 l9 paddingZero"><i className="fa fa-info-circle" aria-hidden="true"></i> Some Pyns may contain in-app purchases</label>
           <label className="info right valign col s12 l3 paddingZero textAlignRight resultsFound">{pyns.length} found</label>
         </div>

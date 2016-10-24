@@ -24,7 +24,7 @@ const Navbar = props => {
     }
   }
   return(
-    <div id="navbar-wrapper" className="navbar-fixed" style={{height: "50px"}}>
+    <div id="navbar-wrapper" style={{height: "50px"}}>
       <div style={{position: "absolute", width: "100%", height: "100%", backgroundColor: "black", opacity: "0.5", zIndex: "-10"}} />
       <nav>
         <ul id="newbieDropdown" className="navDropdowns dropdown-content">

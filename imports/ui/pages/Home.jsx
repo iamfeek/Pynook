@@ -5,34 +5,30 @@ import CategoryTiles from '/imports/ui/components/homepage/CategoryTiles.jsx';
 import TypeTiles from '/imports/ui/components/homepage/TypeTiles.jsx';
 import CommunityTiles from '/imports/ui/components/homepage/CommunityTiles';
 import SearchBar from '/imports/ui/components/search/SearchBar';
+import HomeSlider from '/imports/ui/components/homepage/HomeSlider';
 
 export default Home = props => {
   return(
-    <div>
-      <div id="cover" className="row valign-wrapper" style={{overflowY: "hidden"}}>
-        <div className="overlay" />
-        <div id="search-wrapper" className="col s12 valign centerByMargin">
-          <h2 className="white-text center">Get Personal</h2>
-          <SearchBar />
-        </div>
+    <div className="row">
+      <div className="col s12 overflowHidden paddingZero">
+        <HomeSlider />
       </div>
 
-      <div className="wrapper striped" style={{marginBottom: "0px", zIndex: "20"}}>
-        <div className="row valign-wrapper">
-          <TypeTiles />
-        </div>
+      <div className="col s12 paddingZero red" style={{paddingBottom: "15px !important"}}>
+        <h3 className="center white-text">Find A Pyn</h3>
+        <SearchBar />
       </div>
 
-      <div className="wrapper striped" style={{background: "#f9f9f9", marginBottom: "0px"}}>
-        <div className="row valign-wrapper">
-          <CategoryTiles />
-        </div>
+      <div className="col s12 paddingZero valign-wrapper">
+        <TypeTiles />
       </div>
 
-      <div className="wrapper">
-        <div className="row valign-wrapper">
-          <CommunityTiles />
-        </div>
+      <div className="col s12 paddingZero valign-wrapper">
+        <CategoryTiles />
+      </div>
+
+      <div className="col s12 paddingZero valign-wrapper">
+        <CommunityTiles />
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const HomeTextSearch = () => {
-  return <input id="textSearch" placeholder="What are you looking for?" />
+  return <input id="textSearch" style={{textAlign: "left", border: "0px"}} placeholder="Search here" />
 }
 
 export const HomeTypeSearch = () => {

@@ -182,7 +182,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 }
 
 *{
-  font-family: 'Hanken', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 body{

@@ -25,7 +25,7 @@ const Navbar = props => {
   }
   return(
     <div id="navbar-wrapper" style={{height: "50px"}}>
-      <div style={{position: "absolute", width: "100%", height: "100%", backgroundColor: "black", opacity: "0.5", zIndex: "-10"}} />
+      <div style={{position: "absolute", width: "100%", height: "100%", backgroundColor: "#484848", zIndex: "-10"}} />
       <nav>
         <ul id="newbieDropdown" className="navDropdowns dropdown-content">
           <li><a href={FlowRouter.path("about") + "#business"}>Business</a></li>
@@ -35,7 +35,7 @@ const Navbar = props => {
 
         <SideNav user={Meteor.user()}/>
         <DesktopSideNav user={Meteor.user()} />
-        <div className="nav-wrapper ">
+        <div className="nav-wrapper container">
           <img className="hide-on-med-and-down" src="/logo.png" id="logo" style={{height: "30px", marginLeft: "10px", marginTop: "8px"}}/>
           <a href={FlowRouter.path("home")} className="brand-logo left">Pynook</a>
           <a href="#"

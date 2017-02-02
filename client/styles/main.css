@@ -192,7 +192,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 }
 
 *{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body, html{
@@ -202,6 +202,10 @@ body, html{
 
 label{
   font-size: 14.95px;
+}
+
+.bold{
+  font-weight: 500;
 }
 
 .borderBottomGray{

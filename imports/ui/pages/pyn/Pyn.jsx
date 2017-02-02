@@ -13,6 +13,7 @@ import PynDescription from '/imports/ui/components/pyn/PynDescription';
 import PynWriteReview from '/imports/ui/components/pyn/PynWriteReview';
 import PynReviews from '/imports/ui/components/pyn/PynReviews';
 import CarouselItem from '/imports/ui/components/utils/CarouselItem';
+import PynOverview from '/imports/ui/components/pyn/PynOverview';
 
 const Pyn = props =>{
   if(props.loading) return <div className="wider-content"><Loading /></div>
@@ -21,35 +22,16 @@ const Pyn = props =>{
   let reviews = props.reviews;
   let type = pyn.type;
   return (
-    <div id="pyn" className="row">
-
-      <div className="pyn_carousel carousel carousel-slider" style={{maxHeight: "220px !important"}} ref={() => $('.carousel.carousel-slider').carousel({full_width: true, indicators: true})}>
-        {pyn.photos.map(src => <CarouselItem src={src} key={src}/>)}
-      </div>
-
-
-
-      <PynHeader name={pyn.name} category={pyn.category} tagline={pyn.tagline} />
-
-
-      <div className="row">
-        <div className="col s12 l6 offset-l1">
-          <PynActions />
+    <div id="pyn" className="container">
+        <div className="col s12 m8">
           <PynDescription description={pyn.description} />
           <PynReviews reviews={reviews} />
           <PynWriteReview _id={pyn._id}/>
         </div>
 
-        <div className="col s12 l4">
-          <PynMapWidget address={pyn.address} latlng={pyn.latlng}/>
-          {
-
-            type!="pyn" ? <PynBuyWidget businessId={pyn.businessId} listingId={pyn._id} price={pyn.price} /> : null
-          }
-
-          <PynGalleryWidget category={pyn.category} photos={pyn.photos} />
+        <div className="col s12 m4">
+          <PynOverview />
         </div>
-      </div>
     </div>
   )
 }

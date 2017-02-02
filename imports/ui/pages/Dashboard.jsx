@@ -10,7 +10,7 @@ const Dashboard = props => {
   return(
     <div id="profile">
       <PageHeader src="/skill2.jpg" title="Dashboard" />
-      <div className="row">
+      <div className="container">
         <h2 className="center hide-on-large-only">Dashboard</h2>
 
         <ProfilePanel />

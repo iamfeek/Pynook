@@ -1,7 +1,0 @@
-@media only screen and (max-width: 992px){
-  table.responsive-table td {
-      display: block;
-      min-height: 1.25em;
-      text-align: center;
-  }
-}

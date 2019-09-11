@@ -1,6 +1,7 @@
 <script>
     import 'bulma/css/bulma.css'
     import { Button } from 'svelma';
+
 	export let name;
 </script>
 

@@ -1,4 +1,0 @@
-[build]
-  command = "yarn build" # the command you run to build this file
-  functions = "build/functions"
-  publish = "public"
